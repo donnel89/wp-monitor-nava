@@ -1,0 +1,54 @@
+name: סריקה חודשית
+
+on:
+  schedule:
+    # ה-1 בכל חודש בשעה 04:00 UTC
+    - cron: '0 4 1 * *'
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350 # עד 5.5 שעות לאתר גדול
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Restore baseline screenshots
+        uses: actions/cache@v4
+        with:
+          path: screenshots/baseline
+          key: baselines-monthly-${{ github.repository }}
+
+      - name: Run monthly scan
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: npm run scan:monthly
+
+      - name: Save baseline cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: screenshots/baseline
+          key: baselines-monthly-${{ github.repository }}-${{ github.run_id }}
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: monthly-screenshots-${{ github.run_number }}
+          path: screenshots/
+          retention-days: 30

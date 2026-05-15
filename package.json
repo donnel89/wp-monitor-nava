@@ -1,0 +1,19 @@
+{
+  "name": "wp-monitor",
+  "version": "1.0.0",
+  "description": "ניטור יומי/שבועי/חודשי לאתר וורדפרס",
+  "type": "module",
+  "scripts": {
+    "scan:daily": "node scripts/scan.js daily",
+    "scan:weekly": "node scripts/scan.js weekly",
+    "scan:monthly": "node scripts/scan.js monthly",
+    "install-browsers": "playwright install --with-deps chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.48.0",
+    "pixelmatch": "^6.0.0",
+    "pngjs": "^7.0.0",
+    "resend": "^4.0.0",
+    "fast-xml-parser": "^4.5.0"
+  }
+}
