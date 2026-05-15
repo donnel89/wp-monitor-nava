@@ -2,14 +2,16 @@ name: סריקה חודשית
 
 on:
   schedule:
-    # ה-1 בכל חודש בשעה 04:00 UTC
     - cron: '0 4 1 * *'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 350 # עד 5.5 שעות לאתר גדול
+    timeout-minutes: 350
 
     steps:
       - name: Checkout
@@ -52,3 +54,14 @@ jobs:
           name: monthly-screenshots-${{ github.run_number }}
           path: screenshots/
           retention-days: 30
+
+      - name: Commit results to repo
+        if: always()
+        run: |
+          git config user.name "WP Monitor Bot"
+          git config user.email "monitor@github.com"
+          git add results/
+          git diff --staged --quiet || git commit -m "📊 תוצאות סריקה חודשית $(date '+%Y-%m-%d %H:%M UTC')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

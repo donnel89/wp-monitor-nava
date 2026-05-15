@@ -266,6 +266,29 @@ async function main() {
 
   console.log(`\n📊 סיכום: ${totalIssues} בעיות סה"כ (${criticalIssues} קריטיות)`);
 
+  // שמירת תוצאות ל-JSON לדשבורד
+  await fs.mkdir('./results', { recursive: true });
+  const jsonResults = {
+    mode,
+    timestamp: new Date().toISOString(),
+    siteName: config.siteName,
+    summary: {
+      total: results.length,
+      ok: results.filter(r => r.issues.length === 0).length,
+      warnings: results.filter(r => r.issues.some(i => i.severity === 'warning')).length,
+      critical: criticalIssues
+    },
+    results: results.map(r => ({
+      url: r.url,
+      viewport: r.viewport,
+      status: r.status,
+      loadTime: r.loadTime,
+      issues: r.issues.map(i => ({ type: i.type, severity: i.severity, message: i.message }))
+    }))
+  };
+  await fs.writeFile(`./results/${mode}.json`, JSON.stringify(jsonResults, null, 2));
+  console.log(`💾 תוצאות נשמרו ב-results/${mode}.json`);
+
   // שליחת דוח רק אם יש בעיות
   if (totalIssues > 0) {
     await sendReport(results, mode, config);

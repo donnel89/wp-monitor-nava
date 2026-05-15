@@ -2,9 +2,11 @@ name: סריקה שבועית
 
 on:
   schedule:
-    # כל יום ראשון בשעה 05:00 UTC
     - cron: '0 5 * * 0'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   scan:
@@ -52,3 +54,14 @@ jobs:
           name: weekly-screenshots-${{ github.run_number }}
           path: screenshots/
           retention-days: 14
+
+      - name: Commit results to repo
+        if: always()
+        run: |
+          git config user.name "WP Monitor Bot"
+          git config user.email "monitor@github.com"
+          git add results/
+          git diff --staged --quiet || git commit -m "📊 תוצאות סריקה שבועית $(date '+%Y-%m-%d %H:%M UTC')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
