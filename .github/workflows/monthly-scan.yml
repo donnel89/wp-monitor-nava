@@ -65,3 +65,15 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push results to dashboard repo
+        if: always()
+        run: |
+          git clone https://${{ secrets.DASHBOARD_TOKEN }}@github.com/donnel89/wp-monitor-dashboard.git /tmp/dashboard-repo
+          cp -f results/monthly.json /tmp/dashboard-repo/results/monthly.json 2>/dev/null || true
+          cd /tmp/dashboard-repo
+          git config user.name "WP Monitor Bot"
+          git config user.email "monitor@github.com"
+          git add results/
+          git diff --staged --quiet || git commit -m "📊 תוצאות חודשי $(date '+%Y-%m-%d %H:%M')"
+          git push
