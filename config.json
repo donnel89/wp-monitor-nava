@@ -3,10 +3,22 @@
     "fromEmail": "monitor@stra.co.il",
     "diffThreshold": 0.05,
     "viewports": [
-      { "name": "desktop", "width": 1920, "height": 1080 },
-      { "name": "mobile", "width": 390, "height": 844 }
+      {
+        "name": "desktop",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "name": "mobile",
+        "width": 390,
+        "height": 844
+      }
     ],
-    "criticalSelectors": ["header", "footer", "nav"]
+    "criticalSelectors": [
+      "header",
+      "footer",
+      "nav"
+    ]
   },
   "sites": [
     {
