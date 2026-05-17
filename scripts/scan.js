@@ -229,6 +229,9 @@ async function scanPage(browser, url, viewport, siteId, siteBaseUrl) {
     }
   }
 
+  // שמירת headers לבדיקות אבטחה
+  const responseHeaders = response?.headers() || {};
+
   // בדיקות תוכן, SEO ונגישות — desktop בלבד (ללא כפילות)
   if (status < 400 && viewport.name === 'desktop') {
     await checkSeo(page, issues, url);
@@ -238,10 +241,23 @@ async function scanPage(browser, url, viewport, siteId, siteBaseUrl) {
     await checkGdprBanner(page, issues, url, siteBaseUrl);
     await checkContactInfo(page, issues, url, siteBaseUrl);
     await checkBrokenInternalLinks(page, issues, url);
+    await checkExternalLinks(page, issues, url);
     await checkFormSubmission(page, issues);
     await checkNavigation(page, issues, url);
     await checkInteractiveElements(page, issues);
     await checkPopupsLightbox(page, issues);
+    await checkPerformanceMetrics(page, issues);
+    await checkSecurityHeaders(responseHeaders, issues);
+    await checkSchema(page, issues);
+    await checkAnalytics(page, issues, url, siteBaseUrl);
+    await checkCopyrightYear(page, issues);
+    await checkThinContent(page, issues, url);
+    await checkWooCommerce(page, issues, url, siteBaseUrl);
+  }
+
+  // מובייל — בדיקות UX ספציפיות
+  if (status < 400 && viewport.name === 'mobile') {
+    await checkMobileUX(page, issues);
   }
 
   // גלילה — כל viewport (טוען lazy images, בודק sticky header)
@@ -523,19 +539,109 @@ async function checkBrokenInternalLinks(page, issues, pageUrl) {
 // ============================================================
 async function checkAccessibility(page, issues) {
   const result = await page.evaluate(() => {
+    // 1. תמונות ללא alt
     const imgsNoAlt = Array.from(document.querySelectorAll('img'))
       .filter(img => img.offsetParent !== null && !img.hasAttribute('alt') && img.src.startsWith('http'))
       .length;
+
+    // 2. כפתורים ללא תיאור
     const btnsNoLabel = Array.from(document.querySelectorAll('button,[role="button"]'))
       .filter(b => !b.textContent.trim() && !b.getAttribute('aria-label') && !b.getAttribute('title'))
       .length;
-    return { imgsNoAlt, btnsNoLabel };
-  }).catch(() => ({ imgsNoAlt: 0, btnsNoLabel: 0 }));
+
+    // 3. מאפיין lang ב-<html>
+    const hasLang = !!(document.documentElement.getAttribute('lang') || '').trim();
+
+    // 4. שדות טופס ללא label
+    const inputsNoLabel = Array.from(document.querySelectorAll(
+      'input:not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="image"]), textarea, select'
+    )).filter(inp => {
+      const id = inp.id;
+      return !(
+        (id && document.querySelector(`label[for="${CSS.escape(id)}"]`)) ||
+        inp.getAttribute('aria-label') ||
+        inp.getAttribute('aria-labelledby') ||
+        inp.closest('label') ||
+        inp.getAttribute('placeholder') // placeholder כ-fallback נמוך
+      );
+    }).length;
+
+    // 5. קישורים עם טקסט לא תיאורי
+    const genericTexts = ['לחץ כאן','לחצי כאן','click here','read more','קרא עוד','קראי עוד','more','here','הקלק','הקליקי','לפרטים נוספים'];
+    const genericLinks = Array.from(document.querySelectorAll('a[href]'))
+      .filter(a => {
+        const text = (a.textContent || '').trim().toLowerCase();
+        return genericTexts.some(g => text === g || text === g.toLowerCase()) &&
+          !a.getAttribute('aria-label');
+      }).length;
+
+    // 6. חסר main landmark
+    const hasMain = !!document.querySelector('main, [role="main"]');
+
+    // 7. היררכיית כותרות
+    const headings = Array.from(document.querySelectorAll('h1,h2,h3,h4,h5,h6'))
+      .filter(h => h.offsetParent !== null)
+      .map(h => parseInt(h.tagName[1]));
+    let headingSkip = false;
+    for (let i = 1; i < headings.length; i++) {
+      if (headings[i] - headings[i - 1] > 1) { headingSkip = true; break; }
+    }
+
+    // 8. iframes ללא title
+    const iframesNoTitle = Array.from(document.querySelectorAll('iframe'))
+      .filter(f => !f.getAttribute('title') && !f.getAttribute('aria-label'))
+      .length;
+
+    // 9. tabindex חיובי (שובר סדר ניווט)
+    const positiveTabindex = Array.from(document.querySelectorAll('[tabindex]'))
+      .filter(el => parseInt(el.getAttribute('tabindex')) > 0)
+      .length;
+
+    // 10. וידאו autoplay ללא controls
+    const autoplayNoControls = Array.from(document.querySelectorAll('video[autoplay]'))
+      .filter(v => !v.controls && !v.hasAttribute('muted'))
+      .length;
+
+    // 11. טבלאות ללא headers
+    const tablesNoHeaders = Array.from(document.querySelectorAll('table'))
+      .filter(t => t.offsetParent !== null && !t.querySelector('th, [scope]'))
+      .length;
+
+    return {
+      imgsNoAlt, btnsNoLabel, hasLang,
+      inputsNoLabel, genericLinks, hasMain,
+      headingSkip, iframesNoTitle, positiveTabindex,
+      autoplayNoControls, tablesNoHeaders,
+    };
+  }).catch(() => ({
+    imgsNoAlt: 0, btnsNoLabel: 0, hasLang: true,
+    inputsNoLabel: 0, genericLinks: 0, hasMain: true,
+    headingSkip: false, iframesNoTitle: 0, positiveTabindex: 0,
+    autoplayNoControls: 0, tablesNoHeaders: 0,
+  }));
 
   if (result.imgsNoAlt > 0)
     issues.push({ type: 'a11y_alt', severity: 'warning', message: `${result.imgsNoAlt} תמונות ללא alt text (נגישות + SEO)` });
   if (result.btnsNoLabel > 0)
     issues.push({ type: 'a11y_btn', severity: 'warning', message: `${result.btnsNoLabel} כפתורים ללא aria-label` });
+  if (!result.hasLang)
+    issues.push({ type: 'a11y_lang', severity: 'warning', message: 'חסר מאפיין lang ב-<html> — קוראי מסך לא יידעו את שפת האתר (WCAG 3.1.1)' });
+  if (result.inputsNoLabel > 0)
+    issues.push({ type: 'a11y_form_label', severity: 'warning', message: `${result.inputsNoLabel} שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)` });
+  if (result.genericLinks > 0)
+    issues.push({ type: 'a11y_link_text', severity: 'warning', message: `${result.genericLinks} קישורים עם טקסט לא תיאורי ("לחץ כאן" וכו') — WCAG 2.4.4` });
+  if (!result.hasMain)
+    issues.push({ type: 'a11y_landmark', severity: 'warning', message: 'חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)' });
+  if (result.headingSkip)
+    issues.push({ type: 'a11y_heading', severity: 'warning', message: 'היררכיית כותרות שבורה — קפיצה בין רמות (H1→H3 וכו\') — WCAG 1.3.1' });
+  if (result.iframesNoTitle > 0)
+    issues.push({ type: 'a11y_iframe', severity: 'warning', message: `${result.iframesNoTitle} iframes ללא title — לא נגיש לקוראי מסך (WCAG 4.1.2)` });
+  if (result.positiveTabindex > 0)
+    issues.push({ type: 'a11y_tabindex', severity: 'warning', message: `${result.positiveTabindex} אלמנטים עם tabindex חיובי — שובר סדר ניווט מקלדת (WCAG 2.4.3)` });
+  if (result.autoplayNoControls > 0)
+    issues.push({ type: 'a11y_autoplay', severity: 'warning', message: `${result.autoplayNoControls} סרטוני autoplay ללא controls — WCAG 1.4.2` });
+  if (result.tablesNoHeaders > 0)
+    issues.push({ type: 'a11y_table', severity: 'warning', message: `${result.tablesNoHeaders} טבלאות ללא headers (<th>) — WCAG 1.3.1` });
 }
 
 // ============================================================
@@ -890,6 +996,319 @@ async function checkInteractiveElements(page, issues) {
 }
 
 // ============================================================
+//  ביצועים: TTFB, FCP, מספר בקשות, משקל עמוד, render-blocking
+// ============================================================
+async function checkPerformanceMetrics(page, issues) {
+  const perf = await page.evaluate(() => {
+    const nav = performance.getEntriesByType('navigation')[0];
+    const resources = performance.getEntriesByType('resource');
+    const fcpEntry = performance.getEntriesByName('first-contentful-paint')[0];
+    const renderBlocking = Array.from(document.querySelectorAll('head script[src]:not([async]):not([defer]), head link[rel="stylesheet"]'))
+      .map(el => (el.src || el.href || '').split('/').pop()).filter(Boolean).slice(0, 5);
+    return {
+      ttfb:         nav  ? Math.round(nav.responseStart - nav.requestStart) : null,
+      fcp:          fcpEntry ? Math.round(fcpEntry.startTime) : null,
+      totalRequests: resources.length,
+      totalKB:      Math.round(resources.reduce((s, r) => s + (r.transferSize || 0), 0) / 1024),
+      renderBlocking,
+    };
+  }).catch(() => null);
+  if (!perf) return;
+
+  if (perf.ttfb > 1500)
+    issues.push({ type: 'perf_ttfb', severity: 'warning', message: `TTFB איטי: ${perf.ttfb}ms — תגובת השרת איטית (מקסימום מומלץ: 800ms)` });
+  else if (perf.ttfb > 800)
+    issues.push({ type: 'perf_ttfb', severity: 'warning', message: `TTFB סביר: ${perf.ttfb}ms (מטרה: מתחת ל-800ms)` });
+
+  if (perf.fcp > 3000)
+    issues.push({ type: 'perf_fcp', severity: 'warning', message: `FCP איטי: ${(perf.fcp/1000).toFixed(1)}s — הגולש רואה תוכן ראשון רק אחרי ${(perf.fcp/1000).toFixed(1)}s (מטרה: <1.8s)` });
+
+  if (perf.totalRequests > 80)
+    issues.push({ type: 'perf_requests', severity: 'warning', message: `${perf.totalRequests} בקשות HTTP בדף — מומלץ מתחת ל-80` });
+
+  if (perf.totalKB > 3000)
+    issues.push({ type: 'perf_weight', severity: 'warning', message: `משקל עמוד: ${perf.totalKB}KB — כבד מדי (מומלץ מתחת ל-1500KB)` });
+  else if (perf.totalKB > 1500)
+    issues.push({ type: 'perf_weight', severity: 'warning', message: `משקל עמוד: ${perf.totalKB}KB (מומלץ מתחת ל-1500KB)` });
+
+  if (perf.renderBlocking.length > 3)
+    issues.push({ type: 'perf_render_blocking', severity: 'warning', message: `${perf.renderBlocking.length} משאבי Render-Blocking ב-<head> מאטים את ההצגה: ${perf.renderBlocking.join(', ')}` });
+}
+
+// ============================================================
+//  Security Headers
+// ============================================================
+async function checkSecurityHeaders(headers, issues) {
+  const REQUIRED_HEADERS = [
+    { key: 'strict-transport-security',    label: 'HSTS',                   tip: 'מונע מעבר ל-HTTP'      },
+    { key: 'x-frame-options',              label: 'X-Frame-Options',         tip: 'מונע Clickjacking'     },
+    { key: 'x-content-type-options',       label: 'X-Content-Type-Options',  tip: 'מונע MIME sniffing'    },
+    { key: 'referrer-policy',              label: 'Referrer-Policy',         tip: 'שולט במידע Referrer'   },
+  ];
+  const missing = REQUIRED_HEADERS.filter(h => !headers[h.key]);
+  if (missing.length > 0) {
+    issues.push({
+      type: 'security_headers',
+      severity: 'warning',
+      message: `חסרים Security Headers: ${missing.map(h => `${h.label} (${h.tip})`).join(', ')}`,
+    });
+  }
+}
+
+// ============================================================
+//  Schema / Structured Data
+// ============================================================
+async function checkSchema(page, issues) {
+  const schemas = await page.evaluate(() =>
+    Array.from(document.querySelectorAll('script[type="application/ld+json"]'))
+      .map(s => { try { const d = JSON.parse(s.textContent); return d['@type'] || null; } catch { return null; } })
+      .filter(Boolean)
+  ).catch(() => []);
+
+  if (schemas.length === 0) {
+    issues.push({ type: 'schema_missing', severity: 'warning', message: 'אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results' });
+  }
+}
+
+// ============================================================
+//  Analytics (GA / GTM)
+// ============================================================
+async function checkAnalytics(page, issues, url, siteBaseUrl) {
+  const cleanUrl  = url.replace(/\/$/, '');
+  const cleanBase = (siteBaseUrl || '').replace(/\/$/, '');
+  if (cleanUrl !== cleanBase) return; // רק בעמוד הבית
+
+  const hasAnalytics = await page.evaluate(() =>
+    !!(window.ga || window.gtag || (window.dataLayer && window.dataLayer.length > 0) ||
+       document.querySelector('script[src*="googletagmanager"],script[src*="google-analytics"],script[src*="gtag"]'))
+  ).catch(() => false);
+
+  if (!hasAnalytics) {
+    issues.push({ type: 'analytics_missing', severity: 'warning', message: 'לא נמצא Google Analytics / GTM — אין מעקב אחר גולשים' });
+  }
+}
+
+// ============================================================
+//  Copyright Year
+// ============================================================
+async function checkCopyrightYear(page, issues) {
+  const result = await page.evaluate(() => {
+    const footerText = document.querySelector('footer')?.innerText || '';
+    const match = footerText.match(/©\s*(\d{4})/);
+    return match ? parseInt(match[1]) : null;
+  }).catch(() => null);
+
+  if (result && result < new Date().getFullYear() - 1) {
+    issues.push({ type: 'copyright_outdated', severity: 'warning', message: `שנת Copyright בפוטר: ${result} — לא מעודכן (שנה נוכחית: ${new Date().getFullYear()})` });
+  }
+}
+
+// ============================================================
+//  Thin Content
+// ============================================================
+async function checkThinContent(page, issues, url) {
+  const isHomepage = url.replace(/\/$/, '') === new URL(url).origin;
+  const MIN_WORDS  = isHomepage ? 200 : 300;
+
+  const wordCount = await page.evaluate(() => {
+    const text = document.body.innerText || '';
+    return text.split(/\s+/).filter(w => w.length > 2).length;
+  }).catch(() => 999);
+
+  if (wordCount < MIN_WORDS) {
+    issues.push({ type: 'thin_content', severity: 'warning', message: `תוכן דק: ${wordCount} מילים (מינימום מומלץ: ${MIN_WORDS}) — גוגל מעדיף עמודים עם תוכן עשיר` });
+  }
+}
+
+// ============================================================
+//  External Broken Links
+// ============================================================
+async function checkExternalLinks(page, issues, pageUrl) {
+  const origin = new URL(pageUrl).origin;
+  const extLinks = await page.evaluate((orig) =>
+    [...new Set(
+      Array.from(document.querySelectorAll('a[href^="http"]'))
+        .map(a => a.href)
+        .filter(h => !h.startsWith(orig) && !h.includes('facebook.com') && !h.includes('instagram.com') && !h.includes('twitter.com') && !h.includes('linkedin.com'))
+    )].slice(0, 10)
+  , origin).catch(() => []);
+
+  const broken = [];
+  await Promise.all(extLinks.map(async link => {
+    try {
+      const r = await fetch(link, { method: 'HEAD', signal: AbortSignal.timeout(6000), redirect: 'follow' });
+      if (r.status >= 400) broken.push(new URL(link).hostname);
+    } catch {}
+  }));
+
+  if (broken.length > 0) {
+    issues.push({ type: 'external_broken_links', severity: 'warning', message: `${broken.length} קישורים חיצוניים שבורים: ${[...new Set(broken)].join(', ')}` });
+  }
+}
+
+// ============================================================
+//  Mobile UX — Touch Targets, Font Size, Horizontal Scroll
+// ============================================================
+async function checkMobileUX(page, issues) {
+  const result = await page.evaluate(() => {
+    // Touch targets קטנים מדי (מתחת ל-44px)
+    const smallTargets = Array.from(document.querySelectorAll('a, button, [role="button"], input, select'))
+      .filter(el => {
+        if (!el.offsetParent) return false;
+        const r = el.getBoundingClientRect();
+        return r.width > 0 && r.height > 0 && (r.width < 44 || r.height < 44);
+      }).length;
+
+    // גופן קטן מדי (פחות מ-14px)
+    const smallFontEls = Array.from(document.querySelectorAll('p, li, span, a, div'))
+      .filter(el => {
+        if (!el.offsetParent || !el.textContent.trim()) return false;
+        return parseFloat(window.getComputedStyle(el).fontSize) < 14;
+      }).length;
+
+    // גלילה אופקית
+    const hasHScroll = document.documentElement.scrollWidth > document.documentElement.clientWidth + 5;
+
+    return { smallTargets, smallFontEls, hasHScroll };
+  }).catch(() => ({ smallTargets: 0, smallFontEls: 0, hasHScroll: false }));
+
+  if (result.smallTargets > 3)
+    issues.push({ type: 'mobile_touch_targets', severity: 'warning', message: `${result.smallTargets} אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ` });
+
+  if (result.smallFontEls > 10)
+    issues.push({ type: 'mobile_font_size', severity: 'warning', message: `גופן קטן מדי ב-${result.smallFontEls} אלמנטים (פחות מ-14px) — קשה לקריאה במובייל` });
+
+  if (result.hasHScroll)
+    issues.push({ type: 'mobile_hscroll', severity: 'warning', message: 'גלילה אופקית קיימת במובייל — אלמנט רוחבי יותר מהמסך (overflow)' });
+}
+
+// ============================================================
+//  WooCommerce
+// ============================================================
+async function checkWooCommerce(page, issues, url, siteBaseUrl) {
+  const isWoo = await page.evaluate(() =>
+    !!(document.querySelector('.woocommerce, .wc-block-grid, [class*="woocommerce"]') || window.wc || window.woocommerce_params)
+  ).catch(() => false);
+  if (!isWoo) return;
+
+  const origin = new URL(siteBaseUrl || url).origin;
+
+  // בדוק שדפי Cart + Checkout נטענים
+  await Promise.all([
+    fetch(`${origin}/cart/`,     { method: 'HEAD', signal: AbortSignal.timeout(6000), redirect: 'follow' }),
+    fetch(`${origin}/checkout/`, { method: 'HEAD', signal: AbortSignal.timeout(6000), redirect: 'follow' }),
+  ].map(async (p, i) => {
+    try {
+      const r = await p;
+      const pageName = i === 0 ? 'עגלה (/cart/)' : 'Checkout (/checkout/)';
+      if (r.status >= 400) issues.push({ type: 'woo_page_broken', severity: 'critical', message: `עמוד WooCommerce לא נגיש: ${pageName} — HTTP ${r.status}` });
+    } catch {}
+  }));
+
+  // בדוק כפתור Add to Cart בעמוד מוצר
+  const addToCartBtn = page.locator('.add_to_cart_button, [name="add-to-cart"], .single_add_to_cart_button').first();
+  const cartVisible  = await addToCartBtn.isVisible().catch(() => false);
+  if (cartVisible) {
+    try {
+      await addToCartBtn.click({ timeout: 3000 });
+      await page.waitForTimeout(1500);
+      const cartFeedback = await page.evaluate(() => {
+        const notices = document.querySelector('.woocommerce-message, .cart-contents, .added_to_cart');
+        return notices ? notices.innerText.trim().slice(0, 60) : null;
+      });
+      if (!cartFeedback) {
+        issues.push({ type: 'woo_add_to_cart', severity: 'warning', message: 'לחיצה על "הוסף לעגלה" לא הציגה אישור — ייתכן בעיה בעגלה' });
+      }
+    } catch {}
+  }
+}
+
+// ============================================================
+//  HTTPS Redirect (per site)
+// ============================================================
+async function checkHttpsRedirect(site) {
+  const issues = [];
+  if (!site.baseUrl.startsWith('https')) return issues;
+  const httpUrl = site.baseUrl.replace('https://', 'http://');
+  try {
+    const r = await fetch(httpUrl, { method: 'HEAD', redirect: 'manual', signal: AbortSignal.timeout(8000) });
+    if (r.status !== 301 && r.status !== 302 && r.status !== 308) {
+      issues.push({ type: 'https_no_redirect', severity: 'warning', message: `http:// לא מנותב אוטומטית ל-https:// (סטטוס: ${r.status}) — גולשים שנכנסים ב-HTTP לא מועברים` });
+    }
+  } catch {}
+  return issues;
+}
+
+// ============================================================
+//  Exposed Files (per site)
+// ============================================================
+async function checkExposedFiles(site) {
+  const issues = [];
+  const base    = site.baseUrl.replace(/\/$/, '');
+  const DANGER  = [
+    { path: '/.env',               label: '.env (משתני סביבה וסיסמאות)' },
+    { path: '/wp-config.php.bak',  label: 'wp-config.php.bak (גיבוי עם סיסמאות DB)' },
+    { path: '/error_log',          label: 'error_log (לוג שגיאות PHP)' },
+    { path: '/.git/config',        label: '.git/config (קוד מקור חשוף)' },
+    { path: '/phpinfo.php',        label: 'phpinfo.php (מידע שרת מפורט)' },
+    { path: '/adminer.php',        label: 'adminer.php (ממשק DB חשוף)' },
+  ];
+  await Promise.all(DANGER.map(async ({ path, label }) => {
+    try {
+      const r = await fetch(`${base}${path}`, { signal: AbortSignal.timeout(6000), redirect: 'follow' });
+      if (r.status === 200) {
+        issues.push({ type: 'exposed_file', severity: 'critical', message: `⛔ קובץ רגיש חשוף לציבור: ${label}` });
+      }
+    } catch {}
+  }));
+  return issues;
+}
+
+// ============================================================
+//  robots.txt (per site)
+// ============================================================
+async function checkRobotsTxt(site) {
+  const issues = [];
+  const base    = site.baseUrl.replace(/\/$/, '');
+  try {
+    const r = await fetch(`${base}/robots.txt`, { signal: AbortSignal.timeout(8000) });
+    if (r.status === 404) {
+      issues.push({ type: 'robots_missing', severity: 'warning', message: 'חסר קובץ robots.txt — מומלץ לציין לגוגל אילו דפים לסרוק' });
+      return issues;
+    }
+    const text = await r.text();
+    // בדוק חסימה גורפת
+    if (/Disallow:\s*\//m.test(text) && /User-agent:\s*\*/m.test(text)) {
+      issues.push({ type: 'robots_block_all', severity: 'critical', message: '⛔ robots.txt חוסם את כל הגוגל-בוטים (Disallow: /) — האתר לא יאונדקס!' });
+    }
+    // בדוק Sitemap מוגדר
+    if (!/Sitemap:/i.test(text)) {
+      issues.push({ type: 'robots_no_sitemap', severity: 'warning', message: 'robots.txt לא מכיל שורת Sitemap: — מומלץ להוסיף' });
+    }
+  } catch {}
+  return issues;
+}
+
+// ============================================================
+//  Directory Listing (per site)
+// ============================================================
+async function checkDirectoryListing(site) {
+  const issues = [];
+  const base    = site.baseUrl.replace(/\/$/, '');
+  const DIRS    = ['/wp-content/uploads/', '/wp-content/plugins/', '/wp-includes/'];
+  await Promise.all(DIRS.map(async dir => {
+    try {
+      const r   = await fetch(`${base}${dir}`, { signal: AbortSignal.timeout(6000) });
+      const txt = await r.text();
+      if (r.status === 200 && /<title>Index of/i.test(txt)) {
+        issues.push({ type: 'directory_listing', severity: 'critical', message: `⛔ Directory Listing פתוח: ${dir} — כל קבצי התיקייה חשופים לציבור` });
+      }
+    } catch {}
+  }));
+  return issues;
+}
+
+// ============================================================
 //  SSL Expiry (per site)
 // ============================================================
 async function checkSslExpiry(site) {
@@ -968,10 +1387,14 @@ async function scanSite(browser, site) {
   const results = [];
 
   // בדיקות ברמת האתר (פעם אחת בלבד)
-  console.log(`  🔒 בודק SSL ואבטחת WordPress...`);
+  console.log(`  🔒 בודק SSL, אבטחה ותשתית...`);
   const siteIssues = [
     ...(await checkSslExpiry(site)),
-    ...(await checkWordPressSecurity(site))
+    ...(await checkWordPressSecurity(site)),
+    ...(await checkHttpsRedirect(site)),
+    ...(await checkExposedFiles(site)),
+    ...(await checkRobotsTxt(site)),
+    ...(await checkDirectoryListing(site)),
   ];
   if (siteIssues.length > 0) {
     results.push({ url: site.baseUrl, viewport: 'site', issues: siteIssues, loadTime: null, status: null });
