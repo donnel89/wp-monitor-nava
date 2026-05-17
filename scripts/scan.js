@@ -159,12 +159,24 @@ async function scanPage(browser, url, viewport, siteId, siteBaseUrl) {
     }
   }
 
-  // הוספת שגיאות JS
-  if (jsErrors.length > 0) {
+  // סינון שגיאות JS ידועות שאינן בעיה אמיתית
+  const JS_ERROR_IGNORE = [
+    'addEventListener is not a function',   // YouTube IFrame API - באג ידוע, לא משפיע על הגולש
+    'playerObject',                          // YouTube player API פנימי
+    'ytInitialData',                         // YouTube embed initialization
+    'ResizeObserver loop',                   // אזהרת דפדפן, לא שגיאה אמיתית
+    'Non-Error promise rejection',           // אזהרה גנרית של Chrome
+    'extension',                             // שגיאות של תוספי דפדפן
+    'chrome-extension',
+  ];
+  const realJsErrors = jsErrors.filter(e =>
+    !JS_ERROR_IGNORE.some(ignore => e.toLowerCase().includes(ignore.toLowerCase()))
+  );
+  if (realJsErrors.length > 0) {
     issues.push({
       type: 'js_error',
       severity: 'warning',
-      message: `${jsErrors.length} שגיאות JS: ${jsErrors.slice(0, 3).join(' | ')}`
+      message: `${realJsErrors.length} שגיאות JS: ${realJsErrors.slice(0, 3).join(' | ')}`
     });
   }
 
