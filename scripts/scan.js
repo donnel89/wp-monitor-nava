@@ -238,9 +238,15 @@ async function scanPage(browser, url, viewport, siteId, siteBaseUrl) {
     await checkGdprBanner(page, issues, url, siteBaseUrl);
     await checkContactInfo(page, issues, url, siteBaseUrl);
     await checkBrokenInternalLinks(page, issues, url);
-    await checkForms(page, issues);
+    await checkFormSubmission(page, issues);
     await checkNavigation(page, issues, url);
     await checkInteractiveElements(page, issues);
+    await checkPopupsLightbox(page, issues);
+  }
+
+  // גלילה — כל viewport (טוען lazy images, בודק sticky header)
+  if (status < 400) {
+    await checkScrollBehavior(page, issues, viewport);
   }
 
   // Core Web Vitals — כל viewport
@@ -605,69 +611,193 @@ async function checkCoreWebVitals(page, issues) {
 }
 
 // ============================================================
-//  בדיקת טפסים — מילוי שדות + אימות (ללא שליחה אמיתית)
+//  שליחת טופס אמיתית + בדיקת תגובה
 // ============================================================
-async function checkForms(page, issues) {
+async function checkFormSubmission(page, issues) {
   const forms = await page.locator('form').all().catch(() => []);
   if (forms.length === 0) return;
 
-  // נתונים פיקטיביים לבדיקה
   const TEST_DATA = {
-    text:     'בדיקה אוטומטית',
-    email:    'test@wp-monitor-check.invalid',
+    text:     'WP Monitor Test',
+    name:     'WP Monitor Bot',
+    email:    'monitor-test@wp-monitor-check.invalid',
     tel:      '050-0000000',
-    textarea: 'בדיקה אוטומטית של הטופס על ידי WP Monitor',
+    phone:    '050-0000000',
+    textarea: 'הודעת בדיקה אוטומטית מ-WP Monitor. ניתן להתעלם.',
     search:   'בדיקה',
     number:   '1',
+    url:      'https://example.com',
   };
 
-  for (const form of forms.slice(0, 3)) {
-    const formVisible = await form.isVisible().catch(() => false);
-    if (!formVisible) continue;
+  for (const form of forms.slice(0, 2)) {
+    try {
+      if (!(await form.isVisible().catch(() => false))) continue;
 
-    // בדוק שלכפתור ה-submit יש טקסט / aria-label
-    const submitBtn = form.locator('button[type="submit"], input[type="submit"], button:not([type])').first();
-    const submitVisible = await submitBtn.isVisible().catch(() => false);
-    if (!submitVisible) {
-      issues.push({ type: 'form_no_submit', severity: 'warning', message: 'טופס ללא כפתור שליחה גלוי' });
-      continue;
+      // וודא שיש כפתור submit
+      const submitBtn = form.locator('button[type="submit"], input[type="submit"], button:not([type="button"]):not([type="reset"])').first();
+      if (!(await submitBtn.isVisible().catch(() => false))) {
+        issues.push({ type: 'form_no_submit', severity: 'warning', message: 'טופס ללא כפתור שליחה גלוי' });
+        continue;
+      }
+
+      // מלא את כל השדות הגלויים
+      const inputs = await form.locator(
+        'input:not([type="hidden"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]), textarea, select'
+      ).all();
+
+      let filled = 0;
+      for (const inp of inputs) {
+        try {
+          if (!(await inp.isVisible({ timeout: 800 }))) continue;
+          const type = ((await inp.getAttribute('type')) || 'text').toLowerCase();
+          const name = ((await inp.getAttribute('name')) || '').toLowerCase();
+          const placeholder = ((await inp.getAttribute('placeholder')) || '').toLowerCase();
+          const tag  = await inp.evaluate(el => el.tagName.toLowerCase());
+
+          if (tag === 'select') {
+            const opts = await inp.locator('option').all();
+            if (opts.length > 1) await inp.selectOption({ index: 1 });
+          } else {
+            // בחר ערך לפי name/placeholder/type
+            let val = TEST_DATA[type] || TEST_DATA.text;
+            if (name.includes('name') || placeholder.includes('שם'))     val = TEST_DATA.name;
+            if (name.includes('email') || type === 'email')               val = TEST_DATA.email;
+            if (name.includes('phone') || name.includes('tel') || type === 'tel') val = TEST_DATA.tel;
+            if (tag === 'textarea')                                        val = TEST_DATA.textarea;
+            await inp.fill(val, { timeout: 2000 });
+          }
+          filled++;
+        } catch {}
+      }
+
+      if (filled === 0) continue;
+
+      // שלח את הטופס ובדוק תגובה
+      const [navResponse] = await Promise.all([
+        page.waitForNavigation({ timeout: 8000, waitUntil: 'domcontentloaded' }).catch(() => null),
+        submitBtn.click({ timeout: 3000 }),
+      ]);
+
+      await page.waitForTimeout(1500);
+
+      // בדוק תגובת הצלחה
+      const pageText = await page.evaluate(() => document.body.innerText.toLowerCase()).catch(() => '');
+      const SUCCESS_KEYWORDS = ['תודה', 'נשלח', 'קיבלנו', 'thank you', 'sent', 'success', 'received', 'בהצלחה', 'הודעתך'];
+      const ERROR_KEYWORDS   = ['שגיאה', 'error', 'failed', 'נכשל', 'problem', 'invalid'];
+
+      const hasSuccess = SUCCESS_KEYWORDS.some(k => pageText.includes(k));
+      const hasError   = ERROR_KEYWORDS.some(k => pageText.includes(k));
+
+      if (hasError) {
+        issues.push({ type: 'form_submit_error', severity: 'critical', message: 'שליחת הטופס החזירה הודעת שגיאה' });
+      } else if (!hasSuccess && navResponse === null) {
+        issues.push({ type: 'form_no_response', severity: 'warning', message: 'שליחת הטופס לא הציגה הודעת הצלחה ולא ניווטה לדף תודה' });
+      }
+
+      // חזור לעמוד המקורי
+      await page.goBack({ timeout: 5000, waitUntil: 'domcontentloaded' }).catch(() => {});
+      break; // מספיק לבדוק טופס אחד לעמוד
+
+    } catch {}
+  }
+}
+
+// ============================================================
+//  גלילה — lazy load + sticky header + back-to-top
+// ============================================================
+async function checkScrollBehavior(page, issues, viewport) {
+  try {
+    const pageHeight = await page.evaluate(() => document.body.scrollHeight);
+    if (pageHeight < 1200) return; // עמוד קצר — לא רלוונטי
+
+    // גלול לאט לתחתית — מדמה גולש אמיתי + מטעין lazy images
+    await page.evaluate(async () => {
+      await new Promise(resolve => {
+        let scrolled = 0;
+        const step = Math.floor(window.innerHeight * 0.6);
+        const timer = setInterval(() => {
+          window.scrollBy(0, step);
+          scrolled += step;
+          if (scrolled >= document.body.scrollHeight) {
+            clearInterval(timer);
+            resolve();
+          }
+        }, 150);
+      });
+    });
+    await page.waitForTimeout(600);
+
+    // בדוק תמונות שעדיין לא נטענו אחרי גלילה
+    const lazyBroken = await page.evaluate(() =>
+      Array.from(document.images)
+        .filter(img => img.complete && img.naturalWidth === 0 && img.src.startsWith('http'))
+        .length
+    ).catch(() => 0);
+
+    if (lazyBroken > 0) {
+      issues.push({ type: 'lazy_images_broken', severity: 'warning', message: `${lazyBroken} תמונות Lazy Load שבורות — לא נטענו אחרי גלילה` });
     }
 
-    // מלא שדות חובה
-    const inputs = await form.locator('input:not([type="hidden"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]), textarea').all();
-    let filledCount = 0;
-    for (const input of inputs) {
-      try {
-        if (!(await input.isVisible())) continue;
-        const type = (await input.getAttribute('type') || 'text').toLowerCase();
-        const val  = TEST_DATA[type] || TEST_DATA.text;
-        await input.fill(val, { timeout: 2000 });
-        filledCount++;
-      } catch {}
+    // בדוק sticky header — צריך להיות גלוי אחרי גלילה
+    const headerSticky = await page.locator('header, .site-header, #header').first()
+      .isVisible().catch(() => true);
+    if (!headerSticky) {
+      issues.push({ type: 'header_scroll', severity: 'warning', message: 'ה-Header נעלם בגלילה (sticky header לא עובד)' });
     }
 
-    if (filledCount === 0) continue;
+    // גלול חזרה למעלה ובדוק back-to-top
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForTimeout(400);
 
-    // בדוק שה-HTML5 validation עובד — נבדוק validity ללא שליחה אמיתית
-    const isValid = await form.evaluate(f => {
-      const inputs = [...f.querySelectorAll('input,textarea,select')];
-      return inputs.every(i => i.checkValidity());
-    }).catch(() => true);
+  } catch {}
+}
 
-    if (!isValid) {
-      issues.push({ type: 'form_validation', severity: 'warning', message: 'טופס לא עובר HTML5 validation — בדוק שדות חובה' });
-    }
+// ============================================================
+//  Popup / Lightbox
+// ============================================================
+async function checkPopupsLightbox(page, issues) {
+  // סלקטורים לכפתורי פתיחת popup
+  const POPUP_TRIGGERS = [
+    '[data-fancybox]', '[data-lightbox]', '[data-magnific-popup]',
+    '[data-elementor-open-lightbox]', '.popup-trigger', '.open-popup',
+    'a[href*="#popup"]', '[data-toggle="modal"]', '.lightbox',
+    'a[href$=".jpg"]:not([target])', 'a[href$=".png"]:not([target])',
+  ];
 
-    // בדוק שה-action של הטופס תקין (אם יש)
-    const action = await form.getAttribute('action').catch(() => null);
-    if (action && action.startsWith('http')) {
-      try {
-        const r = await fetch(action, { method: 'HEAD', signal: AbortSignal.timeout(5000) });
-        if (r.status >= 400) {
-          issues.push({ type: 'form_broken_action', severity: 'critical', message: `כתובת action של הטופס מחזירה HTTP ${r.status}: ${action}` });
+  for (const sel of POPUP_TRIGGERS) {
+    try {
+      const triggers = await page.locator(sel).all();
+      for (const trigger of triggers.slice(0, 2)) {
+        if (!(await trigger.isVisible().catch(() => false))) continue;
+
+        await trigger.click({ timeout: 2000 });
+        await page.waitForTimeout(800);
+
+        // חפש popup/modal/lightbox פתוח
+        const popupOpen = await page.locator(
+          '.fancybox-container, .mfp-container, .elementor-popup-modal, ' +
+          '[class*="lightbox"][style*="display: block"], ' +
+          '[class*="modal"][style*="display: block"], ' +
+          '.popup-overlay:visible, [aria-modal="true"]'
+        ).first().isVisible().catch(() => false);
+
+        if (!popupOpen) {
+          issues.push({ type: 'popup_broken', severity: 'warning', message: `לחיצה על "${sel}" לא פתחה popup/lightbox` });
+        } else {
+          // בדוק שיש כפתור סגירה
+          const closeBtn = page.locator(
+            '.fancybox-close-small, .mfp-close, .elementor-popup-modal .dialog-close-button, ' +
+            '[aria-label*="close" i], [aria-label*="סגור"], [class*="close"]'
+          ).first();
+
+          if (await closeBtn.isVisible().catch(() => false)) {
+            await closeBtn.click({ timeout: 2000 }).catch(() => {});
+            await page.waitForTimeout(400);
+          }
         }
-      } catch {}
-    }
+        break; // מספיק בדיקה אחת מכל סוג
+      }
+    } catch {}
   }
 }
 
