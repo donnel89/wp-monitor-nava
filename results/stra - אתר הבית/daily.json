@@ -1,0 +1,91 @@
+{
+  "mode": "daily",
+  "timestamp": "2026-05-17T12:42:32.071Z",
+  "siteId": "stra - אתר הבית",
+  "siteName": "stra - אתר הבית",
+  "baseUrl": "https://stra.co.il",
+  "summary": {
+    "total": 6,
+    "ok": 2,
+    "warnings": 4,
+    "critical": 0
+  },
+  "results": [
+    {
+      "url": "https://stra.co.il/",
+      "viewport": "desktop",
+      "status": 200,
+      "loadTime": 3899,
+      "issues": []
+    },
+    {
+      "url": "https://stra.co.il/",
+      "viewport": "mobile",
+      "status": 200,
+      "loadTime": 3281,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "אלמנט חסר או מוסתר: nav"
+        }
+      ]
+    },
+    {
+      "url": "https://stra.co.il/blog/organic-promotion-on-google/",
+      "viewport": "desktop",
+      "status": 200,
+      "loadTime": 4098,
+      "issues": [
+        {
+          "type": "js_error",
+          "severity": "warning",
+          "message": "1 שגיאות JS: this.playerObject.h.addEventListener is not a function"
+        }
+      ]
+    },
+    {
+      "url": "https://stra.co.il/blog/organic-promotion-on-google/",
+      "viewport": "mobile",
+      "status": 200,
+      "loadTime": 4026,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "אלמנט חסר או מוסתר: nav"
+        },
+        {
+          "type": "js_error",
+          "severity": "warning",
+          "message": "1 שגיאות JS: this.playerObject.h.addEventListener is not a function"
+        }
+      ]
+    },
+    {
+      "url": "https://stra.co.il/contact/",
+      "viewport": "desktop",
+      "status": 200,
+      "loadTime": 3121,
+      "issues": []
+    },
+    {
+      "url": "https://stra.co.il/contact/",
+      "viewport": "mobile",
+      "status": 200,
+      "loadTime": 3049,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "אלמנט חסר או מוסתר: nav"
+        },
+        {
+          "type": "failed_requests",
+          "severity": "warning",
+          "message": "1 בקשות נכשלו: https://ipapi.co/country"
+        }
+      ]
+    }
+  ]
+}
