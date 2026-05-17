@@ -295,8 +295,12 @@ async function scanSite(browser, site) {
 
   // שליחת דוח אם יש בעיות
   if (totalIssues > 0) {
-    await sendReport(results, mode, site, globalSettings);
-    console.log(`📧 דוח נשלח במייל עבור ${site.name}`);
+    try {
+      await sendReport(results, mode, site, globalSettings);
+      console.log(`📧 דוח נשלח במייל עבור ${site.name}`);
+    } catch (emailErr) {
+      console.error(`⚠️ שליחת מייל נכשלה עבור ${site.name}: ${emailErr.message}`);
+    }
   } else {
     console.log(`✨ הכל תקין ב-${site.name} - לא נשלח מייל`);
   }
