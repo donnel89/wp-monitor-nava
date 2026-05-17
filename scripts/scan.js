@@ -140,15 +140,21 @@ async function scanPage(browser, url, viewport, siteId, siteBaseUrl) {
     });
   }
 
-  // בדיקת אלמנטים קריטיים — בודקים קיום בדום, לא נראות
-  // (nav ו-menu מוסתרים במובייל ע"י המבורגר — זה תקין לחלוטין)
+  // בדיקת אלמנטים קריטיים — קיום בדום בלבד (לא נראות)
+  // לכל selector מגדירים גם fallback רחב יותר
+  const CRITICAL_FALLBACKS = {
+    'nav': 'nav, [role="navigation"], .nav-menu, .main-nav, .primary-nav, #nav, #navigation, [class*="main-menu"], [class*="site-nav"]',
+    'header': 'header, [role="banner"], #header, .site-header',
+    'footer': 'footer, [role="contentinfo"], #footer, .site-footer',
+  };
   for (const selector of globalSettings.criticalSelectors) {
-    const count = await page.locator(selector).count().catch(() => 0);
+    const broadSel = CRITICAL_FALLBACKS[selector] || selector;
+    const count = await page.locator(broadSel).count().catch(() => 0);
     if (count === 0) {
       issues.push({
         type: 'missing_element',
         severity: 'warning',
-        message: `אלמנט חסר ב-DOM: ${selector}`
+        message: `${selector} חסר לחלוטין מה-DOM`
       });
     }
   }
