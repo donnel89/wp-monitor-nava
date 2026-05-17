@@ -238,6 +238,9 @@ async function scanPage(browser, url, viewport, siteId, siteBaseUrl) {
     await checkGdprBanner(page, issues, url, siteBaseUrl);
     await checkContactInfo(page, issues, url, siteBaseUrl);
     await checkBrokenInternalLinks(page, issues, url);
+    await checkForms(page, issues);
+    await checkNavigation(page, issues, url);
+    await checkInteractiveElements(page, issues);
   }
 
   // Core Web Vitals — כל viewport
@@ -599,6 +602,161 @@ async function checkCoreWebVitals(page, issues) {
     issues.push({ type: 'cwv_cls', severity: 'warning', message: `CLS גבוה: ${metrics.cls.toFixed(3)} — הדף קופץ הרבה בטעינה (מקסימום תקין: 0.1)` });
   else if (metrics.cls > 0.1)
     issues.push({ type: 'cwv_cls', severity: 'warning', message: `CLS בינוני: ${metrics.cls.toFixed(3)} — (מקסימום תקין: 0.1)` });
+}
+
+// ============================================================
+//  בדיקת טפסים — מילוי שדות + אימות (ללא שליחה אמיתית)
+// ============================================================
+async function checkForms(page, issues) {
+  const forms = await page.locator('form').all().catch(() => []);
+  if (forms.length === 0) return;
+
+  // נתונים פיקטיביים לבדיקה
+  const TEST_DATA = {
+    text:     'בדיקה אוטומטית',
+    email:    'test@wp-monitor-check.invalid',
+    tel:      '050-0000000',
+    textarea: 'בדיקה אוטומטית של הטופס על ידי WP Monitor',
+    search:   'בדיקה',
+    number:   '1',
+  };
+
+  for (const form of forms.slice(0, 3)) {
+    const formVisible = await form.isVisible().catch(() => false);
+    if (!formVisible) continue;
+
+    // בדוק שלכפתור ה-submit יש טקסט / aria-label
+    const submitBtn = form.locator('button[type="submit"], input[type="submit"], button:not([type])').first();
+    const submitVisible = await submitBtn.isVisible().catch(() => false);
+    if (!submitVisible) {
+      issues.push({ type: 'form_no_submit', severity: 'warning', message: 'טופס ללא כפתור שליחה גלוי' });
+      continue;
+    }
+
+    // מלא שדות חובה
+    const inputs = await form.locator('input:not([type="hidden"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]), textarea').all();
+    let filledCount = 0;
+    for (const input of inputs) {
+      try {
+        if (!(await input.isVisible())) continue;
+        const type = (await input.getAttribute('type') || 'text').toLowerCase();
+        const val  = TEST_DATA[type] || TEST_DATA.text;
+        await input.fill(val, { timeout: 2000 });
+        filledCount++;
+      } catch {}
+    }
+
+    if (filledCount === 0) continue;
+
+    // בדוק שה-HTML5 validation עובד — נבדוק validity ללא שליחה אמיתית
+    const isValid = await form.evaluate(f => {
+      const inputs = [...f.querySelectorAll('input,textarea,select')];
+      return inputs.every(i => i.checkValidity());
+    }).catch(() => true);
+
+    if (!isValid) {
+      issues.push({ type: 'form_validation', severity: 'warning', message: 'טופס לא עובר HTML5 validation — בדוק שדות חובה' });
+    }
+
+    // בדוק שה-action של הטופס תקין (אם יש)
+    const action = await form.getAttribute('action').catch(() => null);
+    if (action && action.startsWith('http')) {
+      try {
+        const r = await fetch(action, { method: 'HEAD', signal: AbortSignal.timeout(5000) });
+        if (r.status >= 400) {
+          issues.push({ type: 'form_broken_action', severity: 'critical', message: `כתובת action של הטופס מחזירה HTTP ${r.status}: ${action}` });
+        }
+      } catch {}
+    }
+  }
+}
+
+// ============================================================
+//  בדיקת ניווט — לחיצה על פריטי תפריט ראשי
+// ============================================================
+async function checkNavigation(page, issues, pageUrl) {
+  // רק בעמוד הבית — כדי לא לכפול בדיקות
+  const baseUrl = new URL(pageUrl).origin;
+  if (pageUrl.replace(/\/$/, '') !== baseUrl) return;
+
+  // מוצא קישורי תפריט ראשי
+  const navLinks = await page.evaluate((origin) => {
+    const navEl = document.querySelector('nav, [role="navigation"], .nav-menu, .main-nav');
+    if (!navEl) return [];
+    return [...new Set(
+      Array.from(navEl.querySelectorAll('a[href]'))
+        .map(a => { try { const u = new URL(a.href); return u.origin === origin ? u.href : null; } catch { return null; } })
+        .filter(Boolean)
+        .filter(h => !h.includes('#'))
+    )].slice(0, 6);
+  }, baseUrl).catch(() => []);
+
+  if (navLinks.length === 0) return;
+
+  const brokenNav = [];
+  await Promise.all(navLinks.map(async link => {
+    try {
+      const r = await fetch(link, { method: 'HEAD', signal: AbortSignal.timeout(6000), redirect: 'follow' });
+      if (r.status >= 400) brokenNav.push(`${link.replace(baseUrl,'')} → ${r.status}`);
+    } catch {}
+  }));
+
+  if (brokenNav.length > 0) {
+    issues.push({
+      type: 'nav_broken_links',
+      severity: 'critical',
+      message: `פריטי ניווט ראשי עם שגיאה: ${brokenNav.join(', ')}`
+    });
+  }
+}
+
+// ============================================================
+//  בדיקת אלמנטים אינטראקטיביים — accordion, tabs, popup
+// ============================================================
+async function checkInteractiveElements(page, issues) {
+  // Accordion / FAQ
+  const accordions = await page.locator(
+    '.accordion, [data-toggle="collapse"], .faq-item, .elementor-accordion-item, .wp-block-faq, details'
+  ).all().catch(() => []);
+
+  for (const acc of accordions.slice(0, 3)) {
+    try {
+      if (!(await acc.isVisible())) continue;
+      const trigger = acc.locator('summary, .accordion-title, .elementor-accordion-title, [aria-expanded], .faq-question').first();
+      if (!(await trigger.isVisible().catch(() => false))) continue;
+
+      const beforeClick = await acc.locator('.accordion-content, .elementor-accordion-content, .faq-answer, [aria-hidden]').first()
+        .isVisible().catch(() => null);
+
+      await trigger.click({ timeout: 2000 });
+      await page.waitForTimeout(400);
+
+      const afterClick = await acc.locator('.accordion-content, .elementor-accordion-content, .faq-answer, [aria-hidden]').first()
+        .isVisible().catch(() => null);
+
+      if (beforeClick === false && afterClick === false) {
+        issues.push({ type: 'accordion_broken', severity: 'warning', message: 'לחיצה על accordion/FAQ לא פתחה את התוכן' });
+        break;
+      }
+    } catch {}
+  }
+
+  // Tabs
+  const tabs = await page.locator('.nav-tabs .nav-link, .elementor-tab-title, [role="tab"]').all().catch(() => []);
+  for (const tab of tabs.slice(1, 3)) { // מדלג על הראשון שכבר פתוח
+    try {
+      if (!(await tab.isVisible())) continue;
+      await tab.click({ timeout: 2000 });
+      await page.waitForTimeout(300);
+      const isActive = await tab.evaluate(el =>
+        el.classList.contains('active') || el.getAttribute('aria-selected') === 'true'
+      ).catch(() => false);
+      if (!isActive) {
+        issues.push({ type: 'tabs_broken', severity: 'warning', message: 'לחיצה על Tab לא הפעילה אותו' });
+        break;
+      }
+    } catch {}
+  }
 }
 
 // ============================================================
