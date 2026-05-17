@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import fs from 'fs/promises';
 import path from 'path';
+import tls from 'tls';
 import { PNG } from 'pngjs';
 import pixelmatch from 'pixelmatch';
 import { XMLParser } from 'fast-xml-parser';
@@ -80,7 +81,7 @@ function urlToFilename(url, viewport) {
 }
 
 // בדיקה של עמוד יחיד
-async function scanPage(browser, url, viewport, siteId) {
+async function scanPage(browser, url, viewport, siteId, siteBaseUrl) {
   const issues = [];
   const context = await browser.newContext({
     viewport: { width: viewport.width, height: viewport.height },
@@ -201,6 +202,22 @@ async function scanPage(browser, url, viewport, siteId) {
       await fs.copyFile(currentPath, baselinePath);
       console.log(`  📸 נוצר baseline חדש עבור ${viewport.name}`);
     }
+  }
+
+  // בדיקות תוכן, SEO ונגישות — desktop בלבד (ללא כפילות)
+  if (status < 400 && viewport.name === 'desktop') {
+    await checkSeo(page, issues, url);
+    await checkBrokenImages(page, issues);
+    await checkMixedContent(page, issues, url);
+    await checkAccessibility(page, issues);
+    await checkGdprBanner(page, issues, url, siteBaseUrl);
+    await checkContactInfo(page, issues, url, siteBaseUrl);
+    await checkBrokenInternalLinks(page, issues, url);
+  }
+
+  // Core Web Vitals — כל viewport
+  if (status < 400) {
+    await checkCoreWebVitals(page, issues);
   }
 
   // בדיקות אינטראקציה — המבורגר + כפתורי CTA
@@ -361,6 +378,266 @@ async function compareImages(baselinePath, currentPath, diffPath) {
   return { diffRatio: diffPixels / (width * height), diffPixels };
 }
 
+// ============================================================
+//  SEO
+// ============================================================
+async function checkSeo(page, issues, url) {
+  // כותרת
+  const title = await page.title().catch(() => '');
+  if (!title) {
+    issues.push({ type: 'seo_title', severity: 'warning', message: 'חסר תג <title>' });
+  } else if (title.length < 30) {
+    issues.push({ type: 'seo_title', severity: 'warning', message: `title קצר מדי: ${title.length} תווים (מינימום 30) — "${title}"` });
+  } else if (title.length > 60) {
+    issues.push({ type: 'seo_title', severity: 'warning', message: `title ארוך מדי: ${title.length} תווים (מקסימום 60)` });
+  }
+
+  // תיאור
+  const desc = await page.locator('meta[name="description"]').getAttribute('content').catch(() => null);
+  if (!desc) {
+    issues.push({ type: 'seo_description', severity: 'warning', message: 'חסר meta description' });
+  } else if (desc.length < 100) {
+    issues.push({ type: 'seo_description', severity: 'warning', message: `meta description קצר: ${desc.length} תווים (מינימום 100)` });
+  } else if (desc.length > 160) {
+    issues.push({ type: 'seo_description', severity: 'warning', message: `meta description ארוך: ${desc.length} תווים (מקסימום 160)` });
+  }
+
+  // H1
+  const h1Count = await page.locator('h1').count().catch(() => 0);
+  if (h1Count === 0) {
+    issues.push({ type: 'seo_h1', severity: 'warning', message: 'חסר תג H1 בעמוד' });
+  } else if (h1Count > 1) {
+    issues.push({ type: 'seo_h1', severity: 'warning', message: `${h1Count} תגי H1 — צריך בדיוק אחד` });
+  }
+
+  // noindex — קריטי!
+  const robots = await page.locator('meta[name="robots"]').getAttribute('content').catch(() => null);
+  if (robots && robots.toLowerCase().includes('noindex')) {
+    issues.push({ type: 'seo_noindex', severity: 'critical', message: `⛔ עמוד מסומן noindex — גוגל לא יסרוק אותו! (robots: "${robots}")` });
+  }
+
+  // Open Graph
+  const ogTitle = await page.locator('meta[property="og:title"]').getAttribute('content').catch(() => null);
+  const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content').catch(() => null);
+  if (!ogTitle || !ogImage) {
+    const missing = [!ogTitle && 'og:title', !ogImage && 'og:image'].filter(Boolean).join(', ');
+    issues.push({ type: 'seo_og', severity: 'warning', message: `חסרים תגי Open Graph: ${missing} (שיתוף ברשתות חברתיות)` });
+  }
+}
+
+// ============================================================
+//  תמונות שבורות
+// ============================================================
+async function checkBrokenImages(page, issues) {
+  const broken = await page.evaluate(() =>
+    Array.from(document.images)
+      .filter(img => img.complete && img.naturalWidth === 0 && img.src.startsWith('http'))
+      .map(img => img.src.split('/').pop())
+      .slice(0, 5)
+  ).catch(() => []);
+
+  if (broken.length > 0) {
+    issues.push({ type: 'broken_images', severity: 'warning', message: `${broken.length} תמונות שבורות: ${broken.join(', ')}` });
+  }
+}
+
+// ============================================================
+//  Mixed Content
+// ============================================================
+async function checkMixedContent(page, issues, url) {
+  if (!url.startsWith('https')) return;
+  const mixed = await page.evaluate(() =>
+    Array.from(document.querySelectorAll('img[src^="http:"],script[src^="http:"],link[href^="http:"],iframe[src^="http:"]'))
+      .map(el => (el.src || el.href || '').split('/').slice(0, 3).join('/'))
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .slice(0, 3)
+  ).catch(() => []);
+
+  if (mixed.length > 0) {
+    issues.push({ type: 'mixed_content', severity: 'warning', message: `${mixed.length} משאבי HTTP על אתר HTTPS (מנעול אדום בדפדפן): ${mixed.join(', ')}` });
+  }
+}
+
+// ============================================================
+//  קישורים פנימיים שבורים
+// ============================================================
+async function checkBrokenInternalLinks(page, issues, pageUrl) {
+  const origin = new URL(pageUrl).origin;
+  const links = await page.evaluate((orig) =>
+    [...new Set(
+      Array.from(document.querySelectorAll('a[href]'))
+        .map(a => { try { return new URL(a.href).href; } catch { return null; } })
+        .filter(h => h && h.startsWith(orig) && !h.includes('#') && !h.match(/\.(pdf|zip|jpg|png|gif|svg|webp)$/i))
+    )].slice(0, 15)
+  , origin).catch(() => []);
+
+  const broken = [];
+  await Promise.all(links.map(async link => {
+    try {
+      const r = await fetch(link, { method: 'HEAD', signal: AbortSignal.timeout(5000), redirect: 'follow' });
+      if (r.status === 404) broken.push(link.replace(origin, '') || '/');
+    } catch {}
+  }));
+
+  if (broken.length > 0) {
+    issues.push({ type: 'broken_links', severity: 'warning', message: `${broken.length} קישורים פנימיים 404: ${broken.slice(0, 3).join(', ')}` });
+  }
+}
+
+// ============================================================
+//  נגישות
+// ============================================================
+async function checkAccessibility(page, issues) {
+  const result = await page.evaluate(() => {
+    const imgsNoAlt = Array.from(document.querySelectorAll('img'))
+      .filter(img => img.offsetParent !== null && !img.hasAttribute('alt') && img.src.startsWith('http'))
+      .length;
+    const btnsNoLabel = Array.from(document.querySelectorAll('button,[role="button"]'))
+      .filter(b => !b.textContent.trim() && !b.getAttribute('aria-label') && !b.getAttribute('title'))
+      .length;
+    return { imgsNoAlt, btnsNoLabel };
+  }).catch(() => ({ imgsNoAlt: 0, btnsNoLabel: 0 }));
+
+  if (result.imgsNoAlt > 0)
+    issues.push({ type: 'a11y_alt', severity: 'warning', message: `${result.imgsNoAlt} תמונות ללא alt text (נגישות + SEO)` });
+  if (result.btnsNoLabel > 0)
+    issues.push({ type: 'a11y_btn', severity: 'warning', message: `${result.btnsNoLabel} כפתורים ללא aria-label` });
+}
+
+// ============================================================
+//  GDPR — באנר עוגיות
+// ============================================================
+async function checkGdprBanner(page, issues, url, siteBaseUrl) {
+  // בודק רק בעמוד הבית
+  const cleanUrl = url.replace(/\/$/, '');
+  const cleanBase = (siteBaseUrl || '').replace(/\/$/, '');
+  if (cleanUrl !== cleanBase) return;
+
+  const hasBanner = await page.evaluate(() => {
+    const selectors = ['[id*="cookie"],[class*="cookie"],[id*="gdpr"],[class*="gdpr"],[id*="consent"],[class*="consent"],[id*="cookie-banner"],[class*="cookie-banner"]'];
+    if (document.querySelector(selectors.join(','))) return true;
+    const keywords = ['cookie','עוגי','gdpr','consent','פרטיות'];
+    return Array.from(document.querySelectorAll('*'))
+      .filter(el => { const s = window.getComputedStyle(el); return s.position==='fixed'||s.position==='sticky'; })
+      .some(el => keywords.some(k => el.textContent.toLowerCase().includes(k)));
+  }).catch(() => true);
+
+  if (!hasBanner) {
+    issues.push({ type: 'gdpr_missing', severity: 'warning', message: 'לא נמצא באנר עוגיות (GDPR) — חובה לפי חוק בישראל ו-EU' });
+  }
+}
+
+// ============================================================
+//  טלפון / WhatsApp
+// ============================================================
+async function checkContactInfo(page, issues, url, siteBaseUrl) {
+  const cleanUrl = url.replace(/\/$/, '');
+  const cleanBase = (siteBaseUrl || '').replace(/\/$/, '');
+  const isHome    = cleanUrl === cleanBase;
+  const isContact = /contact|צור.קשר|יצור.קשר|%d7%a6%d7%95%d7%a8|%d7%99%d7%a6%d7%95%d7%a8/i.test(url);
+  if (!isHome && !isContact) return;
+
+  const hasPhone = await page.evaluate(() =>
+    /(\+972|05\d[-\s]?\d{7}|0[23489]\d?[-\s]?\d{7})/.test(document.body.innerText)
+  ).catch(() => false);
+
+  if (!hasPhone) {
+    issues.push({ type: 'missing_phone', severity: 'warning', message: 'לא נמצא מספר טלפון ישראלי בעמוד (חשוב לאמון + SEO מקומי)' });
+  }
+}
+
+// ============================================================
+//  Core Web Vitals (LCP + CLS)
+// ============================================================
+async function checkCoreWebVitals(page, issues) {
+  const metrics = await page.evaluate(() =>
+    new Promise(resolve => {
+      const r = { lcp: null, cls: 0 };
+      try {
+        new PerformanceObserver(l => { const e = l.getEntries(); if (e.length) r.lcp = e[e.length-1].startTime; })
+          .observe({ type: 'largest-contentful-paint', buffered: true });
+        new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) r.cls += e.value; })
+          .observe({ type: 'layout-shift', buffered: true });
+      } catch {}
+      setTimeout(() => resolve(r), 1200);
+    })
+  ).catch(() => null);
+
+  if (!metrics) return;
+
+  if (metrics.lcp > 4000)
+    issues.push({ type: 'cwv_lcp', severity: 'warning', message: `LCP איטי: ${(metrics.lcp/1000).toFixed(1)}s — צריך להיות מתחת ל-2.5s` });
+  else if (metrics.lcp > 2500)
+    issues.push({ type: 'cwv_lcp', severity: 'warning', message: `LCP סביר: ${(metrics.lcp/1000).toFixed(1)}s — גוגל מעדיף מתחת ל-2.5s` });
+
+  if (metrics.cls > 0.25)
+    issues.push({ type: 'cwv_cls', severity: 'warning', message: `CLS גבוה: ${metrics.cls.toFixed(3)} — הדף קופץ הרבה בטעינה (מקסימום תקין: 0.1)` });
+  else if (metrics.cls > 0.1)
+    issues.push({ type: 'cwv_cls', severity: 'warning', message: `CLS בינוני: ${metrics.cls.toFixed(3)} — (מקסימום תקין: 0.1)` });
+}
+
+// ============================================================
+//  SSL Expiry (per site)
+// ============================================================
+async function checkSslExpiry(site) {
+  const issues = [];
+  if (!site.baseUrl.startsWith('https')) return issues;
+  try {
+    const { hostname } = new URL(site.baseUrl);
+    const daysLeft = await new Promise(resolve => {
+      const sock = tls.connect(443, hostname, { servername: hostname, rejectUnauthorized: false }, () => {
+        const expiry = new Date(sock.getPeerCertificate().valid_to);
+        sock.end();
+        resolve(Math.floor((expiry - Date.now()) / 86400000));
+      });
+      sock.on('error', () => resolve(null));
+      sock.setTimeout(8000, () => { sock.destroy(); resolve(null); });
+    });
+
+    if (daysLeft === null) return issues;
+    if (daysLeft <= 0)
+      issues.push({ type: 'ssl_expired', severity: 'critical', message: '⛔ תעודת SSL פגת תוקף — האתר מציג שגיאת אבטחה לגולשים!' });
+    else if (daysLeft <= 14)
+      issues.push({ type: 'ssl_expiry', severity: 'critical', message: `תעודת SSL פגה בעוד ${daysLeft} ימים בלבד!` });
+    else if (daysLeft <= 30)
+      issues.push({ type: 'ssl_expiry', severity: 'warning', message: `תעודת SSL פגה בעוד ${daysLeft} ימים` });
+  } catch {}
+  return issues;
+}
+
+// ============================================================
+//  WordPress Security (per site)
+// ============================================================
+async function checkWordPressSecurity(site) {
+  const issues = [];
+  const base = site.baseUrl.replace(/\/$/, '');
+
+  // wp-login.php חשוף
+  try {
+    const r = await fetch(`${base}/wp-login.php`, { signal: AbortSignal.timeout(8000), redirect: 'follow' });
+    if (r.status === 200)
+      issues.push({ type: 'wp_login_exposed', severity: 'warning', message: 'wp-login.php נגיש ללא הגנה — סיכון Brute Force' });
+  } catch {}
+
+  // xmlrpc.php פתוח
+  try {
+    const r = await fetch(`${base}/xmlrpc.php`, { signal: AbortSignal.timeout(8000) });
+    if (r.status === 200 || r.status === 405)
+      issues.push({ type: 'wp_xmlrpc', severity: 'warning', message: 'xmlrpc.php פתוח — מומלץ לחסום (סיכון DDoS ו-Brute Force)' });
+  } catch {}
+
+  // גרסת WordPress חשופה
+  try {
+    const r = await fetch(`${base}/`, { signal: AbortSignal.timeout(8000) });
+    const html = await r.text();
+    const match = html.match(/<meta[^>]+name=["']generator["'][^>]+content=["']([^"']*WordPress[^"']*)["']/i);
+    if (match)
+      issues.push({ type: 'wp_version_exposed', severity: 'warning', message: `גרסת WordPress חשופה: "${match[1]}" — מסייע לתוקפים` });
+  } catch {}
+
+  return issues;
+}
+
 // סריקת אתר בודד
 async function scanSite(browser, site) {
   console.log(`\n🌐 סורק אתר: ${site.name} (${site.id})`);
@@ -377,11 +654,24 @@ async function scanSite(browser, site) {
 
   const results = [];
 
+  // בדיקות ברמת האתר (פעם אחת בלבד)
+  console.log(`  🔒 בודק SSL ואבטחת WordPress...`);
+  const siteIssues = [
+    ...(await checkSslExpiry(site)),
+    ...(await checkWordPressSecurity(site))
+  ];
+  if (siteIssues.length > 0) {
+    results.push({ url: site.baseUrl, viewport: 'site', issues: siteIssues, loadTime: null, status: null });
+    console.log(`  ⚠️ נמצאו ${siteIssues.length} בעיות ברמת האתר`);
+  } else {
+    console.log(`  ✅ SSL ואבטחה תקינים`);
+  }
+
   for (let i = 0; i < urls.length; i++) {
     const url = urls[i];
     console.log(`\n  [${i + 1}/${urls.length}] ${url}`);
     for (const viewport of globalSettings.viewports) {
-      const result = await scanPage(browser, url, viewport, site.id);
+      const result = await scanPage(browser, url, viewport, site.id, site.baseUrl);
       results.push(result);
       const issueCount = result.issues.length;
       const icon = issueCount === 0 ? '✅' : '⚠️';
