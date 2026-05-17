@@ -180,11 +180,18 @@ async function scanPage(browser, url, viewport, siteId, siteBaseUrl) {
     });
   }
 
-  // בקשות שנכשלו (סינון - מתעלמים מ-analytics וכו')
+  // בקשות שנכשלו — סינון שירותים צד שלישי שמוגבלי rate-limit או לא קריטיים
+  const REQUEST_IGNORE = [
+    'google-analytics', 'googletagmanager', 'gtag',   // Analytics
+    'facebook.com/tr', 'connect.facebook',             // Facebook Pixel
+    'hotjar', 'clarity.ms',                            // Heatmaps
+    'ipapi.co', 'ipinfo.io', 'ip-api.com',             // Geo-IP: rate-limited מ-GitHub IPs
+    'doubleclick.net', 'googlesyndication',            // פרסומות Google
+    'tiktok.com', 'snap.com', 'pinterest.com/ct',     // Pixels שיווקיים
+    'intercom.io', 'crisp.chat', 'tawk.to',            // צ'אטים
+  ];
   const significantFails = failedRequests.filter(r =>
-    !r.url.includes('google-analytics') &&
-    !r.url.includes('facebook.com/tr') &&
-    !r.url.includes('hotjar')
+    !REQUEST_IGNORE.some(ignore => r.url.includes(ignore))
   );
   if (significantFails.length > 0) {
     issues.push({
