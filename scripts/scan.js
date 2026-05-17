@@ -139,14 +139,15 @@ async function scanPage(browser, url, viewport, siteId) {
     });
   }
 
-  // בדיקת אלמנטים קריטיים
+  // בדיקת אלמנטים קריטיים — בודקים קיום בדום, לא נראות
+  // (nav ו-menu מוסתרים במובייל ע"י המבורגר — זה תקין לחלוטין)
   for (const selector of globalSettings.criticalSelectors) {
-    const exists = await page.locator(selector).first().isVisible().catch(() => false);
-    if (!exists) {
+    const count = await page.locator(selector).count().catch(() => 0);
+    if (count === 0) {
       issues.push({
         type: 'missing_element',
         severity: 'warning',
-        message: `אלמנט חסר או מוסתר: ${selector}`
+        message: `אלמנט חסר ב-DOM: ${selector}`
       });
     }
   }
