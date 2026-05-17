@@ -232,6 +232,11 @@ async function scanPage(browser, url, viewport, siteId, siteBaseUrl) {
   // שמירת headers לבדיקות אבטחה
   const responseHeaders = response?.headers() || {};
 
+  // בדיקת redirect chain (לפני Desktop checks)
+  if (status < 400) {
+    await checkRedirectChain(url, issues);
+  }
+
   // בדיקות תוכן, SEO ונגישות — desktop בלבד (ללא כפילות)
   if (status < 400 && viewport.name === 'desktop') {
     await checkSeo(page, issues, url);
@@ -247,12 +252,25 @@ async function scanPage(browser, url, viewport, siteId, siteBaseUrl) {
     await checkInteractiveElements(page, issues);
     await checkPopupsLightbox(page, issues);
     await checkPerformanceMetrics(page, issues);
+    checkCompression(responseHeaders, issues);
+    checkCookieFlags(responseHeaders, issues);
     await checkSecurityHeaders(responseHeaders, issues);
     await checkSchema(page, issues);
     await checkAnalytics(page, issues, url, siteBaseUrl);
     await checkCopyrightYear(page, issues);
     await checkThinContent(page, issues, url);
     await checkWooCommerce(page, issues, url, siteBaseUrl);
+    await checkCanonical(page, issues, url);
+    await checkWebP(page, issues);
+    await checkCacheHeaders(page, issues);
+    await checkFontLoading(page, issues);
+    await checkWpDebug(page, issues);
+    await checkJQueryVersion(page, issues);
+    await checkPlaceholderText(page, issues);
+    await checkBrokenVideos(page, issues);
+    await checkFavicon(page, issues, url, siteBaseUrl);
+    await checkWhatsApp(page, issues, url, siteBaseUrl);
+    await checkLegalPages(page, issues, url, siteBaseUrl);
   }
 
   // מובייל — בדיקות UX ספציפיות
@@ -1418,6 +1436,346 @@ async function checkWordPressSecurity(site) {
   return issues;
 }
 
+// ============================================================
+//  Canonical Tag (per page)
+// ============================================================
+async function checkCanonical(page, issues, url) {
+  const result = await page.evaluate((pageUrl) => {
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) return { missing: true };
+    const href = (canonical.getAttribute('href') || '').trim();
+    if (!href) return { empty: true };
+    try {
+      const cu = new URL(href);
+      const pu = new URL(pageUrl);
+      if (cu.origin !== pu.origin) return { external: href };
+    } catch { return { invalid: href }; }
+    return { ok: true };
+  }, url).catch(() => ({ ok: true }));
+
+  if (result.missing)
+    issues.push({ type: 'canonical_missing', severity: 'warning', message: 'חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)' });
+  if (result.external)
+    issues.push({ type: 'canonical_external', severity: 'critical', message: `⛔ Canonical מצביע לדומיין חיצוני: ${result.external}` });
+  if (result.empty || result.invalid)
+    issues.push({ type: 'canonical_invalid', severity: 'warning', message: `תג Canonical ריק או לא תקין: "${result.invalid || ''}"` });
+}
+
+// ============================================================
+//  Redirect Chain (per URL)
+// ============================================================
+async function checkRedirectChain(url, issues) {
+  const chain = [];
+  let current = url;
+  for (let i = 0; i < 6; i++) {
+    try {
+      const res = await fetch(current, { method: 'HEAD', redirect: 'manual', signal: AbortSignal.timeout(5000) });
+      if (res.status >= 300 && res.status < 400) {
+        chain.push({ url: current, status: res.status });
+        let loc = res.headers.get('location') || '';
+        if (!loc || loc === current) break;
+        current = loc.startsWith('http') ? loc : new URL(loc, current).href;
+      } else break;
+    } catch { break; }
+  }
+  if (chain.length >= 2) {
+    const hops = chain.map(c => c.url.replace(/^https?:\/\/[^/]+/, '') || '/').join(' → ');
+    issues.push({ type: 'redirect_chain', severity: 'warning',
+      message: `שרשרת הפניות (${chain.length} hop): ${hops} — פוגע ב-SEO ומאיט טעינה` });
+  }
+}
+
+// ============================================================
+//  WebP Images (per page)
+// ============================================================
+async function checkWebP(page, issues) {
+  const result = await page.evaluate(() => {
+    const imgs = Array.from(document.querySelectorAll('img[src]'));
+    const nonWebP = imgs.filter(img => {
+      const src = img.src || '';
+      return /\.(jpe?g|png)(\?|$)/i.test(src) && !src.startsWith('data:') && img.offsetParent !== null;
+    });
+    return { count: nonWebP.length, examples: nonWebP.slice(0, 3).map(i => i.src.split('/').pop().split('?')[0]) };
+  }).catch(() => ({ count: 0, examples: [] }));
+
+  if (result.count > 3)
+    issues.push({ type: 'no_webp', severity: 'warning',
+      message: `${result.count} תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): ${result.examples.join(', ')}` });
+}
+
+// ============================================================
+//  Compression (per page — checks response headers)
+// ============================================================
+function checkCompression(headers, issues) {
+  const encoding = (headers['content-encoding'] || '').toLowerCase();
+  if (!encoding.includes('gzip') && !encoding.includes('br') && !encoding.includes('zstd')) {
+    issues.push({ type: 'no_compression', severity: 'warning',
+      message: 'HTML מוגש ללא דחיסה (Gzip/Brotli לא מופעל) — מגדיל זמן טעינה' });
+  }
+}
+
+// ============================================================
+//  Cache Headers (per page)
+// ============================================================
+async function checkCacheHeaders(page, issues) {
+  const resourceUrl = await page.evaluate(() => {
+    const r = performance.getEntriesByType('resource')
+      .find(e => /\.(css|js)(\?|$)/i.test(e.name) && e.name.includes(window.location.hostname));
+    return r?.name || null;
+  }).catch(() => null);
+  if (!resourceUrl) return;
+  try {
+    const res = await fetch(resourceUrl, { method: 'HEAD', signal: AbortSignal.timeout(5000) });
+    const cc = res.headers.get('cache-control') || '';
+    const exp = res.headers.get('expires') || '';
+    if (!cc && !exp)
+      issues.push({ type: 'no_cache_headers', severity: 'warning',
+        message: 'קבצי CSS/JS ללא Cache-Control — נטענים מחדש בכל ביקור' });
+  } catch {}
+}
+
+// ============================================================
+//  Font Loading (per page)
+// ============================================================
+async function checkFontLoading(page, issues) {
+  const result = await page.evaluate(() => {
+    const gfLinks = Array.from(document.querySelectorAll('head link[href*="fonts.googleapis.com"]'));
+    const hasPreload = gfLinks.some(l => l.rel === 'preload');
+    const hasBlockingGF = gfLinks.some(l => l.rel === 'stylesheet') && !hasPreload;
+    return { hasBlockingGF, count: gfLinks.length };
+  }).catch(() => ({ hasBlockingGF: false }));
+  if (result.hasBlockingGF)
+    issues.push({ type: 'font_blocking', severity: 'warning',
+      message: `${result.count} Google Fonts נטענות ב-<head> וחוסמות רינדור — מומלץ לטעון מקומית או עם preload` });
+}
+
+// ============================================================
+//  Cookie Flags (per page — checks response headers)
+// ============================================================
+function checkCookieFlags(headers, issues) {
+  const raw = headers['set-cookie'] || '';
+  if (!raw) return;
+  const cookies = raw.split('\n').filter(Boolean);
+  const problematic = cookies.filter(c =>
+    /wordpress|wp_|session|auth|login/i.test(c) &&
+    (!c.toLowerCase().includes('secure') || !c.toLowerCase().includes('httponly'))
+  );
+  if (problematic.length > 0)
+    issues.push({ type: 'cookie_flags', severity: 'warning',
+      message: `${problematic.length} עוגיות authentication ללא Secure/HttpOnly — סיכון XSS/MITM` });
+}
+
+// ============================================================
+//  WP Debug (per page)
+// ============================================================
+async function checkWpDebug(page, issues) {
+  const hasDebug = await page.evaluate(() =>
+    /(<b>(?:Notice|Warning|Fatal error|Deprecated|Parse error)<\/b>|WP_DEBUG|wp-content\/debug\.log)/i
+      .test(document.documentElement.innerHTML)
+  ).catch(() => false);
+  if (hasDebug)
+    issues.push({ type: 'wp_debug_on', severity: 'critical',
+      message: '⛔ WP_DEBUG פעיל בייצור — שגיאות PHP גלויות לגולשים' });
+}
+
+// ============================================================
+//  jQuery Version (per page)
+// ============================================================
+async function checkJQueryVersion(page, issues) {
+  const version = await page.evaluate(() => {
+    return window.jQuery?.fn?.jquery || window.$?.fn?.jquery || null;
+  }).catch(() => null);
+  if (!version) return;
+  const [major] = version.split('.').map(Number);
+  if (major < 3)
+    issues.push({ type: 'jquery_outdated', severity: 'warning',
+      message: `jQuery ${version} — גרסה ישנה עם חולשות אבטחה ידועות (מומלץ 3.x)` });
+}
+
+// ============================================================
+//  Placeholder Text (per page)
+// ============================================================
+async function checkPlaceholderText(page, issues) {
+  const found = await page.evaluate(() =>
+    /lorem\s+ipsum|placeholder\s+text|dummy\s+content|sample\s+text/i.test(document.body.innerText || '')
+  ).catch(() => false);
+  if (found)
+    issues.push({ type: 'placeholder_text', severity: 'critical',
+      message: '⛔ נמצא תוכן placeholder ("Lorem Ipsum") — תוכן שלא הוחלף בתוכן אמיתי' });
+}
+
+// ============================================================
+//  Broken Video Embeds (per page)
+// ============================================================
+async function checkBrokenVideos(page, issues) {
+  const result = await page.evaluate(() => {
+    const frames = Array.from(document.querySelectorAll(
+      'iframe[src*="youtube"], iframe[src*="youtu.be"], iframe[src*="vimeo"], iframe[src*="wistia"]'
+    ));
+    const broken = frames.filter(f => {
+      const src = f.getAttribute('src') || '';
+      return !src || src === 'about:blank';
+    }).length;
+    const brokenVideos = Array.from(document.querySelectorAll('video'))
+      .filter(v => v.error !== null || (!v.src && !v.querySelector('source')))
+      .length;
+    return broken + brokenVideos;
+  }).catch(() => 0);
+  if (result > 0)
+    issues.push({ type: 'broken_video', severity: 'warning',
+      message: `${result} סרטוני embed שבורים בעמוד (YouTube/Vimeo/וידאו)` });
+}
+
+// ============================================================
+//  Favicon (homepage only)
+// ============================================================
+async function checkFavicon(page, issues, url, siteBaseUrl) {
+  const cleanUrl  = url.replace(/\/$/, '');
+  const cleanBase = (siteBaseUrl || '').replace(/\/$/, '');
+  if (cleanUrl !== cleanBase) return;
+
+  const result = await page.evaluate(() => {
+    const favicon = document.querySelector('link[rel="icon"], link[rel="shortcut icon"]');
+    const apple   = document.querySelector('link[rel="apple-touch-icon"]');
+    return { hasFavicon: !!favicon, hasApple: !!apple };
+  }).catch(() => ({ hasFavicon: true, hasApple: true }));
+
+  if (!result.hasFavicon)
+    issues.push({ type: 'favicon_missing', severity: 'warning',
+      message: 'חסר Favicon — האתר לא מציג אייקון בטאב הדפדפן ובסימניות' });
+  if (!result.hasApple)
+    issues.push({ type: 'apple_icon_missing', severity: 'warning',
+      message: 'חסר Apple Touch Icon — שמירה לדף הבית של iPhone תוצג ללא אייקון' });
+}
+
+// ============================================================
+//  WhatsApp / Live Chat (homepage only)
+// ============================================================
+async function checkWhatsApp(page, issues, url, siteBaseUrl) {
+  const cleanUrl  = url.replace(/\/$/, '');
+  const cleanBase = (siteBaseUrl || '').replace(/\/$/, '');
+  if (cleanUrl !== cleanBase) return;
+
+  const hasChat = await page.evaluate(() => {
+    const links = document.querySelectorAll(
+      'a[href*="wa.me"], a[href*="whatsapp.com/send"], a[href*="api.whatsapp"]'
+    );
+    const widgets = document.querySelectorAll(
+      '[class*="chat"],[id*="chat"],[class*="whatsapp"],[id*="whatsapp"],[class*="tawk"],[id*="crisp"]'
+    );
+    return links.length > 0 || widgets.length > 0;
+  }).catch(() => true);
+
+  if (!hasChat)
+    issues.push({ type: 'no_whatsapp', severity: 'warning',
+      message: 'לא נמצא כפתור WhatsApp / Live Chat — ערוץ תקשורת מרכזי בישראל' });
+}
+
+// ============================================================
+//  Legal Pages: Privacy, Terms, Accessibility Statement (homepage)
+// ============================================================
+async function checkLegalPages(page, issues, url, siteBaseUrl) {
+  const cleanUrl  = url.replace(/\/$/, '');
+  const cleanBase = (siteBaseUrl || '').replace(/\/$/, '');
+  if (cleanUrl !== cleanBase) return;
+
+  const result = await page.evaluate(() => {
+    const texts = Array.from(document.querySelectorAll('a[href]')).map(a =>
+      (a.textContent || '').trim().toLowerCase()
+    );
+    const hrefs = Array.from(document.querySelectorAll('a[href]')).map(a =>
+      (a.href || '').toLowerCase()
+    );
+    const has = (keywords) =>
+      keywords.some(k => texts.some(t => t.includes(k)) || hrefs.some(h => h.includes(k)));
+
+    return {
+      hasPrivacy: has(['פרטיות','privacy','מדיניות']),
+      hasTerms:   has(['תנאי','שימוש','terms','legal']),
+      hasA11y:    has(['נגישות','accessibility']),
+    };
+  }).catch(() => ({ hasPrivacy: true, hasTerms: true, hasA11y: true }));
+
+  if (!result.hasPrivacy)
+    issues.push({ type: 'no_privacy_policy', severity: 'warning',
+      message: 'לא נמצא קישור למדיניות פרטיות — חובה לפי GDPR וחוק הגנת הפרטיות הישראלי' });
+  if (!result.hasTerms)
+    issues.push({ type: 'no_terms', severity: 'warning',
+      message: 'לא נמצא קישור לתנאי שימוש — מומלץ לכל אתר עסקי' });
+  if (!result.hasA11y)
+    issues.push({ type: 'no_a11y_statement', severity: 'warning',
+      message: 'לא נמצאה הצהרת נגישות — חובה חוקית בישראל לעסקים מסוימים (תקנות 5760)' });
+}
+
+// ============================================================
+//  Sitemap.xml (per site)
+// ============================================================
+async function checkSitemap(site) {
+  const issues = [];
+  const base = site.baseUrl.replace(/\/$/, '');
+  const candidates = [`${base}/sitemap.xml`, `${base}/sitemap_index.xml`];
+  for (const u of candidates) {
+    try {
+      const r = await fetch(u, { signal: AbortSignal.timeout(8000), redirect: 'follow' });
+      if (r.status === 200) {
+        const text = await r.text();
+        if (!text.includes('<urlset') && !text.includes('<sitemapindex'))
+          issues.push({ type: 'sitemap_invalid', severity: 'warning',
+            message: `Sitemap נמצאה אבל לא תקינה (${u})` });
+        return issues;
+      }
+    } catch {}
+  }
+  issues.push({ type: 'sitemap_missing', severity: 'warning',
+    message: 'לא נמצאה sitemap.xml — חשוב לאינדוקס מלא ב-Google' });
+  return issues;
+}
+
+// ============================================================
+//  User Enumeration (per site)
+// ============================================================
+async function checkUserEnumeration(site) {
+  const issues = [];
+  const base = site.baseUrl.replace(/\/$/, '');
+  try {
+    const r = await fetch(`${base}/?author=1`, {
+      method: 'HEAD', redirect: 'manual', signal: AbortSignal.timeout(6000)
+    });
+    if (r.status === 301 || r.status === 302) {
+      const loc = r.headers.get('location') || '';
+      if (loc.includes('/author/')) {
+        const username = loc.match(/\/author\/([^/?#]+)/)?.[1] || '';
+        issues.push({ type: 'user_enumeration', severity: 'critical',
+          message: `⛔ חשיפת שם משתמש מנהל: /?author=1 → ${loc}${username ? ` (שם: ${username})` : ''}` });
+      }
+    }
+  } catch {}
+  return issues;
+}
+
+// ============================================================
+//  Custom 404 Page (per site)
+// ============================================================
+async function check404Page(site) {
+  const issues = [];
+  const base = site.baseUrl.replace(/\/$/, '');
+  const testUrl = `${base}/this-page-definitely-does-not-exist-${Date.now()}`;
+  try {
+    const r = await fetch(testUrl, { signal: AbortSignal.timeout(8000), redirect: 'follow' });
+    if (r.status !== 404) {
+      issues.push({ type: 'no_404_page', severity: 'warning',
+        message: `עמוד 404 לא מוחזר (מחזיר HTTP ${r.status}) — גוגל לא יזהה עמודים חסרים` });
+    } else {
+      const text = await r.text();
+      const words = text.replace(/<[^>]*>/g, ' ').split(/\s+/).filter(Boolean).length;
+      if (words < 60)
+        issues.push({ type: 'weak_404_page', severity: 'warning',
+          message: 'עמוד 404 קיים אבל ריק/מינימלי — שקול להוסיף תוכן מועיל (חיפוש, קישורים פופולריים)' });
+    }
+  } catch {}
+  return issues;
+}
+
 // סריקת אתר בודד
 async function scanSite(browser, site) {
   console.log(`\n🌐 סורק אתר: ${site.name} (${site.id})`);
@@ -1443,6 +1801,9 @@ async function scanSite(browser, site) {
     ...(await checkExposedFiles(site)),
     ...(await checkRobotsTxt(site)),
     ...(await checkDirectoryListing(site)),
+    ...(await checkSitemap(site)),
+    ...(await checkUserEnumeration(site)),
+    ...(await check404Page(site)),
   ];
   if (siteIssues.length > 0) {
     results.push({ url: site.baseUrl, viewport: 'site', issues: siteIssues, loadTime: null, status: null });
