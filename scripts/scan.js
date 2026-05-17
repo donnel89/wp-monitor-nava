@@ -19,18 +19,20 @@ console.log(`🔍 התחלת סריקה במצב: ${mode}`);
 
 // טעינת קונפיגורציה
 const config = JSON.parse(await fs.readFile('./config.json', 'utf-8'));
+const { globalSettings } = config;
 
-// קביעת כתובות לסריקה לפי מצב
-async function getUrlsToScan(mode, config) {
-  if (mode === 'daily') return config.daily.urls;
+// קביעת כתובות לסריקה לפי מצב ואתר
+async function getUrlsToScan(mode, site) {
+  if (mode === 'daily') return site.daily.urls;
   if (mode === 'weekly') {
-    return config.weekly.urls.length > 0
-      ? config.weekly.urls
-      : config.daily.urls; // fallback
+    return site.weekly.urls.length > 0
+      ? site.weekly.urls
+      : site.daily.urls; // fallback
   }
   if (mode === 'monthly') {
-    return await fetchSitemapUrls(config.monthly.sitemapUrl, config.monthly.maxUrls);
+    return await fetchSitemapUrls(site.monthly.sitemapUrl, site.monthly.maxUrls);
   }
+  return [];
 }
 
 // משיכת URLs מ-sitemap
@@ -63,11 +65,12 @@ async function fetchSitemapUrls(sitemapUrl, maxUrls) {
   }
 }
 
-// יצירת תיקיות עבודה
-async function ensureDirs() {
-  await fs.mkdir(`./screenshots/baseline/${mode}`, { recursive: true });
-  await fs.mkdir(`./screenshots/current/${mode}`, { recursive: true });
-  await fs.mkdir(`./screenshots/diff/${mode}`, { recursive: true });
+// יצירת תיקיות עבודה לאתר מסוים
+async function ensureDirs(siteId) {
+  await fs.mkdir(`./screenshots/baseline/${siteId}/${mode}`, { recursive: true });
+  await fs.mkdir(`./screenshots/current/${siteId}/${mode}`, { recursive: true });
+  await fs.mkdir(`./screenshots/diff/${siteId}/${mode}`, { recursive: true });
+  await fs.mkdir(`./results/${siteId}`, { recursive: true });
 }
 
 // המרת URL לשם קובץ בטוח
@@ -77,7 +80,7 @@ function urlToFilename(url, viewport) {
 }
 
 // בדיקה של עמוד יחיד
-async function scanPage(browser, url, viewport) {
+async function scanPage(browser, url, viewport, siteId) {
   const issues = [];
   const context = await browser.newContext({
     viewport: { width: viewport.width, height: viewport.height },
@@ -137,7 +140,7 @@ async function scanPage(browser, url, viewport) {
   }
 
   // בדיקת אלמנטים קריטיים
-  for (const selector of config.criticalSelectors) {
+  for (const selector of globalSettings.criticalSelectors) {
     const exists = await page.locator(selector).first().isVisible().catch(() => false);
     if (!exists) {
       issues.push({
@@ -174,9 +177,9 @@ async function scanPage(browser, url, viewport) {
   // צילום מסך והשוואה ויזואלית
   if (status < 400) {
     const filename = urlToFilename(url, viewport.name);
-    const currentPath = `./screenshots/current/${mode}/${filename}`;
-    const baselinePath = `./screenshots/baseline/${mode}/${filename}`;
-    const diffPath = `./screenshots/diff/${mode}/${filename}`;
+    const currentPath = `./screenshots/current/${siteId}/${mode}/${filename}`;
+    const baselinePath = `./screenshots/baseline/${siteId}/${mode}/${filename}`;
+    const diffPath = `./screenshots/diff/${siteId}/${mode}/${filename}`;
 
     await page.screenshot({ path: currentPath, fullPage: true });
 
@@ -184,7 +187,7 @@ async function scanPage(browser, url, viewport) {
     try {
       await fs.access(baselinePath);
       const diffResult = await compareImages(baselinePath, currentPath, diffPath);
-      if (diffResult.diffRatio > config.diffThreshold) {
+      if (diffResult.diffRatio > globalSettings.diffThreshold) {
         issues.push({
           type: 'visual_diff',
           severity: 'warning',
@@ -229,49 +232,49 @@ async function compareImages(baselinePath, currentPath, diffPath) {
   return { diffRatio: diffPixels / (width * height), diffPixels };
 }
 
-// MAIN
-async function main() {
-  await ensureDirs();
-  const urls = await getUrlsToScan(mode, config);
+// סריקת אתר בודד
+async function scanSite(browser, site) {
+  console.log(`\n🌐 סורק אתר: ${site.name} (${site.id})`);
+
+  await ensureDirs(site.id);
+  const urls = await getUrlsToScan(mode, site);
 
   if (urls.length === 0) {
-    console.error('❌ לא נמצאו URLs לסריקה');
-    process.exit(1);
+    console.warn(`⚠️ לא נמצאו URLs לסריקה עבור ${site.name}`);
+    return null;
   }
 
-  console.log(`📋 סורק ${urls.length} עמודים ב-${config.viewports.length} viewports`);
+  console.log(`📋 סורק ${urls.length} עמודים ב-${globalSettings.viewports.length} viewports`);
 
-  const browser = await chromium.launch();
   const results = [];
 
   for (let i = 0; i < urls.length; i++) {
     const url = urls[i];
-    console.log(`\n[${i + 1}/${urls.length}] ${url}`);
-    for (const viewport of config.viewports) {
-      const result = await scanPage(browser, url, viewport);
+    console.log(`\n  [${i + 1}/${urls.length}] ${url}`);
+    for (const viewport of globalSettings.viewports) {
+      const result = await scanPage(browser, url, viewport, site.id);
       results.push(result);
       const issueCount = result.issues.length;
       const icon = issueCount === 0 ? '✅' : '⚠️';
-      console.log(`  ${icon} ${viewport.name}: ${issueCount} בעיות, ${result.loadTime}ms, HTTP ${result.status}`);
+      console.log(`    ${icon} ${viewport.name}: ${issueCount} בעיות, ${result.loadTime}ms, HTTP ${result.status}`);
     }
   }
 
-  await browser.close();
-
-  // סיכום
+  // סיכום לאתר
   const totalIssues = results.reduce((sum, r) => sum + r.issues.length, 0);
   const criticalIssues = results.reduce(
     (sum, r) => sum + r.issues.filter(i => i.severity === 'critical').length, 0
   );
 
-  console.log(`\n📊 סיכום: ${totalIssues} בעיות סה"כ (${criticalIssues} קריטיות)`);
+  console.log(`\n📊 סיכום ${site.name}: ${totalIssues} בעיות סה"כ (${criticalIssues} קריטיות)`);
 
-  // שמירת תוצאות ל-JSON לדשבורד
-  await fs.mkdir('./results', { recursive: true });
+  // שמירת תוצאות ל-JSON
   const jsonResults = {
     mode,
     timestamp: new Date().toISOString(),
-    siteName: config.siteName,
+    siteId: site.id,
+    siteName: site.name,
+    baseUrl: site.baseUrl,
     summary: {
       total: results.length,
       ok: results.filter(r => r.issues.length === 0).length,
@@ -286,16 +289,56 @@ async function main() {
       issues: r.issues.map(i => ({ type: i.type, severity: i.severity, message: i.message }))
     }))
   };
-  await fs.writeFile(`./results/${mode}.json`, JSON.stringify(jsonResults, null, 2));
-  console.log(`💾 תוצאות נשמרו ב-results/${mode}.json`);
 
-  // שליחת דוח רק אם יש בעיות
+  await fs.writeFile(`./results/${site.id}/${mode}.json`, JSON.stringify(jsonResults, null, 2));
+  console.log(`💾 תוצאות נשמרו ב-results/${site.id}/${mode}.json`);
+
+  // שליחת דוח אם יש בעיות
   if (totalIssues > 0) {
-    await sendReport(results, mode, config);
-    console.log('📧 דוח נשלח במייל');
+    await sendReport(results, mode, site, globalSettings);
+    console.log(`📧 דוח נשלח במייל עבור ${site.name}`);
   } else {
-    console.log('✨ הכל תקין - לא נשלח מייל');
+    console.log(`✨ הכל תקין ב-${site.name} - לא נשלח מייל`);
   }
+
+  return { id: site.id, name: site.name, baseUrl: site.baseUrl };
+}
+
+// MAIN
+async function main() {
+  const activeSites = config.sites.filter(s => s.active !== false);
+
+  if (activeSites.length === 0) {
+    console.error('❌ לא נמצאו אתרים פעילים ב-config.json');
+    process.exit(1);
+  }
+
+  console.log(`🌐 מצא ${activeSites.length} אתרים פעילים`);
+
+  const browser = await chromium.launch();
+  const scannedSites = [];
+
+  for (const site of activeSites) {
+    try {
+      const result = await scanSite(browser, site);
+      if (result) scannedSites.push(result);
+    } catch (err) {
+      console.error(`💥 שגיאה בסריקת ${site.name}: ${err.message}`);
+    }
+  }
+
+  await browser.close();
+
+  // שמירת index.json עם רשימת האתרים
+  const indexData = {
+    updatedAt: new Date().toISOString(),
+    mode,
+    sites: scannedSites
+  };
+  await fs.writeFile('./results/index.json', JSON.stringify(indexData, null, 2));
+  console.log('\n📁 results/index.json עודכן');
+
+  console.log(`\n✅ סריקה הושלמה עבור ${scannedSites.length} אתרים`);
 }
 
 main().catch(err => {

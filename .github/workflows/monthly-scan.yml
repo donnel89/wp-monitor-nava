@@ -70,10 +70,11 @@ jobs:
         if: always()
         run: |
           git clone https://${{ secrets.DASHBOARD_TOKEN }}@github.com/donnel89/wp-monitor-dashboard.git /tmp/dashboard-repo
-          cp -f results/monthly.json /tmp/dashboard-repo/results/monthly.json 2>/dev/null || true
+          mkdir -p /tmp/dashboard-repo/results
+          cp -rf results/. /tmp/dashboard-repo/results/
           cd /tmp/dashboard-repo
           git config user.name "WP Monitor Bot"
           git config user.email "monitor@github.com"
           git add results/
-          git diff --staged --quiet || git commit -m "📊 תוצאות חודשי $(date '+%Y-%m-%d %H:%M')"
+          git diff --staged --quiet || git commit -m "📊 תוצאות $(date '+%Y-%m-%d %H:%M')"
           git push

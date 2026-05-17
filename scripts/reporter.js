@@ -3,16 +3,16 @@ import fs from 'fs/promises';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendReport(results, mode, config) {
+export async function sendReport(results, mode, site, globalSettings) {
   const totalIssues = results.reduce((sum, r) => sum + r.issues.length, 0);
   const criticalCount = results.reduce(
     (sum, r) => sum + r.issues.filter(i => i.severity === 'critical').length, 0
   );
 
   const modeLabel = { daily: 'יומית', weekly: 'שבועית', monthly: 'חודשית' }[mode];
-  const subject = `${criticalCount > 0 ? '🚨' : '⚠️'} דוח סריקה ${modeLabel} - ${totalIssues} בעיות באתר`;
+  const subject = `${criticalCount > 0 ? '🚨' : '⚠️'} דוח סריקה ${modeLabel} - ${site.name} - ${totalIssues} בעיות`;
 
-  const html = buildHtml(results, mode, config, totalIssues, criticalCount);
+  const html = buildHtml(results, mode, site, globalSettings, totalIssues, criticalCount);
 
   // איסוף קבצי diff לקבצים מצורפים (עד 5 כדי לא לחרוג ממגבלות)
   const attachments = [];
@@ -33,8 +33,8 @@ export async function sendReport(results, mode, config) {
   }
 
   const { data, error } = await resend.emails.send({
-    from: config.fromEmail,
-    to: config.alertEmail,
+    from: globalSettings.fromEmail,
+    to: site.alertEmail,
     subject,
     html,
     attachments
@@ -47,7 +47,7 @@ export async function sendReport(results, mode, config) {
   return data;
 }
 
-function buildHtml(results, mode, config, totalIssues, criticalCount) {
+function buildHtml(results, mode, site, globalSettings, totalIssues, criticalCount) {
   const modeLabel = { daily: 'יומית', weekly: 'שבועית', monthly: 'חודשית' }[mode];
   const date = new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' });
 
@@ -86,7 +86,8 @@ function buildHtml(results, mode, config, totalIssues, criticalCount) {
 
     <div style="background: ${criticalCount > 0 ? '#dc2626' : '#f59e0b'}; color: white; padding: 24px;">
       <h1 style="margin: 0; font-size: 24px;">דוח סריקה ${modeLabel}</h1>
-      <p style="margin: 8px 0 0 0; opacity: 0.9;">${config.siteName} | ${date}</p>
+      <p style="margin: 8px 0 0 0; opacity: 0.9;">${site.name} | ${date}</p>
+      <p style="margin: 4px 0 0 0; opacity: 0.75; font-size: 14px;">${site.baseUrl}</p>
     </div>
 
     <div style="padding: 24px;">
@@ -119,7 +120,7 @@ function buildHtml(results, mode, config, totalIssues, criticalCount) {
 
       <div style="margin-top: 24px; padding: 16px; background: #f9fafb; border-radius: 8px; color: #6b7280; font-size: 13px;">
         <strong>💡 טיפ:</strong> אם הבדלים ויזואליים הם תוצאה של שינוי מכוון, מחק את התיקייה
-        <code style="background: white; padding: 2px 6px; border-radius: 4px;">screenshots/baseline/${mode}</code>
+        <code style="background: white; padding: 2px 6px; border-radius: 4px;">screenshots/baseline/${site.id}/${mode}</code>
         כדי לעדכן את הבייסליין.
       </div>
     </div>
