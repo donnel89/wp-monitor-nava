@@ -203,9 +203,137 @@ async function scanPage(browser, url, viewport, siteId) {
     }
   }
 
+  // בדיקות אינטראקציה — המבורגר + כפתורי CTA
+  if (status < 400) {
+    await testInteractions(page, issues, viewport);
+  }
+
   await context.close();
   return { url, viewport: viewport.name, issues, loadTime, status };
 }
+
+// ============================================================
+//  בדיקות אינטראקציה
+// ============================================================
+
+// סלקטורים נפוצים לכפתור המבורגר
+const HAMBURGER_SELECTORS = [
+  'button.hamburger', '.menu-toggle', '.nav-toggle', '.navbar-toggle',
+  '#nav-toggle', '#menu-toggle', '.burger', '.mobile-menu-toggle',
+  'button[aria-label*="menu" i]', 'button[aria-label*="תפריט"]',
+  'button[aria-expanded]', '[class*="hamburger"]', '[class*="menu-btn"]',
+  '[class*="mobile-menu"]', '[class*="nav-icon"]',
+];
+
+// סלקטורים נפוצים לכפתורי CTA
+const CTA_SELECTORS = [
+  'a.btn', 'a.button', '.wp-block-button__link', '.wp-block-button a',
+  '[class*="cta"] a', 'a[class*="btn-"]', 'a[class*="-btn"]',
+  'a[class*="button"]', '.elementor-button-link', '.et_pb_button',
+];
+
+async function testInteractions(page, issues, viewport) {
+  // בדיקת המבורגר — רק במובייל
+  if (viewport.name === 'mobile') {
+    await testHamburger(page, issues);
+  }
+
+  // בדיקת כפתורי CTA — כל viewport
+  await testCtaButtons(page, issues, viewport);
+}
+
+async function testHamburger(page, issues) {
+  // מחפש כפתור המבורגר גלוי
+  let hamburger = null;
+  for (const sel of HAMBURGER_SELECTORS) {
+    try {
+      const el = page.locator(sel).first();
+      if (await el.isVisible({ timeout: 800 })) { hamburger = el; break; }
+    } catch {}
+  }
+
+  if (!hamburger) return; // אין המבורגר — דלג
+
+  try {
+    // לפני לחיצה — בודק מה מוסתר
+    const navHiddenBefore = await page.locator('nav').first().isHidden().catch(() => true);
+
+    await hamburger.click({ timeout: 3000 });
+    await page.waitForTimeout(700);
+
+    // אחרי לחיצה — nav / menu צריך להיפתח
+    const navVisibleAfter = await page.locator(
+      'nav, [class*="nav-menu"], [class*="mobile-menu"], [id*="menu"]'
+    ).first().isVisible({ timeout: 1500 }).catch(() => false);
+
+    if (navHiddenBefore && !navVisibleAfter) {
+      issues.push({
+        type: 'hamburger_broken',
+        severity: 'warning',
+        message: 'לחיצה על תפריט המבורגר לא פתחה את הניווט'
+      });
+    }
+  } catch (err) {
+    issues.push({
+      type: 'hamburger_broken',
+      severity: 'warning',
+      message: `כפתור המבורגר לא הגיב ללחיצה: ${err.message.split('\n')[0]}`
+    });
+  }
+}
+
+async function testCtaButtons(page, issues, viewport) {
+  const ctaData = [];
+
+  for (const sel of CTA_SELECTORS) {
+    try {
+      const els = await page.locator(sel).all();
+      for (const el of els.slice(0, 8)) {
+        if (!(await el.isVisible().catch(() => false))) continue;
+        const href = await el.getAttribute('href').catch(() => null);
+        const text = (await el.textContent().catch(() => '')).trim().replace(/\s+/g, ' ').slice(0, 50);
+        if (text || href) ctaData.push({ href, text });
+      }
+    } catch {}
+    if (ctaData.length >= 8) break;
+  }
+
+  if (ctaData.length === 0) return;
+
+  // כפתורים ללא href או עם href ריק
+  const emptyCtAs = ctaData.filter(c => !c.href || c.href === '#' || c.href === 'javascript:void(0)');
+  if (emptyCtAs.length > 0) {
+    issues.push({
+      type: 'cta_no_link',
+      severity: 'warning',
+      message: `${emptyCtAs.length} כפתורי CTA ללא קישור: "${emptyCtAs.map(c => c.text).join('", "')}"`,
+    });
+  }
+
+  // בדיקת קישורים — HEAD request במקביל (רק קישורי טקסט מלא)
+  const linksToCheck = ctaData
+    .filter(c => c.href && c.href.startsWith('http') && !emptyCtAs.includes(c))
+    .slice(0, 5);
+
+  const brokenLinks = [];
+  await Promise.all(linksToCheck.map(async ({ href, text }) => {
+    try {
+      const res = await fetch(href, { method: 'HEAD', signal: AbortSignal.timeout(8000) });
+      if (res.status >= 400) {
+        brokenLinks.push(`"${text}" → HTTP ${res.status} (${href})`);
+      }
+    } catch {}
+  }));
+
+  if (brokenLinks.length > 0) {
+    issues.push({
+      type: 'cta_broken_link',
+      severity: 'critical',
+      message: `כפתורי CTA עם קישור שבור: ${brokenLinks.join(' | ')}`
+    });
+  }
+}
+
 
 // השוואת תמונות
 async function compareImages(baselinePath, currentPath, diffPath) {
