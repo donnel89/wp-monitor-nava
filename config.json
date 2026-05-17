@@ -59,6 +59,23 @@
         "sitemapUrl": "https://navacollage.co.il/sitemap_index.xml",
         "maxUrls": 500
       }
+    },
+    {
+      "id": "stra - אתר הבית",
+      "name": "stra - אתר הבית",
+      "baseUrl": "https://stra.co.il",
+      "alertEmail": "office@stra.co.il",
+      "active": true,
+      "daily": {
+        "urls": []
+      },
+      "weekly": {
+        "urls": []
+      },
+      "monthly": {
+        "sitemapUrl": "https://stra.co.il/sitemap_index.xml",
+        "maxUrls": 500
+      }
     }
   ]
 }
