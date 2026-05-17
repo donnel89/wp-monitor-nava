@@ -1166,11 +1166,52 @@ async function checkMobileUX(page, issues) {
         return parseFloat(window.getComputedStyle(el).fontSize) < 14;
       }).length;
 
-    // גלילה אופקית
-    const hasHScroll = document.documentElement.scrollWidth > document.documentElement.clientWidth + 5;
+    // גלילה אופקית — בדיקה מקיפה
+    const vw = document.documentElement.clientWidth;
+    const overflowPx = document.documentElement.scrollWidth - vw;
+    const hasHScroll = overflowPx > 5;
 
-    return { smallTargets, smallFontEls, hasHScroll };
-  }).catch(() => ({ smallTargets: 0, smallFontEls: 0, hasHScroll: false }));
+    // זיהוי האלמנטים שחורגים מרוחב המסך
+    let offenders = [];
+    if (hasHScroll) {
+      offenders = Array.from(document.querySelectorAll('*'))
+        .filter(el => {
+          if (!el.offsetParent && el.tagName !== 'BODY') return false;
+          const r = el.getBoundingClientRect();
+          return r.right > vw + 5 || r.left < -5;
+        })
+        .map(el => {
+          const tag = el.tagName.toLowerCase();
+          const id = el.id ? `#${el.id}` : '';
+          const cls = el.className && typeof el.className === 'string'
+            ? '.' + el.className.trim().split(/\s+/).slice(0, 2).join('.')
+            : '';
+          const r = el.getBoundingClientRect();
+          return { selector: `${tag}${id}${cls}`.slice(0, 60), overflowRight: Math.round(r.right - vw) };
+        })
+        .filter(o => o.overflowRight > 5)
+        .sort((a, b) => b.overflowRight - a.overflowRight)
+        .slice(0, 3);
+    }
+
+    return { smallTargets, smallFontEls, hasHScroll, overflowPx, offenders };
+  }).catch(() => ({ smallTargets: 0, smallFontEls: 0, hasHScroll: false, overflowPx: 0, offenders: [] }));
+
+  // בדיקת גלילה אופקית גם באמצע הדף (אחרי גלילה אנכית)
+  let hscrollMidPage = false;
+  try {
+    const pageHeight = await page.evaluate(() => document.body.scrollHeight);
+    if (pageHeight > 1500) {
+      await page.evaluate(() => window.scrollTo(0, Math.floor(document.body.scrollHeight / 2)));
+      await page.waitForTimeout(300);
+      hscrollMidPage = await page.evaluate(() =>
+        document.documentElement.scrollWidth > document.documentElement.clientWidth + 5
+      );
+      await page.evaluate(() => window.scrollTo(0, 0));
+    }
+  } catch {}
+
+  const hasAnyHScroll = result.hasHScroll || hscrollMidPage;
 
   if (result.smallTargets > 3)
     issues.push({ type: 'mobile_touch_targets', severity: 'warning', message: `${result.smallTargets} אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ` });
@@ -1178,8 +1219,15 @@ async function checkMobileUX(page, issues) {
   if (result.smallFontEls > 10)
     issues.push({ type: 'mobile_font_size', severity: 'warning', message: `גופן קטן מדי ב-${result.smallFontEls} אלמנטים (פחות מ-14px) — קשה לקריאה במובייל` });
 
-  if (result.hasHScroll)
-    issues.push({ type: 'mobile_hscroll', severity: 'warning', message: 'גלילה אופקית קיימת במובייל — אלמנט רוחבי יותר מהמסך (overflow)' });
+  if (hasAnyHScroll) {
+    const where = result.hasHScroll ? 'בטעינה' : 'באמצע הדף';
+    const px = result.overflowPx > 0 ? ` (${result.overflowPx}px חריגה)` : '';
+    const culprits = result.offenders.length > 0
+      ? ' — אלמנטים חשודים: ' + result.offenders.map(o => `${o.selector} (+${o.overflowRight}px)`).join(', ')
+      : '';
+    issues.push({ type: 'mobile_hscroll', severity: 'warning',
+      message: `גלילה אופקית במובייל ${where}${px}${culprits}` });
+  }
 }
 
 // ============================================================
