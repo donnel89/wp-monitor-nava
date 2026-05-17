@@ -67,7 +67,11 @@
       "alertEmail": "office@stra.co.il",
       "active": true,
       "daily": {
-        "urls": []
+        "urls": [
+          "https://stra.co.il/",
+          "https://stra.co.il/blog/organic-promotion-on-google/",
+          "https://stra.co.il/contact/"
+        ]
       },
       "weekly": {
         "urls": []
