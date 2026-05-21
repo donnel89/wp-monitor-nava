@@ -271,6 +271,7 @@ async function scanPage(browser, url, viewport, siteId, siteBaseUrl) {
     await checkFavicon(page, issues, url, siteBaseUrl);
     await checkWhatsApp(page, issues, url, siteBaseUrl);
     await checkLegalPages(page, issues, url, siteBaseUrl);
+    await checkSpelling(page, issues, url);
   }
 
   // מובייל — בדיקות UX ספציפיות
@@ -1776,6 +1777,136 @@ async function check404Page(site) {
   return issues;
 }
 
+// ============================================================
+//  Spell Check — Hebrew via LanguageTool (per page)
+// ============================================================
+async function checkSpelling(page, issues, url) {
+  // דלג על עמודי WooCommerce ואדמין
+  if (/cart|checkout|my-account|wp-admin|\/tag\/|\/category\//i.test(url)) return;
+
+  const text = await page.evaluate(() => {
+    // הסתר ניווט/header/footer כדי לבדוק רק תוכן עמוד
+    const skip = document.querySelectorAll('nav, header, footer, .site-header, .site-footer, script, style, [class*="menu"], [class*="header"], [class*="footer"]');
+    skip.forEach(el => { el.dataset._sh = el.style.visibility; el.style.visibility = 'hidden'; });
+    const content = document.querySelector('main, article, .entry-content, .page-content, #content, .elementor-section') || document.body;
+    const raw = (content.innerText || '').replace(/https?:\/\/\S+/g, '').replace(/\s+/g, ' ').trim();
+    skip.forEach(el => { el.style.visibility = el.dataset._sh || ''; });
+    return raw.slice(0, 1500);
+  }).catch(() => '');
+
+  if (text.length < 80) return;
+
+  try {
+    const res = await fetch('https://api.languagetool.org/v2/check', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ text, language: 'he' }).toString(),
+      signal: AbortSignal.timeout(14000),
+    });
+    if (!res.ok) return; // 429 rate limit — דלג בשקט
+    const data = await res.json();
+
+    const errors = (data.matches || []).filter(m =>
+      m.rule?.issueType === 'misspelling' &&
+      m.context?.text?.slice(m.context.offset, m.context.offset + m.context.length).length > 1
+    );
+
+    if (errors.length >= 3) {
+      const examples = errors.slice(0, 4)
+        .map(e => `"${e.context.text.slice(e.context.offset, e.context.offset + e.context.length)}"`)
+        .join(', ');
+      issues.push({ type: 'spelling_errors', severity: 'warning',
+        message: `${errors.length} שגיאות כתיב אפשריות: ${examples}` });
+    }
+  } catch {} // timeout / network — דלג בשקט
+}
+
+// ============================================================
+//  WordPress Core Version (per site)
+// ============================================================
+async function checkWordPressVersion(site) {
+  const issues = [];
+  const base = site.baseUrl.replace(/\/$/, '');
+
+  // נסה לשלוף גרסת WP מהmeta generator
+  let wpVersion = null;
+  try {
+    const res = await fetch(`${base}/`, { signal: AbortSignal.timeout(8000) });
+    const html = await res.text();
+    wpVersion = html.match(/<meta[^>]+name=["']generator["'][^>]+content=["']WordPress\s+([\d.]+)/i)?.[1];
+  } catch {}
+
+  if (!wpVersion) return issues; // גרסה חסויה — לא ניתן לבדוק
+
+  // שלוף גרסת WP עדכנית מwordpress.org
+  try {
+    const latestRes = await fetch('https://api.wordpress.org/core/version-check/1.7/', {
+      signal: AbortSignal.timeout(8000),
+    });
+    const latestData = await latestRes.json();
+    const latest = latestData.offers?.[0]?.current;
+    if (!latest) return issues;
+
+    const parse = v => v.split('.').map(Number);
+    const cur = parse(wpVersion);
+    const lat = parse(latest);
+    const isOutdated =
+      lat[0] > cur[0] ||
+      (lat[0] === cur[0] && lat[1] > (cur[1] || 0)) ||
+      (lat[0] === cur[0] && lat[1] === (cur[1] || 0) && (lat[2] || 0) > (cur[2] || 0));
+
+    if (isOutdated) {
+      const isMajorMinor = lat[0] > cur[0] || lat[1] > (cur[1] || 0);
+      issues.push({ type: 'wp_core_outdated', severity: isMajorMinor ? 'critical' : 'warning',
+        message: `WordPress ${wpVersion} מותקן — גרסה ${latest} זמינה (עדכן לאבטחה ויציבות)` });
+    }
+  } catch {}
+
+  return issues;
+}
+
+// ============================================================
+//  Google Crawl Freshness (per site)
+// ============================================================
+async function checkGoogleCrawl(site) {
+  const issues = [];
+  const base = site.baseUrl.replace(/\/$/, '');
+  const now = Date.now();
+
+  // 1. Last-Modified header בעמוד הבית
+  try {
+    const res = await fetch(`${base}/`, { method: 'HEAD', signal: AbortSignal.timeout(6000) });
+    const lm = res.headers.get('last-modified');
+    if (lm) {
+      const daysSince = Math.floor((now - new Date(lm).getTime()) / 86400000);
+      if (daysSince > 180)
+        issues.push({ type: 'content_stale', severity: 'warning',
+          message: `עמוד הבית לא עודכן מזה ${daysSince} ימים (Last-Modified) — גוגל מדרג תוכן טרי יותר` });
+    }
+  } catch {}
+
+  // 2. lastmod ב-Sitemap
+  try {
+    for (const path of ['/sitemap.xml', '/sitemap_index.xml']) {
+      const res = await fetch(`${base}${path}`, { signal: AbortSignal.timeout(8000) });
+      if (res.status !== 200) continue;
+      const text = await res.text();
+      const dates = [...text.matchAll(/<lastmod>([^<]+)<\/lastmod>/gi)]
+        .map(m => new Date(m[1].trim()).getTime())
+        .filter(t => !isNaN(t));
+      if (dates.length === 0) break;
+      const latestDate = Math.max(...dates);
+      const daysSince = Math.floor((now - latestDate) / 86400000);
+      if (daysSince > 60)
+        issues.push({ type: 'sitemap_lastmod_stale', severity: 'warning',
+          message: `תאריך lastmod ב-Sitemap לא עודכן מזה ${daysSince} ימים — גוגל עלול לסרוק פחות דפים` });
+      break;
+    }
+  } catch {}
+
+  return issues;
+}
+
 // סריקת אתר בודד
 async function scanSite(browser, site) {
   console.log(`\n🌐 סורק אתר: ${site.name} (${site.id})`);
@@ -1804,6 +1935,8 @@ async function scanSite(browser, site) {
     ...(await checkSitemap(site)),
     ...(await checkUserEnumeration(site)),
     ...(await check404Page(site)),
+    ...(await checkWordPressVersion(site)),
+    ...(await checkGoogleCrawl(site)),
   ];
   if (siteIssues.length > 0) {
     results.push({ url: site.baseUrl, viewport: 'site', issues: siteIssues, loadTime: null, status: null });
