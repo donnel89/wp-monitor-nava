@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-05-20T09:38:03.837Z",
+  "timestamp": "2026-05-21T10:04:28.826Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -8,7 +8,7 @@
     "total": 7,
     "ok": 0,
     "warnings": 7,
-    "critical": 1
+    "critical": 0
   },
   "results": [
     {
@@ -18,19 +18,24 @@
       "loadTime": null,
       "issues": [
         {
-          "type": "wp_login_exposed",
+          "type": "https_no_redirect",
           "severity": "warning",
-          "message": "wp-login.php נגיש ללא הגנה — סיכון Brute Force"
+          "message": "http:// לא מנותב אוטומטית ל-https:// (סטטוס: 415) — גולשים שנכנסים ב-HTTP לא מועברים"
         },
         {
-          "type": "wp_xmlrpc",
+          "type": "robots_no_sitemap",
           "severity": "warning",
-          "message": "xmlrpc.php פתוח — מומלץ לחסום (סיכון DDoS ו-Brute Force)"
+          "message": "robots.txt לא מכיל שורת Sitemap: — מומלץ להוסיף"
         },
         {
-          "type": "robots_block_all",
-          "severity": "critical",
-          "message": "⛔ robots.txt חוסם את כל הגוגל-בוטים (Disallow: /) — האתר לא יאונדקס!"
+          "type": "sitemap_missing",
+          "severity": "warning",
+          "message": "לא נמצאה sitemap.xml — חשוב לאינדוקס מלא ב-Google"
+        },
+        {
+          "type": "no_404_page",
+          "severity": "warning",
+          "message": "עמוד 404 לא מוחזר (מחזיר HTTP 415) — גוגל לא יזהה עמודים חסרים"
         }
       ]
     },
@@ -38,17 +43,52 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2734,
+      "loadTime": 1051,
       "issues": [
         {
-          "type": "a11y_form_label",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "4 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
+          "message": "header חסר לחלוטין מה-DOM"
         },
         {
-          "type": "a11y_table",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "2 טבלאות ללא headers (<th>) — WCAG 1.3.1"
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "seo_title",
+          "severity": "warning",
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
+        },
+        {
+          "type": "seo_description",
+          "severity": "warning",
+          "message": "חסר meta description"
+        },
+        {
+          "type": "seo_h1",
+          "severity": "warning",
+          "message": "חסר תג H1 בעמוד"
+        },
+        {
+          "type": "seo_og",
+          "severity": "warning",
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
+        },
+        {
+          "type": "a11y_landmark",
+          "severity": "warning",
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
+        },
+        {
+          "type": "gdpr_missing",
+          "severity": "warning",
+          "message": "לא נמצא באנר עוגיות (GDPR) — חובה לפי חוק בישראל ו-EU"
         },
         {
           "type": "missing_phone",
@@ -56,19 +96,9 @@
           "message": "לא נמצא מספר טלפון ישראלי בעמוד (חשוב לאמון + SEO מקומי)"
         },
         {
-          "type": "external_broken_links",
+          "type": "no_compression",
           "severity": "warning",
-          "message": "3 קישורים חיצוניים שבורים: cookiedatabase.org, easy.co.il, dropsept.co.il"
-        },
-        {
-          "type": "form_no_submit",
-          "severity": "warning",
-          "message": "טופס ללא כפתור שליחה גלוי"
-        },
-        {
-          "type": "perf_render_blocking",
-          "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: javascript;base64,CgkgICAgd2luZG93LmRhdGFMYXllclBZUyA9IHdpbmRvdy5kYXRhTGF5ZXJQWVMgfHwgW107Cgk=, jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1, javascript;base64,CmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ0RPTUNvbnRlbnRMb2FkZWQnLCBmdW5jdGlvbigpIHsKICAgIC8vIFNlbGVjdCBhbGwgZWxlbWVudHMgd2l0aCB0aGUgc3BlY2lmaWVkIGNsYXNzZXMKICAgIGNvbnN0IGxhenlMb2FkRWxlbWVudHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKGAKICAgICAgICAudGVhbSwgCiAgICAgICAgLmFib3V0X2RpZ2l0YWwsIAogICAgICAgIC52YWx1ZV90aXRsZSwgCiAgICAgICAgLnZhbHVlMSwgCiAgICAgICAgLnZhbHVlMiwgCiAgICAgICAgLnZhbHVlMywgCiAgICAgICAgLnZhbHVlNCwgCiAgICAgICAgLm9wdGlvbnMsIAoJCQkJLm5ld3NsZXR0ZXIsCiAgICAgICAgLmRpZ2l0YWwsIAogICAgICAgIC5ncm93dGgsIAogICAgICAgIC5jb250YWN0LCAKICAgICAgICAubG9nb3MsIAogICAgICAgIC50ZXN0aW1vbmlhbHMsIAogICAgICAgIC5jYXRlZ29yaWVzLCAKICAgICAgICAuZGlzYWR2YW50YWdlcwogICAgYCk7CgogICAgLy8gQ3JlYXRlIGFuIEludGVyc2VjdGlvbk9ic2VydmVyIGluc3RhbmNlCiAgICBjb25zdCBvYnNlcnZlciA9IG5ldyBJbnRlcnNlY3Rpb25PYnNlcnZlcigoZW50cmllcywgb2JzZXJ2ZXIpID0+IHsKICAgICAgICBlbnRyaWVzLmZvckVhY2goZW50cnkgPT4gewogICAgICAgICAgICBpZiAoZW50cnkuaXNJbnRlcnNlY3RpbmcpIHsKICAgICAgICAgICAgICAgIGVudHJ5LnRhcmdldC5jbGFzc0xpc3QuYWRkKCd2aXNpYmxlJyk7CiAgICAgICAgICAgICAgICBvYnNlcnZlci51bm9ic2VydmUoZW50cnkudGFyZ2V0KTsKICAgICAgICAgICAgfQogICAgICAgIH0pOwogICAgfSwgewogICAgICAgIHJvb3RNYXJnaW46ICcwcHggMHB4IC0xMCUgMHB4JywgLy8gQWRqdXN0IHRoZSByb290IG1hcmdpbiB0byBsb2FkIHRoZSBlbGVtZW50IGVhcmxpZXIgb3IgbGF0ZXIKICAgICAgICB0aHJlc2hvbGQ6IDAuMSAvLyBBZGp1c3QgdGhlIHRocmVzaG9sZCBhcyBuZWVkZWQKICAgIH0pOwoKICAgIC8vIE9ic2VydmUgZWFjaCBlbGVtZW50IHdpdGggdGhlIHNwZWNpZmllZCBjbGFzc2VzCiAgICBsYXp5TG9hZEVsZW1lbnRzLmZvckVhY2goZWxlbWVudCA9PiB7CiAgICAgICAgb2JzZXJ2ZXIub2JzZXJ2ZShlbGVtZW50KTsKICAgIH0pOwp9KTsKCg==, cmVmOnJlZi5uZXh0U2libGluZykpfSk7dmFyIG9ud3BhY3Vsb2FkY3NzZGVmaW5lZD1mdW5jdGlvbihjYil7dmFyIHJlc29sdmVkSHJlZj1zcy5ocmVmO3ZhciBpPXNoZWV0cy5sZW5ndGg7d2hpbGUoaS0tKXtpZihzaGVldHNbaV0uaHJlZj09PXJlc29sdmVkSHJlZil7cmV0dXJuIGNiKCl9fQpzZXRUaW1lb3V0KGZ1bmN0aW9uKCl7b253cGFjdWxvYWRjc3NkZWZpbmVkKGNiKX0pfTtmdW5jdGlvbiB3cGFjdUxvYWRDQigpe2lmKHNzLmFkZEV2ZW50TGlzdGVuZXIpe3NzLnJlbW92ZUV2ZW50TGlzdGVuZXIoImxvYWQiLHdwYWN1TG9hZENCKX0Kc3MubWVkaWE9bWVkaWF8fCJhbGwifQppZihzcy5hZGRFdmVudExpc3RlbmVyKXtzcy5hZGRFdmVudExpc3RlbmVyKCJsb2FkIix3cGFjdUxvYWRDQil9CnNzLm9ud3BhY3Vsb2FkY3NzZGVmaW5lZD1vbndwYWN1bG9hZGNzc2RlZmluZWQ7b253cGFjdWxvYWRjc3NkZWZpbmVkKHdwYWN1TG9hZENCKTtyZXR1cm4gc3N9O2lmKHR5cGVvZiBleHBvcnRzIT09InVuZGVmaW5lZCIpe2V4cG9ydHMud3BhY3VMb2FkQ1NTPXdwYWN1TG9hZENTU31lbHNle3cud3BhY3VMb2FkQ1NTPXdwYWN1TG9hZENTU319KHR5cGVvZiBnbG9iYWwhPT0idW5kZWZpbmVkIj9nbG9iYWw6dGhpcykpCg=="
+          "message": "HTML מוגש ללא דחיסה (Gzip/Brotli לא מופעל) — מגדיל זמן טעינה"
         },
         {
           "type": "security_headers",
@@ -86,19 +116,39 @@
           "message": "לא נמצא Google Analytics / GTM — אין מעקב אחר גולשים"
         },
         {
-          "type": "no_webp",
+          "type": "thin_content",
           "severity": "warning",
-          "message": "6 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): price3.png, price3.png, %D7%AA%D7%9E%D7%95%D7%A0%D7%941.png"
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 200) — גוגל מעדיף עמודים עם תוכן עשיר"
         },
         {
-          "type": "font_blocking",
+          "type": "canonical_missing",
           "severity": "warning",
-          "message": "1 Google Fonts נטענות ב-<head> וחוסמות רינדור — מומלץ לטעון מקומית או עם preload"
+          "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
+        },
+        {
+          "type": "apple_icon_missing",
+          "severity": "warning",
+          "message": "חסר Apple Touch Icon — שמירה לדף הבית של iPhone תוצג ללא אייקון"
+        },
+        {
+          "type": "no_whatsapp",
+          "severity": "warning",
+          "message": "לא נמצא כפתור WhatsApp / Live Chat — ערוץ תקשורת מרכזי בישראל"
+        },
+        {
+          "type": "no_privacy_policy",
+          "severity": "warning",
+          "message": "לא נמצא קישור למדיניות פרטיות — חובה לפי GDPR וחוק הגנת הפרטיות הישראלי"
         },
         {
           "type": "no_terms",
           "severity": "warning",
           "message": "לא נמצא קישור לתנאי שימוש — מומלץ לכל אתר עסקי"
+        },
+        {
+          "type": "no_a11y_statement",
+          "severity": "warning",
+          "message": "לא נמצאה הצהרת נגישות — חובה חוקית בישראל לעסקים מסוימים (תקנות 5760)"
         }
       ]
     },
@@ -106,17 +156,22 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2398,
+      "loadTime": 1067,
       "issues": [
         {
-          "type": "mobile_touch_targets",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "90 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
+          "message": "header חסר לחלוטין מה-DOM"
         },
         {
-          "type": "mobile_font_size",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "גופן קטן מדי ב-34 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
         }
       ]
     },
@@ -124,32 +179,52 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3296,
+      "loadTime": 1083,
       "issues": [
         {
-          "type": "a11y_form_label",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "3 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
+          "message": "header חסר לחלוטין מה-DOM"
         },
         {
-          "type": "external_broken_links",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "2 קישורים חיצוניים שבורים: cookiedatabase.org, neilpatel.com"
+          "message": "footer חסר לחלוטין מה-DOM"
         },
         {
-          "type": "form_no_submit",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "טופס ללא כפתור שליחה גלוי"
+          "message": "nav חסר לחלוטין מה-DOM"
         },
         {
-          "type": "perf_requests",
+          "type": "seo_title",
           "severity": "warning",
-          "message": "105 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
         },
         {
-          "type": "perf_render_blocking",
+          "type": "seo_description",
           "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: iframe_api, javascript;base64,CgkgICAgd2luZG93LmRhdGFMYXllclBZUyA9IHdpbmRvdy5kYXRhTGF5ZXJQWVMgfHwgW107Cgk=, javascript;base64,Y29uc29sZS5sb2coJ1BpeGVsWW91clNpdGUgUFJPIHZlcnNpb24gMTEuMi4wLjQnKTs=, jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1"
+          "message": "חסר meta description"
+        },
+        {
+          "type": "seo_h1",
+          "severity": "warning",
+          "message": "חסר תג H1 בעמוד"
+        },
+        {
+          "type": "seo_og",
+          "severity": "warning",
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
+        },
+        {
+          "type": "a11y_landmark",
+          "severity": "warning",
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
+        },
+        {
+          "type": "no_compression",
+          "severity": "warning",
+          "message": "HTML מוגש ללא דחיסה (Gzip/Brotli לא מופעל) — מגדיל זמן טעינה"
         },
         {
           "type": "security_headers",
@@ -162,19 +237,14 @@
           "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
         },
         {
-          "type": "no_webp",
+          "type": "thin_content",
           "severity": "warning",
-          "message": "15 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): price3.png, price3.png, oren.jpg"
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
         },
         {
-          "type": "font_blocking",
+          "type": "canonical_missing",
           "severity": "warning",
-          "message": "1 Google Fonts נטענות ב-<head> וחוסמות רינדור — מומלץ לטעון מקומית או עם preload"
-        },
-        {
-          "type": "cwv_lcp",
-          "severity": "warning",
-          "message": "LCP סביר: 3.6s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
         }
       ]
     },
@@ -182,22 +252,22 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3284,
+      "loadTime": 1049,
       "issues": [
         {
-          "type": "mobile_touch_targets",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "97 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
+          "message": "header חסר לחלוטין מה-DOM"
         },
         {
-          "type": "mobile_font_size",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "גופן קטן מדי ב-35 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
+          "message": "footer חסר לחלוטין מה-DOM"
         },
         {
-          "type": "cwv_lcp",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "LCP סביר: 3.5s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "nav חסר לחלוטין מה-DOM"
         }
       ]
     },
@@ -205,12 +275,47 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2143,
+      "loadTime": 1066,
       "issues": [
         {
-          "type": "a11y_form_label",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "1 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "seo_title",
+          "severity": "warning",
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
+        },
+        {
+          "type": "seo_description",
+          "severity": "warning",
+          "message": "חסר meta description"
+        },
+        {
+          "type": "seo_h1",
+          "severity": "warning",
+          "message": "חסר תג H1 בעמוד"
+        },
+        {
+          "type": "seo_og",
+          "severity": "warning",
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
+        },
+        {
+          "type": "a11y_landmark",
+          "severity": "warning",
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
         },
         {
           "type": "missing_phone",
@@ -218,19 +323,9 @@
           "message": "לא נמצא מספר טלפון ישראלי בעמוד (חשוב לאמון + SEO מקומי)"
         },
         {
-          "type": "external_broken_links",
+          "type": "no_compression",
           "severity": "warning",
-          "message": "1 קישורים חיצוניים שבורים: cookiedatabase.org"
-        },
-        {
-          "type": "form_no_submit",
-          "severity": "warning",
-          "message": "טופס ללא כפתור שליחה גלוי"
-        },
-        {
-          "type": "perf_render_blocking",
-          "severity": "warning",
-          "message": "4 משאבי Render-Blocking ב-<head> מאטים את ההצגה: jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1, banner-1-optin.css?v=45, css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+          "message": "HTML מוגש ללא דחיסה (Gzip/Brotli לא מופעל) — מגדיל זמן טעינה"
         },
         {
           "type": "security_headers",
@@ -243,14 +338,14 @@
           "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
         },
         {
-          "type": "no_webp",
+          "type": "thin_content",
           "severity": "warning",
-          "message": "17 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): price3.png, price3.png, contect-page-8.jpg"
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
         },
         {
-          "type": "font_blocking",
+          "type": "canonical_missing",
           "severity": "warning",
-          "message": "1 Google Fonts נטענות ב-<head> וחוסמות רינדור — מומלץ לטעון מקומית או עם preload"
+          "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
         }
       ]
     },
@@ -258,17 +353,22 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2277,
+      "loadTime": 1050,
       "issues": [
         {
-          "type": "mobile_touch_targets",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "45 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
+          "message": "header חסר לחלוטין מה-DOM"
         },
         {
-          "type": "mobile_font_size",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "גופן קטן מדי ב-33 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
         }
       ]
     }
