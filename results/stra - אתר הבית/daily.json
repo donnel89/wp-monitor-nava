@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-05-23T08:25:29.779Z",
+  "timestamp": "2026-05-24T08:36:10.790Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -38,7 +38,7 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3744,
+      "loadTime": 3847,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -106,7 +106,7 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3483,
+      "loadTime": 3463,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -129,7 +129,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3931,
+      "loadTime": 3847,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -149,7 +149,7 @@
         {
           "type": "perf_requests",
           "severity": "warning",
-          "message": "106 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "104 בקשות HTTP בדף — מומלץ מתחת ל-80"
         },
         {
           "type": "perf_render_blocking",
@@ -175,11 +175,6 @@
           "type": "font_blocking",
           "severity": "warning",
           "message": "1 Google Fonts נטענות ב-<head> וחוסמות רינדור — מומלץ לטעון מקומית או עם preload"
-        },
-        {
-          "type": "cwv_lcp",
-          "severity": "warning",
-          "message": "LCP איטי: 4.2s — צריך להיות מתחת ל-2.5s"
         }
       ]
     },
@@ -187,7 +182,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3809,
+      "loadTime": 4011,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -202,7 +197,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP איטי: 4.0s — צריך להיות מתחת ל-2.5s"
+          "message": "LCP איטי: 4.3s — צריך להיות מתחת ל-2.5s"
         }
       ]
     },
@@ -210,7 +205,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3281,
+      "loadTime": 2980,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -263,7 +258,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3152,
+      "loadTime": 3109,
       "issues": [
         {
           "type": "mobile_touch_targets",
