@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-06-08T11:10:09.429Z",
+  "timestamp": "2026-06-09T10:00:36.326Z",
   "siteId": "navacollage",
   "siteName": "נאוה קולאז'",
   "baseUrl": "https://navacollage.co.il",
@@ -43,7 +43,7 @@
       "url": "https://navacollage.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 1026,
+      "loadTime": 1062,
       "issues": [
         {
           "type": "missing_element",
@@ -156,7 +156,7 @@
       "url": "https://navacollage.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 1026,
+      "loadTime": 1000,
       "issues": [
         {
           "type": "missing_element",
@@ -184,7 +184,7 @@
       "url": "https://navacollage.co.il/shop/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 887,
+      "loadTime": 826,
       "issues": [
         {
           "type": "missing_element",
@@ -257,7 +257,7 @@
       "url": "https://navacollage.co.il/shop/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 878,
+      "loadTime": 829,
       "issues": [
         {
           "type": "missing_element",
@@ -290,7 +290,7 @@
       "url": "https://navacollage.co.il/contact-nk/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 1034,
+      "loadTime": 830,
       "issues": [
         {
           "type": "missing_element",
@@ -368,7 +368,7 @@
       "url": "https://navacollage.co.il/contact-nk/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 919,
+      "loadTime": 1035,
       "issues": [
         {
           "type": "missing_element",
@@ -396,7 +396,7 @@
       "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 1016,
+      "loadTime": 831,
       "issues": [
         {
           "type": "missing_element",
@@ -469,7 +469,7 @@
       "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 1046,
+      "loadTime": 1009,
       "issues": [
         {
           "type": "missing_element",
@@ -497,7 +497,7 @@
       "url": "https://navacollage.co.il/about-nk-story/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 996,
+      "loadTime": 834,
       "issues": [
         {
           "type": "missing_element",
@@ -570,7 +570,7 @@
       "url": "https://navacollage.co.il/about-nk-story/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 874,
+      "loadTime": 986,
       "issues": [
         {
           "type": "missing_element",
@@ -591,11 +591,6 @@
           "type": "visual_diff",
           "severity": "warning",
           "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "cwv_cls",
-          "severity": "warning",
-          "message": "CLS בינוני: 0.114 — (מקסימום תקין: 0.1)"
         }
       ]
     },
@@ -603,7 +598,7 @@
       "url": "https://navacollage.co.il/q-and-a/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 1020,
+      "loadTime": 825,
       "issues": [
         {
           "type": "missing_element",
@@ -676,7 +671,7 @@
       "url": "https://navacollage.co.il/q-and-a/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 1105,
+      "loadTime": 1061,
       "issues": [
         {
           "type": "missing_element",
@@ -704,7 +699,7 @@
       "url": "https://navacollage.co.il/liadso/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 896,
+      "loadTime": 791,
       "issues": [
         {
           "type": "missing_element",
@@ -777,7 +772,7 @@
       "url": "https://navacollage.co.il/liadso/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 1061,
+      "loadTime": 1056,
       "issues": [
         {
           "type": "missing_element",
@@ -805,7 +800,7 @@
       "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 1017,
+      "loadTime": 1002,
       "issues": [
         {
           "type": "missing_element",
@@ -878,7 +873,7 @@
       "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 1005,
+      "loadTime": 831,
       "issues": [
         {
           "type": "missing_element",
@@ -899,6 +894,11 @@
           "type": "visual_diff",
           "severity": "warning",
           "message": "100.0% הבדל ויזואלי מהבייסליין"
+        },
+        {
+          "type": "cwv_cls",
+          "severity": "warning",
+          "message": "CLS בינוני: 0.114 — (מקסימום תקין: 0.1)"
         }
       ]
     },
@@ -906,7 +906,7 @@
       "url": "https://navacollage.co.il/%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 839,
+      "loadTime": 825,
       "issues": [
         {
           "type": "missing_element",
@@ -979,7 +979,7 @@
       "url": "https://navacollage.co.il/%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 1120,
+      "loadTime": 1057,
       "issues": [
         {
           "type": "missing_element",
@@ -1007,7 +1007,7 @@
       "url": "https://navacollage.co.il/%D7%90%D7%95%D7%93%D7%95%D7%AA/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 1019,
+      "loadTime": 995,
       "issues": [
         {
           "type": "missing_element",
@@ -1080,7 +1080,7 @@
       "url": "https://navacollage.co.il/%D7%90%D7%95%D7%93%D7%95%D7%AA/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 1044,
+      "loadTime": 1003,
       "issues": [
         {
           "type": "missing_element",
