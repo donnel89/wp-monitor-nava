@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-06-18T10:27:49.111Z",
+  "timestamp": "2026-06-19T10:32:55.292Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -17,11 +17,6 @@
       "status": null,
       "loadTime": null,
       "issues": [
-        {
-          "type": "ssl_expiry",
-          "severity": "warning",
-          "message": "תעודת SSL פגה בעוד 29 ימים"
-        },
         {
           "type": "wp_login_exposed",
           "severity": "warning",
@@ -43,7 +38,7 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2683,
+      "loadTime": 2734,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -63,7 +58,7 @@
         {
           "type": "external_broken_links",
           "severity": "warning",
-          "message": "3 קישורים חיצוניים שבורים: cookiedatabase.org, easy.co.il, dropsept.co.il"
+          "message": "3 קישורים חיצוניים שבורים: cookiedatabase.org, dropsept.co.il, easy.co.il"
         },
         {
           "type": "form_no_submit",
@@ -111,7 +106,7 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2516,
+      "loadTime": 2517,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -126,7 +121,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 2.8s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 2.7s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -134,7 +129,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3322,
+      "loadTime": 3485,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -144,7 +139,7 @@
         {
           "type": "external_broken_links",
           "severity": "warning",
-          "message": "3 קישורים חיצוניים שבורים: cookiedatabase.org, neilpatel.com, analytics.google.com"
+          "message": "2 קישורים חיצוניים שבורים: cookiedatabase.org, analytics.google.com"
         },
         {
           "type": "form_no_submit",
@@ -154,7 +149,7 @@
         {
           "type": "perf_requests",
           "severity": "warning",
-          "message": "103 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "105 בקשות HTTP בדף — מומלץ מתחת ל-80"
         },
         {
           "type": "perf_render_blocking",
@@ -187,7 +182,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3457,
+      "loadTime": 3300,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -202,7 +197,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 3.7s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.6s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -210,7 +205,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2382,
+      "loadTime": 2312,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -263,7 +258,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2406,
+      "loadTime": 2388,
       "issues": [
         {
           "type": "mobile_touch_targets",
