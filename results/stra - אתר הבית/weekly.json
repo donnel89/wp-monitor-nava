@@ -1,6 +1,6 @@
 {
   "mode": "weekly",
-  "timestamp": "2026-06-21T09:04:07.786Z",
+  "timestamp": "2026-06-28T08:25:23.078Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -38,7 +38,7 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 4150,
+      "loadTime": 3726,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -106,7 +106,7 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3512,
+      "loadTime": 3497,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -121,7 +121,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 3.7s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.6s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -129,7 +129,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 4077,
+      "loadTime": 3739,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -154,7 +154,7 @@
         {
           "type": "perf_render_blocking",
           "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: iframe_api, javascript;base64,CgkgICAgd2luZG93LmRhdGFMYXllclBZUyA9IHdpbmRvdy5kYXRhTGF5ZXJQWVMgfHwgW107Cgk=, javascript;base64,Y29uc29sZS5sb2coJ1BpeGVsWW91clNpdGUgUFJPIHZlcnNpb24gMTEuMi4wLjQnKTs=, jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1"
+          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: iframe_api, javascript;base64,CgkgICAgd2luZG93LmRhdGFMYXllclBZUyA9IHdpbmRvdy5kYXRhTGF5ZXJQWVMgfHwgW107Cgk=, jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1, cmVmOnJlZi5uZXh0U2libGluZykpfSk7dmFyIG9ud3BhY3Vsb2FkY3NzZGVmaW5lZD1mdW5jdGlvbihjYil7dmFyIHJlc29sdmVkSHJlZj1zcy5ocmVmO3ZhciBpPXNoZWV0cy5sZW5ndGg7d2hpbGUoaS0tKXtpZihzaGVldHNbaV0uaHJlZj09PXJlc29sdmVkSHJlZil7cmV0dXJuIGNiKCl9fQpzZXRUaW1lb3V0KGZ1bmN0aW9uKCl7b253cGFjdWxvYWRjc3NkZWZpbmVkKGNiKX0pfTtmdW5jdGlvbiB3cGFjdUxvYWRDQigpe2lmKHNzLmFkZEV2ZW50TGlzdGVuZXIpe3NzLnJlbW92ZUV2ZW50TGlzdGVuZXIoImxvYWQiLHdwYWN1TG9hZENCKX0Kc3MubWVkaWE9bWVkaWF8fCJhbGwifQppZihzcy5hZGRFdmVudExpc3RlbmVyKXtzcy5hZGRFdmVudExpc3RlbmVyKCJsb2FkIix3cGFjdUxvYWRDQil9CnNzLm9ud3BhY3Vsb2FkY3NzZGVmaW5lZD1vbndwYWN1bG9hZGNzc2RlZmluZWQ7b253cGFjdWxvYWRjc3NkZWZpbmVkKHdwYWN1TG9hZENCKTtyZXR1cm4gc3N9O2lmKHR5cGVvZiBleHBvcnRzIT09InVuZGVmaW5lZCIpe2V4cG9ydHMud3BhY3VMb2FkQ1NTPXdwYWN1TG9hZENTU31lbHNle3cud3BhY3VMb2FkQ1NTPXdwYWN1TG9hZENTU319KHR5cGVvZiBnbG9iYWwhPT0idW5kZWZpbmVkIj9nbG9iYWw6dGhpcykpCg=="
         },
         {
           "type": "security_headers",
@@ -175,6 +175,11 @@
           "type": "font_blocking",
           "severity": "warning",
           "message": "1 Google Fonts נטענות ב-<head> וחוסמות רינדור — מומלץ לטעון מקומית או עם preload"
+        },
+        {
+          "type": "cwv_lcp",
+          "severity": "warning",
+          "message": "LCP סביר: 4.0s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -182,7 +187,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3969,
+      "loadTime": 3771,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -193,6 +198,11 @@
           "type": "mobile_font_size",
           "severity": "warning",
           "message": "גופן קטן מדי ב-35 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
+        },
+        {
+          "type": "cwv_lcp",
+          "severity": "warning",
+          "message": "LCP סביר: 4.0s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -200,7 +210,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3177,
+      "loadTime": 3121,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -225,7 +235,7 @@
         {
           "type": "perf_render_blocking",
           "severity": "warning",
-          "message": "4 משאבי Render-Blocking ב-<head> מאטים את ההצגה: jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1, banner-1-optin.css?v=45, css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: chaty-front.min.css?ver=3.0.51761032373&wpr_t=1782403228, cookieblocker.min.css?ver=1769687738, reset.css?ver=3.4.6, theme.css?ver=3.4.6, header-footer.css?ver=3.4.6"
         },
         {
           "type": "security_headers",
@@ -253,8 +263,13 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3139,
+      "loadTime": 3130,
       "issues": [
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "8.0% הבדל ויזואלי מהבייסליין"
+        },
         {
           "type": "mobile_touch_targets",
           "severity": "warning",
@@ -266,9 +281,9 @@
           "message": "גופן קטן מדי ב-33 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
         },
         {
-          "type": "cwv_lcp",
+          "type": "cwv_cls",
           "severity": "warning",
-          "message": "LCP סביר: 3.3s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "CLS בינוני: 0.191 — (מקסימום תקין: 0.1)"
         }
       ]
     }
