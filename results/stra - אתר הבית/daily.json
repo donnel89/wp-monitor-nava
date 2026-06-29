@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-06-28T08:58:35.093Z",
+  "timestamp": "2026-06-29T11:03:20.175Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -38,7 +38,7 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2864,
+      "loadTime": 2672,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -106,7 +106,7 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2838,
+      "loadTime": 2599,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -121,7 +121,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 3.0s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 2.8s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -129,7 +129,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3268,
+      "loadTime": 3351,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -182,7 +182,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3237,
+      "loadTime": 3273,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -205,7 +205,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2418,
+      "loadTime": 2331,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -258,7 +258,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2387,
+      "loadTime": 2272,
       "issues": [
         {
           "type": "mobile_touch_targets",
