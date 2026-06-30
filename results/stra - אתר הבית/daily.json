@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-06-29T11:03:20.175Z",
+  "timestamp": "2026-06-30T09:40:10.174Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -38,7 +38,7 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2672,
+      "loadTime": 2799,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -106,7 +106,7 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2599,
+      "loadTime": 2511,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -129,7 +129,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3351,
+      "loadTime": 3323,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -149,7 +149,7 @@
         {
           "type": "perf_requests",
           "severity": "warning",
-          "message": "103 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "105 בקשות HTTP בדף — מומלץ מתחת ל-80"
         },
         {
           "type": "perf_render_blocking",
@@ -182,7 +182,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3273,
+      "loadTime": 3268,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -205,7 +205,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2331,
+      "loadTime": 2369,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -230,7 +230,7 @@
         {
           "type": "perf_render_blocking",
           "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: chaty-front.min.css?ver=3.0.51761032373&wpr_t=1782403228, cookieblocker.min.css?ver=1769687738, reset.css?ver=3.4.6, theme.css?ver=3.4.6, header-footer.css?ver=3.4.6"
+          "message": "4 משאבי Render-Blocking ב-<head> מאטים את ההצגה: jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1, banner-1-optin.css?v=45, css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
         },
         {
           "type": "security_headers",
@@ -258,7 +258,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2272,
+      "loadTime": 2358,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -269,11 +269,6 @@
           "type": "mobile_font_size",
           "severity": "warning",
           "message": "גופן קטן מדי ב-33 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
-        },
-        {
-          "type": "cwv_cls",
-          "severity": "warning",
-          "message": "CLS בינוני: 0.118 — (מקסימום תקין: 0.1)"
         }
       ]
     }
