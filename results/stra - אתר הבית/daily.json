@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-06-30T09:40:10.174Z",
+  "timestamp": "2026-07-01T09:51:28.833Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -38,7 +38,7 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2799,
+      "loadTime": 2954,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -58,7 +58,7 @@
         {
           "type": "external_broken_links",
           "severity": "warning",
-          "message": "3 קישורים חיצוניים שבורים: cookiedatabase.org, dropsept.co.il, easy.co.il"
+          "message": "3 קישורים חיצוניים שבורים: cookiedatabase.org, easy.co.il, dropsept.co.il"
         },
         {
           "type": "form_no_submit",
@@ -106,7 +106,7 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2511,
+      "loadTime": 2626,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -129,7 +129,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3323,
+      "loadTime": 3274,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -149,7 +149,7 @@
         {
           "type": "perf_requests",
           "severity": "warning",
-          "message": "105 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "106 בקשות HTTP בדף — מומלץ מתחת ל-80"
         },
         {
           "type": "perf_render_blocking",
@@ -169,7 +169,7 @@
         {
           "type": "no_webp",
           "severity": "warning",
-          "message": "14 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): price3.png, price3.png, oren.jpg"
+          "message": "15 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): price3.png, price3.png, oren.jpg"
         },
         {
           "type": "font_blocking",
@@ -182,7 +182,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3268,
+      "loadTime": 3260,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -205,7 +205,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2369,
+      "loadTime": 2317,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -258,7 +258,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2358,
+      "loadTime": 2348,
       "issues": [
         {
           "type": "mobile_touch_targets",
