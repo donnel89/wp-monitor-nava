@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-07-02T09:02:46.214Z",
+  "timestamp": "2026-07-03T09:09:19.445Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -38,7 +38,7 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2738,
+      "loadTime": 3993,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -58,7 +58,7 @@
         {
           "type": "external_broken_links",
           "severity": "warning",
-          "message": "3 קישורים חיצוניים שבורים: cookiedatabase.org, dropsept.co.il, easy.co.il"
+          "message": "3 קישורים חיצוניים שבורים: cookiedatabase.org, easy.co.il, dropsept.co.il"
         },
         {
           "type": "form_no_submit",
@@ -106,7 +106,7 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2559,
+      "loadTime": 3450,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -116,12 +116,12 @@
         {
           "type": "mobile_font_size",
           "severity": "warning",
-          "message": "גופן קטן מדי ב-34 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
+          "message": "גופן קטן מדי ב-35 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
         },
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 2.7s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.6s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -129,7 +129,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3347,
+      "loadTime": 4077,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -149,7 +149,7 @@
         {
           "type": "perf_requests",
           "severity": "warning",
-          "message": "104 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "103 בקשות HTTP בדף — מומלץ מתחת ל-80"
         },
         {
           "type": "perf_render_blocking",
@@ -169,7 +169,7 @@
         {
           "type": "no_webp",
           "severity": "warning",
-          "message": "15 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): price3.png, price3.png, oren.jpg"
+          "message": "14 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): price3.png, price3.png, oren.jpg"
         },
         {
           "type": "font_blocking",
@@ -182,7 +182,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3147,
+      "loadTime": 3911,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -197,7 +197,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 3.4s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP איטי: 4.2s — צריך להיות מתחת ל-2.5s"
         }
       ]
     },
@@ -205,7 +205,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2308,
+      "loadTime": 3189,
       "issues": [
         {
           "type": "a11y_form_label",
@@ -258,7 +258,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2221,
+      "loadTime": 3227,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -269,6 +269,11 @@
           "type": "mobile_font_size",
           "severity": "warning",
           "message": "גופן קטן מדי ב-33 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
+        },
+        {
+          "type": "cwv_lcp",
+          "severity": "warning",
+          "message": "LCP סביר: 3.3s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     }
