@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-07-14T08:07:01.665Z",
+  "timestamp": "2026-07-15T08:25:25.547Z",
   "siteId": "navacollage",
   "siteName": "נאוה קולאז'",
   "baseUrl": "https://navacollage.co.il",
@@ -8,7 +8,7 @@
     "total": 21,
     "ok": 0,
     "warnings": 21,
-    "critical": 29
+    "critical": 0
   },
   "results": [
     {
@@ -43,17 +43,22 @@
       "url": "https://navacollage.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 4584,
+      "loadTime": 1013,
       "issues": [
         {
-          "type": "js_error",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
+          "message": "header חסר לחלוטין מה-DOM"
         },
         {
-          "type": "failed_requests",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1v892755253z8838992305za20gzb838992305zd838992305&_p=1784015969397&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=796533446&_eu=AAAAAGAC&are=1&cid=1150033415.1784015970&ec_mode=a&frm=0&pscdl=noapi&rcb=8&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118826210~118897920~118897930~119027224&sid=1784015969&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F&dt=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1975, https://www.google.com/rmkt/collect/961928319/?random=1784015970059&cv=11&fst=1784015970059&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938469~118826210~118897920~118897930~119027224&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2F&rcb=8&frm=0&tiba=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1897427531.1784015970&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&gap.plf=4.5.3&ept=68&gcp=5"
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
         },
         {
           "type": "visual_diff",
@@ -61,24 +66,39 @@
           "message": "100.0% הבדל ויזואלי מהבייסליין"
         },
         {
-          "type": "a11y_btn",
+          "type": "seo_title",
           "severity": "warning",
-          "message": "3 כפתורים ללא aria-label"
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
         },
         {
-          "type": "a11y_form_label",
+          "type": "seo_description",
           "severity": "warning",
-          "message": "3 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
+          "message": "חסר meta description"
         },
         {
-          "type": "external_broken_links",
+          "type": "seo_h1",
           "severity": "warning",
-          "message": "1 קישורים חיצוניים שבורים: www.tiktok.com"
+          "message": "חסר תג H1 בעמוד"
         },
         {
-          "type": "form_no_response",
+          "type": "seo_og",
           "severity": "warning",
-          "message": "שליחת הטופס לא הציגה הודעת הצלחה ולא ניווטה לדף תודה"
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
+        },
+        {
+          "type": "a11y_landmark",
+          "severity": "warning",
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
+        },
+        {
+          "type": "gdpr_missing",
+          "severity": "warning",
+          "message": "לא נמצא באנר עוגיות (GDPR) — חובה לפי חוק בישראל ו-EU"
+        },
+        {
+          "type": "missing_phone",
+          "severity": "warning",
+          "message": "לא נמצא מספר טלפון ישראלי בעמוד (חשוב לאמון + SEO מקומי)"
         },
         {
           "type": "security_headers",
@@ -98,17 +118,12 @@
         {
           "type": "thin_content",
           "severity": "warning",
-          "message": "תוכן דק: 0 מילים (מינימום מומלץ: 200) — גוגל מעדיף עמודים עם תוכן עשיר"
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 200) — גוגל מעדיף עמודים עם תוכן עשיר"
         },
         {
           "type": "canonical_missing",
           "severity": "warning",
           "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
-        },
-        {
-          "type": "favicon_missing",
-          "severity": "warning",
-          "message": "חסר Favicon — האתר לא מציג אייקון בטאב הדפדפן ובסימניות"
         },
         {
           "type": "apple_icon_missing",
@@ -141,620 +156,7 @@
       "url": "https://navacollage.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3112,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1v892755253z8838992305za20gzb838992305zd838992305&_p=1784015986881&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=628604366&_eu=AAAAAGAC&are=1&cid=1555098880.1784015988&ec_mode=a&frm=0&pscdl=noapi&rcb=4&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938468~118826210~118897920~118897930~119027224~119773332~119896803&sid=1784015987&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F&dt=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1560, https://www.google.com/rmkt/collect/961928319/?random=1784015987981&cv=11&fst=1784015987981&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938465~115938468~118826209~118897920~118897930~119027224&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2F&rcb=1&frm=0&tiba=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1335317900.1784015988&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "visual_diff",
-          "severity": "warning",
-          "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "mobile_touch_targets",
-          "severity": "warning",
-          "message": "265 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
-        },
-        {
-          "type": "cwv_lcp",
-          "severity": "warning",
-          "message": "LCP סביר: 3.3s — גוגל מעדיף מתחת ל-2.5s"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"קורס קוסמטיקה אינטרה דרמלית לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a7%d7%95%d7%a1%d7%9e%d7%98%d7%99%d7%a7%d7%94/) | \"קורס בניית ציפורניים לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%a6%d7%99%d7%a4%d7%95%d7%a8%d7%a0%d7%99%d7%99%d7%9d/) | \"קורס עיצוב שיער לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%a9%d7%99%d7%a2%d7%a8/) | \"קורס תספורת גברים- ברברינג לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%a9%d7%99%d7%a2%d7%a8-%d7%a7%d7%95%d7%a8%d7%a1-%d7%aa%d7%a1%d7%a4%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%91%d7%a8%d7%99%d7%9d/) | \"קורס פדיקור מניקור לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%a0%d7%99%d7%a7%d7%95%d7%a8-%d7%a4%d7%93%d7%99%d7%a7%d7%95%d7%a8-%d7%a8%d7%a4%d7%95%d7%90%d7%99/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/shop/",
-      "viewport": "desktop",
-      "status": 200,
-      "loadTime": 8865,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "3 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67d0h2v892755253z8838992305za20gzb838992305zd838992305&_p=1784015996952&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=2074435775&_eu=AAAAAGAC&are=1&cid=44633934.1784015997&ec_mode=a&frm=0&pscdl=noapi&rcb=6&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938466~115938469~118826209~118897920~118897930~119027224~119724322~119773332~119896803&sid=1784015997&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fshop%2F&dt=%D7%9B%D7%9C%20%D7%94%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&gap.plf=4.5.3&tfd=1412, https://www.google.com/rmkt/collect/961928319/?random=1784015997492&cv=11&fst=1784015997492&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67d0h2v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117227715~117776796~118826209~118897920~118897930~119027224~119527019~119724322&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2Fshop%2F&rcb=7&frm=0&tiba=%D7%9B%D7%9C%20%D7%94%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D%20-%20NK%20Collection%20Shop&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=112603851.1784015997&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "seo_description",
-          "severity": "warning",
-          "message": "meta description קצר: 42 תווים (מינימום 100)"
-        },
-        {
-          "type": "seo_og",
-          "severity": "warning",
-          "message": "חסרים תגי Open Graph: og:image (שיתוף ברשתות חברתיות)"
-        },
-        {
-          "type": "a11y_btn",
-          "severity": "warning",
-          "message": "27 כפתורים ללא aria-label"
-        },
-        {
-          "type": "a11y_form_label",
-          "severity": "warning",
-          "message": "1 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
-        },
-        {
-          "type": "form_no_submit",
-          "severity": "warning",
-          "message": "טופס ללא כפתור שליחה גלוי"
-        },
-        {
-          "type": "perf_requests",
-          "severity": "warning",
-          "message": "230 בקשות HTTP בדף — מומלץ מתחת ל-80"
-        },
-        {
-          "type": "perf_weight",
-          "severity": "warning",
-          "message": "משקל עמוד: 2988KB (מומלץ מתחת ל-1500KB)"
-        },
-        {
-          "type": "perf_render_blocking",
-          "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: iframe_api, css?family=Assistant%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100i%2C200i%2C300i%2C400i%2C500i%2C600i%2C700i%2C800i%2C900i&subset=latin&display=swap, premium-addons.min.css?ver=4.11.82, premium-addons.min.css?ver=2.9.57, frontend.css?ver=1783947306"
-        },
-        {
-          "type": "security_headers",
-          "severity": "warning",
-          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
-        },
-        {
-          "type": "no_webp",
-          "severity": "warning",
-          "message": "27 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): WhatsApp_Image_2025-11-23_at_13.38.37-removebg-preview.png, BB-CREAM-NATURAL-400x400.jpg, FEEL-THT-GLOW-400x400.jpg"
-        },
-        {
-          "type": "cta_no_link",
-          "severity": "warning",
-          "message": "1 כפתורי CTA ללא קישור: \"₪0 0 עגלת קניות\""
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/) | \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/shop/",
-      "viewport": "mobile",
-      "status": 200,
-      "loadTime": 5679,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "3 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1h1v892755253z8838992305za20gzb838992305zd838992305&_p=1784016042155&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=427018717&_eu=AAAAAGAC&are=1&cid=963369328.1784016043&ec_mode=a&frm=0&pscdl=noapi&rcb=7&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938469~118826210~118897920~118897930~119027224~119724321&sid=1784016042&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fshop%2F&dt=%D7%9B%D7%9C%20%D7%94%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1531, https://www.google.com/rmkt/collect/961928319/?random=1784016042628&cv=11&fst=1784016042628&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1h1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938465~115938468~118826209~118897920~118897930~119027224~119724321&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2Fshop%2F&rcb=8&frm=0&tiba=%D7%9B%D7%9C%20%D7%94%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D%20-%20NK%20Collection%20Shop&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1024995799.1784016042&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&gap.plf=4.5.3&ept=68&gcp=5"
-        },
-        {
-          "type": "visual_diff",
-          "severity": "warning",
-          "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "mobile_touch_targets",
-          "severity": "warning",
-          "message": "105 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
-        },
-        {
-          "type": "cwv_cls",
-          "severity": "warning",
-          "message": "CLS גבוה: 1.053 — הדף קופץ הרבה בטעינה (מקסימום תקין: 0.1)"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/) | \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/contact-nk/",
-      "viewport": "desktop",
-      "status": 200,
-      "loadTime": 5203,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "3 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1v892755253z8838992305za20gzb838992305zd838992305&_p=1784016051798&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=961394060&_eu=AAAAAGAC&are=1&cid=1599626649.1784016052&ec_mode=a&frm=0&pscdl=noapi&rcb=4&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938469~118826210~118897920~118897930~119027224~119724321&sid=1784016052&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fcontact-nk%2F&dt=%D7%A6%D7%95%D7%A8%20%D7%A7%D7%A9%D7%A8%20%D7%97%D7%A0%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1379, https://www.google.com/rmkt/collect/961928319/?random=1784016052311&cv=11&fst=1784016052311&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~118826209~118897920~118897930~119027224~119724321&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2Fcontact-nk%2F&rcb=19&frm=0&tiba=%D7%A6%D7%95%D7%A8%20%D7%A7%D7%A9%D7%A8%20%D7%97%D7%A0%D7%95%D7%AA%20-%20NK%20Collection%20Shop&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=27149491.1784016052&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "seo_description",
-          "severity": "warning",
-          "message": "חסר meta description"
-        },
-        {
-          "type": "a11y_btn",
-          "severity": "warning",
-          "message": "2 כפתורים ללא aria-label"
-        },
-        {
-          "type": "a11y_form_label",
-          "severity": "warning",
-          "message": "2 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
-        },
-        {
-          "type": "form_no_response",
-          "severity": "warning",
-          "message": "שליחת הטופס לא הציגה הודעת הצלחה ולא ניווטה לדף תודה"
-        },
-        {
-          "type": "security_headers",
-          "severity": "warning",
-          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
-        },
-        {
-          "type": "schema_missing",
-          "severity": "warning",
-          "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
-        },
-        {
-          "type": "thin_content",
-          "severity": "warning",
-          "message": "תוכן דק: 0 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
-        },
-        {
-          "type": "canonical_missing",
-          "severity": "warning",
-          "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/contact-nk/",
-      "viewport": "mobile",
-      "status": 200,
-      "loadTime": 5534,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "3 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1h1v892755253z8838992305za20gzb838992305zd838992305&_p=1784016099731&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1143401259&_eu=AAAAAGAC&are=1&cid=412778908.1784016100&ec_mode=a&frm=0&pscdl=noapi&rcb=9&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938465~115938469~118826210~118897920~118897930~119027224&sid=1784016100&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fcontact-nk%2F&dt=%D7%A6%D7%95%D7%A8%20%D7%A7%D7%A9%D7%A8%20%D7%97%D7%A0%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&gap.plf=4.5.3&tfd=1128, https://www.google.com/rmkt/collect/961928319/?random=1784016100179&cv=11&fst=1784016100179&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1h1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938465~115938469~118395335~118826209~118897920~118897930~119027224&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2Fcontact-nk%2F&rcb=11&frm=0&tiba=%D7%A6%D7%95%D7%A8%20%D7%A7%D7%A9%D7%A8%20%D7%97%D7%A0%D7%95%D7%AA%20-%20NK%20Collection%20Shop&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=112572220.1784016100&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "visual_diff",
-          "severity": "warning",
-          "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "mobile_touch_targets",
-          "severity": "warning",
-          "message": "86 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
-        },
-        {
-          "type": "cwv_cls",
-          "severity": "warning",
-          "message": "CLS בינוני: 0.126 — (מקסימום תקין: 0.1)"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/) | \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D/",
-      "viewport": "desktop",
-      "status": 200,
-      "loadTime": 3079,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67d0h2v892755253z8838992305za20gzb838992305zd838992305&_p=1784016109161&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1799041846&_eu=AAAAAGAC&are=1&cid=1538647452.1784016110&ec_mode=a&frm=0&pscdl=noapi&rcb=2&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938468~118395335~118826209~118897920~118897930~119027224&sid=1784016110&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1935, https://www.google.com/rmkt/collect/961928319/?random=1784016110213&cv=11&fst=1784016110213&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67d0h2v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938465~115938469~118395335~118826209~118897920~118897930~119027224&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%25A7%25D7%2595%25D7%25A8%25D7%25A1%25D7%2599%25D7%259D%2F&rcb=9&frm=0&tiba=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1335831783.1784016110&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "visual_diff",
-          "severity": "warning",
-          "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "seo_h1",
-          "severity": "warning",
-          "message": "2 תגי H1 — צריך בדיוק אחד"
-        },
-        {
-          "type": "a11y_btn",
-          "severity": "warning",
-          "message": "3 כפתורים ללא aria-label"
-        },
-        {
-          "type": "a11y_form_label",
-          "severity": "warning",
-          "message": "1 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
-        },
-        {
-          "type": "external_broken_links",
-          "severity": "warning",
-          "message": "1 קישורים חיצוניים שבורים: www.tiktok.com"
-        },
-        {
-          "type": "perf_requests",
-          "severity": "warning",
-          "message": "177 בקשות HTTP בדף — מומלץ מתחת ל-80"
-        },
-        {
-          "type": "perf_render_blocking",
-          "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: css?family=Assistant%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100i%2C200i%2C300i%2C400i%2C500i%2C600i%2C700i%2C800i%2C900i&subset=latin&display=swap, premium-addons.min.css?ver=4.11.82, premium-addons.min.css?ver=2.9.57, frontend.css?ver=1783947306, chaty-front.min.css?ver=3.0.51773941370"
-        },
-        {
-          "type": "security_headers",
-          "severity": "warning",
-          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
-        },
-        {
-          "type": "cwv_lcp",
-          "severity": "warning",
-          "message": "LCP איטי: 5.6s — צריך להיות מתחת ל-2.5s"
-        },
-        {
-          "type": "cwv_cls",
-          "severity": "warning",
-          "message": "CLS בינוני: 0.115 — (מקסימום תקין: 0.1)"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/) | \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D/",
-      "viewport": "mobile",
-      "status": 200,
-      "loadTime": 2930,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67d0h2v892755253z8838992305za20gzb838992305zd838992305&_p=1784016127816&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=2064701848&_eu=AAAAAGAC&are=1&cid=65902776.1784016128&ec_mode=a&frm=0&pscdl=noapi&rcb=3&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938468~118826209~118897920~118897930~119027224~119724321&sid=1784016128&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1091, https://www.google.com/rmkt/collect/961928319/?random=1784016128284&cv=11&fst=1784016128284&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67d0h2v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938465~115938468~118131809~118395333~118826209~118897920~118897930~119027224~119724321&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%25A7%25D7%2595%25D7%25A8%25D7%25A1%25D7%2599%25D7%259D%2F&rcb=6&frm=0&tiba=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1154768865.1784016128&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "visual_diff",
-          "severity": "warning",
-          "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "mobile_touch_targets",
-          "severity": "warning",
-          "message": "293 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/) | \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/about-nk-story/",
-      "viewport": "desktop",
-      "status": 200,
-      "loadTime": 5693,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "3 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1v892755253z8838992305za20gzb838992305zd838992305&_p=1784016137837&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1209820883&_eu=AAAAAGAC&are=1&cid=2059558593.1784016138&ec_mode=a&frm=0&pscdl=noapi&rcb=5&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616986~115938466~115938468~118395333~118826209~118897920~118897930~119027224&sid=1784016138&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fabout-nk-story%2F&dt=%D7%94%D7%A1%D7%98%D7%95%D7%A8%D7%99%20%D7%A9%D7%9C%20NK%20Collection&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1711, https://www.google.com/rmkt/collect/961928319/?random=1784016138323&cv=11&fst=1784016138323&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~118131808~118826210~118897920~118897930~119027224~119773331&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2Fabout-nk-story%2F&rcb=18&frm=0&tiba=%D7%94%D7%A1%D7%98%D7%95%D7%A8%D7%99%20%D7%A9%D7%9C%20NK%20Collection&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=943207159.1784016138&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "seo_title",
-          "severity": "warning",
-          "message": "title קצר מדי: 23 תווים (מינימום 30) — \"הסטורי של NK Collection\""
-        },
-        {
-          "type": "a11y_alt",
-          "severity": "warning",
-          "message": "2 תמונות ללא alt text (נגישות + SEO)"
-        },
-        {
-          "type": "a11y_btn",
-          "severity": "warning",
-          "message": "2 כפתורים ללא aria-label"
-        },
-        {
-          "type": "a11y_form_label",
-          "severity": "warning",
-          "message": "1 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
-        },
-        {
-          "type": "perf_requests",
-          "severity": "warning",
-          "message": "186 בקשות HTTP בדף — מומלץ מתחת ל-80"
-        },
-        {
-          "type": "perf_weight",
-          "severity": "warning",
-          "message": "משקל עמוד: 2053KB (מומלץ מתחת ל-1500KB)"
-        },
-        {
-          "type": "perf_render_blocking",
-          "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: iframe_api, css?family=Assistant%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100i%2C200i%2C300i%2C400i%2C500i%2C600i%2C700i%2C800i%2C900i&subset=latin&display=swap, premium-addons.min.css?ver=4.11.82, premium-addons.min.css?ver=2.9.57, frontend.css?ver=1783947306"
-        },
-        {
-          "type": "security_headers",
-          "severity": "warning",
-          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
-        },
-        {
-          "type": "no_webp",
-          "severity": "warning",
-          "message": "8 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): WhatsApp_Image_2025-11-23_at_13.38.37-removebg-preview.png, STORY-NK-3-PINK.jpg, MODEL-MOBILE.jpg"
-        },
-        {
-          "type": "cta_no_link",
-          "severity": "warning",
-          "message": "1 כפתורי CTA ללא קישור: \"₪0 0 עגלת קניות\""
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/) | \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/about-nk-story/",
-      "viewport": "mobile",
-      "status": 200,
-      "loadTime": 5698,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "3 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1v892755253z8838992305za20gzb838992305zd838992305&_p=1784016148388&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=2065932959&_eu=AAAAAGAC&are=1&cid=925643869.1784016149&ec_mode=a&frm=0&pscdl=noapi&rcb=1&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118826210~118897920~118897930~119027224~119527020~119724320&sid=1784016148&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fabout-nk-story%2F&dt=%D7%94%D7%A1%D7%98%D7%95%D7%A8%D7%99%20%D7%A9%D7%9C%20NK%20Collection&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1074, https://www.google.com/rmkt/collect/961928319/?random=1784016148839&cv=11&fst=1784016148839&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~118826210~118897920~118897930~119027224~119724320&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2Fabout-nk-story%2F&rcb=17&frm=0&tiba=%D7%94%D7%A1%D7%98%D7%95%D7%A8%D7%99%20%D7%A9%D7%9C%20NK%20Collection&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1188858372.1784016149&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "visual_diff",
-          "severity": "warning",
-          "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "mobile_touch_targets",
-          "severity": "warning",
-          "message": "79 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/) | \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/q-and-a/",
-      "viewport": "desktop",
-      "status": 200,
-      "loadTime": 4829,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "3 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67d0h2v892755253z8838992305za20gzb838992305zd838992305&_p=1784016158344&em=tv.1~em.qvm7AMMWy_fs3ecDiAcOd1b8WlkuK7YPb4KxHKZtPb4&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=44759457&_eu=AAAAAGAC&are=1&cid=1104668490.1784016159&ec_mode=a&frm=0&pscdl=noapi&rcb=17&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938465~115938468~118395333~118826209~118897920~118897930~119027224~119724320&sid=1784016158&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fq-and-a%2F&dt=%D7%A9%D7%90%D7%9C%D7%95%D7%AA%20%D7%95%D7%AA%D7%A9%D7%95%D7%91%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&gap.plf=4.5.3&tfd=1122, https://www.google.com/rmkt/collect/961928319/?random=1784016158780&cv=11&fst=1784016158780&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67d0h2v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938465~115938469~118826210~118897920~118897930~119027224~119527020~119724320&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2Fq-and-a%2F&rcb=11&frm=0&tiba=%D7%A9%D7%90%D7%9C%D7%95%D7%AA%20%D7%95%D7%AA%D7%A9%D7%95%D7%91%D7%95%D7%AA%20-%20NK%20Collection%20Shop&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=598453643.1784016159&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "seo_description",
-          "severity": "warning",
-          "message": "חסר meta description"
-        },
-        {
-          "type": "seo_og",
-          "severity": "warning",
-          "message": "חסרים תגי Open Graph: og:image (שיתוף ברשתות חברתיות)"
-        },
-        {
-          "type": "a11y_btn",
-          "severity": "warning",
-          "message": "3 כפתורים ללא aria-label"
-        },
-        {
-          "type": "a11y_form_label",
-          "severity": "warning",
-          "message": "1 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
-        },
-        {
-          "type": "perf_requests",
-          "severity": "warning",
-          "message": "188 בקשות HTTP בדף — מומלץ מתחת ל-80"
-        },
-        {
-          "type": "perf_weight",
-          "severity": "warning",
-          "message": "משקל עמוד: 1644KB (מומלץ מתחת ל-1500KB)"
-        },
-        {
-          "type": "perf_render_blocking",
-          "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: iframe_api, css?family=Assistant%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100i%2C200i%2C300i%2C400i%2C500i%2C600i%2C700i%2C800i%2C900i&subset=latin&display=swap, premium-addons.min.css?ver=4.11.82, premium-addons.min.css?ver=2.9.57, frontend.css?ver=1783947306"
-        },
-        {
-          "type": "security_headers",
-          "severity": "warning",
-          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
-        },
-        {
-          "type": "thin_content",
-          "severity": "warning",
-          "message": "תוכן דק: 217 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
-        },
-        {
-          "type": "cta_no_link",
-          "severity": "warning",
-          "message": "1 כפתורי CTA ללא קישור: \"₪0 0 עגלת קניות\""
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/) | \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/q-and-a/",
-      "viewport": "mobile",
-      "status": 200,
-      "loadTime": 5139,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "3 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1v892755253z8838992305za20gzb838992305zd838992305&_p=1784016231036&em=tv.1~em.qvm7AMMWy_fs3ecDiAcOd1b8WlkuK7YPb4KxHKZtPb4&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1770573953&_eu=AAAAAGAC&are=1&cid=1863237433.1784016231&ec_mode=a&frm=0&pscdl=noapi&rcb=11&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118826210~118897920~118897930~118981135~119027224&sid=1784016231&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fq-and-a%2F&dt=%D7%A9%D7%90%D7%9C%D7%95%D7%AA%20%D7%95%D7%AA%D7%A9%D7%95%D7%91%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1282, https://www.google.com/rmkt/collect/961928319/?random=1784016231488&cv=11&fst=1784016231488&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~118395334~118826209~118897920~118897930~119027224~119350259&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2Fq-and-a%2F&rcb=19&frm=0&tiba=%D7%A9%D7%90%D7%9C%D7%95%D7%AA%20%D7%95%D7%AA%D7%A9%D7%95%D7%91%D7%95%D7%AA%20-%20NK%20Collection%20Shop&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=363953300.1784016231&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "visual_diff",
-          "severity": "warning",
-          "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "mobile_touch_targets",
-          "severity": "warning",
-          "message": "85 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
-        },
-        {
-          "type": "cwv_cls",
-          "severity": "warning",
-          "message": "CLS בינוני: 0.128 — (מקסימום תקין: 0.1)"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/) | \"התחברות\" → HTTP 403 (https://navacollage.co.il/my-account/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/liadso/",
-      "viewport": "desktop",
-      "status": 200,
-      "loadTime": 4939,
+      "loadTime": 999,
       "issues": [
         {
           "type": "missing_element",
@@ -767,6 +169,49 @@
           "message": "footer חסר לחלוטין מה-DOM"
         },
         {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/shop/",
+      "viewport": "desktop",
+      "status": 200,
+      "loadTime": 825,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        },
+        {
+          "type": "seo_title",
+          "severity": "warning",
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
+        },
+        {
           "type": "seo_description",
           "severity": "warning",
           "message": "חסר meta description"
@@ -774,12 +219,7 @@
         {
           "type": "seo_h1",
           "severity": "warning",
-          "message": "2 תגי H1 — צריך בדיוק אחד"
-        },
-        {
-          "type": "seo_noindex",
-          "severity": "critical",
-          "message": "⛔ עמוד מסומן noindex — גוגל לא יסרוק אותו! (robots: \"noindex, follow\")"
+          "message": "חסר תג H1 בעמוד"
         },
         {
           "type": "seo_og",
@@ -792,24 +232,9 @@
           "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
         },
         {
-          "type": "form_submit_error",
-          "severity": "critical",
-          "message": "שליחת הטופס החזירה הודעת שגיאה"
-        },
-        {
-          "type": "perf_ttfb",
-          "severity": "warning",
-          "message": "TTFB סביר: 1117ms (מטרה: מתחת ל-800ms)"
-        },
-        {
-          "type": "perf_render_blocking",
-          "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: front.min.js?ver=3.1.1, dashicons.min.css?ver=7.0.1, buttons-rtl.min.css?ver=7.0.1, forms-rtl.min.css?ver=7.0.1, l10n-rtl.min.css?ver=7.0.1"
-        },
-        {
           "type": "security_headers",
           "severity": "warning",
-          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Content-Type-Options (מונע MIME sniffing)"
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
         },
         {
           "type": "schema_missing",
@@ -819,7 +244,7 @@
         {
           "type": "thin_content",
           "severity": "warning",
-          "message": "תוכן דק: 37 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
         },
         {
           "type": "canonical_missing",
@@ -829,10 +254,10 @@
       ]
     },
     {
-      "url": "https://navacollage.co.il/liadso/",
+      "url": "https://navacollage.co.il/shop/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 1640,
+      "loadTime": 1003,
       "issues": [
         {
           "type": "missing_element",
@@ -845,269 +270,72 @@
           "message": "footer חסר לחלוטין מה-DOM"
         },
         {
-          "type": "mobile_touch_targets",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "14 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
+          "message": "nav חסר לחלוטין מה-DOM"
         },
         {
-          "type": "mobile_font_size",
+          "type": "visual_diff",
           "severity": "warning",
-          "message": "גופן קטן מדי ב-15 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
         }
       ]
     },
     {
-      "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4/",
+      "url": "https://navacollage.co.il/contact-nk/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3265,
+      "loadTime": 825,
       "issues": [
         {
-          "type": "js_error",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
+          "message": "header חסר לחלוטין מה-DOM"
         },
         {
-          "type": "failed_requests",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1v892755253z8838992305za20gzb838992305zd838992305&_p=1784016344913&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=407762132&_eu=AAAAAGAC&are=1&cid=715725930.1784016346&ec_mode=a&frm=0&pscdl=noapi&rcb=18&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938465~115938469~118826210~118897920~118897930~119027224~119724320~119773331&sid=1784016345&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&gap.plf=4.5.3&tfd=1732, https://www.google.com/rmkt/collect/961928319/?random=1784016346024&cv=11&fst=1784016346024&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938465~115938468~118826209~118897920~118897930~119027224~119724320&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%25A7%25D7%2595%25D7%25A8%25D7%25A1%25D7%2599%25D7%259D-%25D7%259E%25D7%25A7%25D7%25A6%25D7%2595%25D7%25A2%25D7%2599%25D7%2599%25D7%259D-%25D7%2594%25D7%259E%25D7%259B%25D7%259C%25D7%259C%25D7%2594-%25D7%259C%25D7%259E%25D7%25A7%25D7%25A6%25D7%2595%25D7%25A2%25D7%2595%25D7%25AA-%25D7%2594%25D7%2599%25D7%2595%25D7%25A4%2F&rcb=8&frm=0&tiba=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=821578624.1784016345&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        },
+        {
+          "type": "seo_title",
+          "severity": "warning",
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
+        },
+        {
+          "type": "seo_description",
+          "severity": "warning",
+          "message": "חסר meta description"
         },
         {
           "type": "seo_h1",
           "severity": "warning",
-          "message": "2 תגי H1 — צריך בדיוק אחד"
+          "message": "חסר תג H1 בעמוד"
         },
         {
-          "type": "a11y_btn",
+          "type": "seo_og",
           "severity": "warning",
-          "message": "3 כפתורים ללא aria-label"
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
         },
         {
-          "type": "a11y_form_label",
+          "type": "a11y_landmark",
           "severity": "warning",
-          "message": "1 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
         },
         {
-          "type": "a11y_heading",
+          "type": "missing_phone",
           "severity": "warning",
-          "message": "היררכיית כותרות שבורה — קפיצה בין רמות (H1→H3 וכו') — WCAG 1.3.1"
-        },
-        {
-          "type": "external_broken_links",
-          "severity": "warning",
-          "message": "1 קישורים חיצוניים שבורים: www.tiktok.com"
-        },
-        {
-          "type": "perf_requests",
-          "severity": "warning",
-          "message": "185 בקשות HTTP בדף — מומלץ מתחת ל-80"
-        },
-        {
-          "type": "perf_render_blocking",
-          "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: iframe_api, css?family=Assistant%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100i%2C200i%2C300i%2C400i%2C500i%2C600i%2C700i%2C800i%2C900i&subset=latin&display=swap, premium-addons.min.css?ver=4.11.82, premium-addons.min.css?ver=2.9.57, frontend.css?ver=1783947306"
-        },
-        {
-          "type": "security_headers",
-          "severity": "warning",
-          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
-        },
-        {
-          "type": "no_webp",
-          "severity": "warning",
-          "message": "8 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): logo-white-nk-s.png, logo-white-nk-s.png, %D7%A7%D7%95%D7%A8%D7%A1-%D7%A7%D7%95%D7%A1%D7%9E%D7%98%D7%99%D7%A7%D7%94-%D7%94%D7%99%D7%A8%D7%95-%D7%93%D7%A1%D7%A7%D7%98%D7%95%D7%A4-1024x424.jpg"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/) | \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4/",
-      "viewport": "mobile",
-      "status": 200,
-      "loadTime": 2629,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1v892755253za20gzb838992305zd838992305&_p=1784016363833&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=850988491&_eu=AAAAAGAC&are=1&cid=1366409614.1784016364&ec_mode=a&frm=0&pscdl=noapi&rcb=3&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938469~118826210~118897920~118897930~119027224&sid=1784016364&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=1595"
-        },
-        {
-          "type": "visual_diff",
-          "severity": "warning",
-          "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "mobile_touch_targets",
-          "severity": "warning",
-          "message": "322 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
-        },
-        {
-          "type": "cwv_lcp",
-          "severity": "warning",
-          "message": "LCP סביר: 3.8s — גוגל מעדיף מתחת ל-2.5s"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/) | \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA/",
-      "viewport": "desktop",
-      "status": 200,
-      "loadTime": 2515,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1v892755253z8838992305za20gzb838992305zd838992305&_p=1784016374449&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1059938516&_eu=AAAAAGAC&are=1&cid=2119700011.1784016375&ec_mode=a&frm=0&pscdl=noapi&rcb=12&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118826210~118897920~118897930~119027224~119724320&sid=1784016375&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA%2F&dt=%D7%91%D7%95%D7%92%D7%A8%D7%99%D7%9D%20%D7%9E%D7%9E%D7%9C%D7%99%D7%A6%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94%20%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA%20%D7%94%D7%99%D7%95%D7%A4%D7%99&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1425, https://www.google.com/rmkt/collect/961928319/?random=1784016375196&cv=11&fst=1784016375196&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~118826209~118897920~118897930~119027224~119724320&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%2594%25D7%259E%25D7%259C%25D7%25A6%25D7%2595%25D7%25AA%2F&rcb=10&frm=0&tiba=%D7%91%D7%95%D7%92%D7%A8%D7%99%D7%9D%20%D7%9E%D7%9E%D7%9C%D7%99%D7%A6%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94%20%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA%20%D7%94%D7%99&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=760515895.1784016375&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "a11y_btn",
-          "severity": "warning",
-          "message": "3 כפתורים ללא aria-label"
-        },
-        {
-          "type": "a11y_form_label",
-          "severity": "warning",
-          "message": "1 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
-        },
-        {
-          "type": "external_broken_links",
-          "severity": "warning",
-          "message": "1 קישורים חיצוניים שבורים: www.tiktok.com"
-        },
-        {
-          "type": "perf_requests",
-          "severity": "warning",
-          "message": "172 בקשות HTTP בדף — מומלץ מתחת ל-80"
-        },
-        {
-          "type": "perf_render_blocking",
-          "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: css?family=Assistant%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100i%2C200i%2C300i%2C400i%2C500i%2C600i%2C700i%2C800i%2C900i&subset=latin&display=swap, premium-addons.min.css?ver=4.11.82, premium-addons.min.css?ver=2.9.57, frontend.css?ver=1783947306, chaty-front.min.css?ver=3.0.51773941370"
-        },
-        {
-          "type": "security_headers",
-          "severity": "warning",
-          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
-        },
-        {
-          "type": "woo_page_broken",
-          "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
-        },
-        {
-          "type": "no_webp",
-          "severity": "warning",
-          "message": "4 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): logo-black-nk-s.png, logo-white-nk-s.png, %D7%99%D7%A2%D7%9C-%D7%A9%D7%99%D7%9E%D7%A9%D7%99-150x150.jpg"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/) | \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA/",
-      "viewport": "mobile",
-      "status": 200,
-      "loadTime": 2936,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1v892755253z8838992305za20gzb838992305zd838992305&_p=1784016389068&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1101686063&_eu=AAAAAGAC&are=1&cid=1464135636.1784016390&ec_mode=a&frm=0&pscdl=noapi&rcb=12&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938469~118826210~118897920~118897930~119027224~119724322&sid=1784016389&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA%2F&dt=%D7%91%D7%95%D7%92%D7%A8%D7%99%D7%9D%20%D7%9E%D7%9E%D7%9C%D7%99%D7%A6%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94%20%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA%20%D7%94%D7%99%D7%95%D7%A4%D7%99&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1666, https://www.google.com/rmkt/collect/961928319/?random=1784016389923&cv=11&fst=1784016389923&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938469~118826209~118897920~118897930~119027224~119724322&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%2594%25D7%259E%25D7%259C%25D7%25A6%25D7%2595%25D7%25AA%2F&rcb=1&frm=0&tiba=%D7%91%D7%95%D7%92%D7%A8%D7%99%D7%9D%20%D7%9E%D7%9E%D7%9C%D7%99%D7%A6%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94%20%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA%20%D7%94%D7%99&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=593281228.1784016390&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "visual_diff",
-          "severity": "warning",
-          "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "mobile_touch_targets",
-          "severity": "warning",
-          "message": "255 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/) | \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/)"
-        }
-      ]
-    },
-    {
-      "url": "https://navacollage.co.il/%D7%90%D7%95%D7%93%D7%95%D7%AA/",
-      "viewport": "desktop",
-      "status": 200,
-      "loadTime": 2857,
-      "issues": [
-        {
-          "type": "js_error",
-          "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
-        },
-        {
-          "type": "failed_requests",
-          "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67d0h2v892755253z8838992305za20gzb838992305zd838992305&_p=1784016397006&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=172059949&_eu=AAAAAGAC&are=1&cid=361867873.1784016398&ec_mode=a&frm=0&pscdl=noapi&rcb=10&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938466~115938468~118826210~118897920~118897930~119027224&sid=1784016397&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%90%D7%95%D7%93%D7%95%D7%AA%2F&dt=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&gap.plf=4.5.3&tfd=1555, https://www.google.com/rmkt/collect/961928319/?random=1784016397878&cv=11&fst=1784016397878&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67d0h2v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~118826210~118897920~118897930~119027224~119773332&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%2590%25D7%2595%25D7%2593%25D7%2595%25D7%25AA%2F&rcb=13&frm=0&tiba=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=426356658.1784016398&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
-        },
-        {
-          "type": "visual_diff",
-          "severity": "warning",
-          "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "a11y_btn",
-          "severity": "warning",
-          "message": "3 כפתורים ללא aria-label"
-        },
-        {
-          "type": "a11y_form_label",
-          "severity": "warning",
-          "message": "2 שדות טופס ללא label — לא נגיש לקוראי מסך (WCAG 1.3.1)"
-        },
-        {
-          "type": "external_broken_links",
-          "severity": "warning",
-          "message": "1 קישורים חיצוניים שבורים: www.tiktok.com"
+          "message": "לא נמצא מספר טלפון ישראלי בעמוד (חשוב לאמון + SEO מקומי)"
         },
         {
           "type": "security_headers",
@@ -1122,7 +350,719 @@
         {
           "type": "thin_content",
           "severity": "warning",
-          "message": "תוכן דק: 0 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
+        },
+        {
+          "type": "canonical_missing",
+          "severity": "warning",
+          "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/contact-nk/",
+      "viewport": "mobile",
+      "status": 200,
+      "loadTime": 1069,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D/",
+      "viewport": "desktop",
+      "status": 200,
+      "loadTime": 1026,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        },
+        {
+          "type": "seo_title",
+          "severity": "warning",
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
+        },
+        {
+          "type": "seo_description",
+          "severity": "warning",
+          "message": "חסר meta description"
+        },
+        {
+          "type": "seo_h1",
+          "severity": "warning",
+          "message": "חסר תג H1 בעמוד"
+        },
+        {
+          "type": "seo_og",
+          "severity": "warning",
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
+        },
+        {
+          "type": "a11y_landmark",
+          "severity": "warning",
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
+        },
+        {
+          "type": "security_headers",
+          "severity": "warning",
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
+        },
+        {
+          "type": "schema_missing",
+          "severity": "warning",
+          "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
+        },
+        {
+          "type": "thin_content",
+          "severity": "warning",
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
+        },
+        {
+          "type": "canonical_missing",
+          "severity": "warning",
+          "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D/",
+      "viewport": "mobile",
+      "status": 200,
+      "loadTime": 995,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/about-nk-story/",
+      "viewport": "desktop",
+      "status": 200,
+      "loadTime": 977,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        },
+        {
+          "type": "seo_title",
+          "severity": "warning",
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
+        },
+        {
+          "type": "seo_description",
+          "severity": "warning",
+          "message": "חסר meta description"
+        },
+        {
+          "type": "seo_h1",
+          "severity": "warning",
+          "message": "חסר תג H1 בעמוד"
+        },
+        {
+          "type": "seo_og",
+          "severity": "warning",
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
+        },
+        {
+          "type": "a11y_landmark",
+          "severity": "warning",
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
+        },
+        {
+          "type": "security_headers",
+          "severity": "warning",
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
+        },
+        {
+          "type": "schema_missing",
+          "severity": "warning",
+          "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
+        },
+        {
+          "type": "thin_content",
+          "severity": "warning",
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
+        },
+        {
+          "type": "canonical_missing",
+          "severity": "warning",
+          "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/about-nk-story/",
+      "viewport": "mobile",
+      "status": 200,
+      "loadTime": 997,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/q-and-a/",
+      "viewport": "desktop",
+      "status": 200,
+      "loadTime": 828,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        },
+        {
+          "type": "seo_title",
+          "severity": "warning",
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
+        },
+        {
+          "type": "seo_description",
+          "severity": "warning",
+          "message": "חסר meta description"
+        },
+        {
+          "type": "seo_h1",
+          "severity": "warning",
+          "message": "חסר תג H1 בעמוד"
+        },
+        {
+          "type": "seo_og",
+          "severity": "warning",
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
+        },
+        {
+          "type": "a11y_landmark",
+          "severity": "warning",
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
+        },
+        {
+          "type": "security_headers",
+          "severity": "warning",
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
+        },
+        {
+          "type": "schema_missing",
+          "severity": "warning",
+          "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
+        },
+        {
+          "type": "thin_content",
+          "severity": "warning",
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
+        },
+        {
+          "type": "canonical_missing",
+          "severity": "warning",
+          "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/q-and-a/",
+      "viewport": "mobile",
+      "status": 200,
+      "loadTime": 1026,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/liadso/",
+      "viewport": "desktop",
+      "status": 200,
+      "loadTime": 816,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "6.8% הבדל ויזואלי מהבייסליין"
+        },
+        {
+          "type": "seo_title",
+          "severity": "warning",
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
+        },
+        {
+          "type": "seo_description",
+          "severity": "warning",
+          "message": "חסר meta description"
+        },
+        {
+          "type": "seo_h1",
+          "severity": "warning",
+          "message": "חסר תג H1 בעמוד"
+        },
+        {
+          "type": "seo_og",
+          "severity": "warning",
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
+        },
+        {
+          "type": "a11y_landmark",
+          "severity": "warning",
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
+        },
+        {
+          "type": "security_headers",
+          "severity": "warning",
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
+        },
+        {
+          "type": "schema_missing",
+          "severity": "warning",
+          "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
+        },
+        {
+          "type": "thin_content",
+          "severity": "warning",
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
+        },
+        {
+          "type": "canonical_missing",
+          "severity": "warning",
+          "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/liadso/",
+      "viewport": "mobile",
+      "status": 200,
+      "loadTime": 1013,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "17.3% הבדל ויזואלי מהבייסליין"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4/",
+      "viewport": "desktop",
+      "status": 200,
+      "loadTime": 993,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        },
+        {
+          "type": "seo_title",
+          "severity": "warning",
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
+        },
+        {
+          "type": "seo_description",
+          "severity": "warning",
+          "message": "חסר meta description"
+        },
+        {
+          "type": "seo_h1",
+          "severity": "warning",
+          "message": "חסר תג H1 בעמוד"
+        },
+        {
+          "type": "seo_og",
+          "severity": "warning",
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
+        },
+        {
+          "type": "a11y_landmark",
+          "severity": "warning",
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
+        },
+        {
+          "type": "security_headers",
+          "severity": "warning",
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
+        },
+        {
+          "type": "schema_missing",
+          "severity": "warning",
+          "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
+        },
+        {
+          "type": "thin_content",
+          "severity": "warning",
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
+        },
+        {
+          "type": "canonical_missing",
+          "severity": "warning",
+          "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4/",
+      "viewport": "mobile",
+      "status": 200,
+      "loadTime": 1003,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA/",
+      "viewport": "desktop",
+      "status": 200,
+      "loadTime": 977,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        },
+        {
+          "type": "seo_title",
+          "severity": "warning",
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
+        },
+        {
+          "type": "seo_description",
+          "severity": "warning",
+          "message": "חסר meta description"
+        },
+        {
+          "type": "seo_h1",
+          "severity": "warning",
+          "message": "חסר תג H1 בעמוד"
+        },
+        {
+          "type": "seo_og",
+          "severity": "warning",
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
+        },
+        {
+          "type": "a11y_landmark",
+          "severity": "warning",
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
+        },
+        {
+          "type": "security_headers",
+          "severity": "warning",
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
+        },
+        {
+          "type": "schema_missing",
+          "severity": "warning",
+          "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
+        },
+        {
+          "type": "thin_content",
+          "severity": "warning",
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
+        },
+        {
+          "type": "canonical_missing",
+          "severity": "warning",
+          "message": "חסר תג canonical — גוגל עלול לאנדקס גרסאות כפולות של העמוד (WCAG + SEO)"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA/",
+      "viewport": "mobile",
+      "status": 200,
+      "loadTime": 835,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        },
+        {
+          "type": "cwv_cls",
+          "severity": "warning",
+          "message": "CLS בינוני: 0.114 — (מקסימום תקין: 0.1)"
+        }
+      ]
+    },
+    {
+      "url": "https://navacollage.co.il/%D7%90%D7%95%D7%93%D7%95%D7%AA/",
+      "viewport": "desktop",
+      "status": 200,
+      "loadTime": 1002,
+      "issues": [
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "header חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "100.0% הבדל ויזואלי מהבייסליין"
+        },
+        {
+          "type": "seo_title",
+          "severity": "warning",
+          "message": "title קצר מדי: 21 תווים (מינימום 30) — \"One moment, please...\""
+        },
+        {
+          "type": "seo_description",
+          "severity": "warning",
+          "message": "חסר meta description"
+        },
+        {
+          "type": "seo_h1",
+          "severity": "warning",
+          "message": "חסר תג H1 בעמוד"
+        },
+        {
+          "type": "seo_og",
+          "severity": "warning",
+          "message": "חסרים תגי Open Graph: og:title, og:image (שיתוף ברשתות חברתיות)"
+        },
+        {
+          "type": "a11y_landmark",
+          "severity": "warning",
+          "message": "חסר <main> landmark — קוראי מסך לא יכולים לדלג ישירות לתוכן (WCAG 1.3.6)"
+        },
+        {
+          "type": "security_headers",
+          "severity": "warning",
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
+        },
+        {
+          "type": "schema_missing",
+          "severity": "warning",
+          "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
+        },
+        {
+          "type": "thin_content",
+          "severity": "warning",
+          "message": "תוכן דק: 7 מילים (מינימום מומלץ: 300) — גוגל מעדיף עמודים עם תוכן עשיר"
         },
         {
           "type": "canonical_missing",
@@ -1135,32 +1075,27 @@
       "url": "https://navacollage.co.il/%D7%90%D7%95%D7%93%D7%95%D7%AA/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2408,
+      "loadTime": 972,
       "issues": [
         {
-          "type": "js_error",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "1 שגיאות JS: Unexpected token ')'"
+          "message": "header חסר לחלוטין מה-DOM"
         },
         {
-          "type": "failed_requests",
+          "type": "missing_element",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je67a1v892755253z8838992305za20gzb838992305zd838992305&_p=1784016413056&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1445341975&_eu=AAAAAGAC&are=1&cid=1233164450.1784016414&ec_mode=a&frm=0&pscdl=noapi&rcb=0&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938466~115938469~118395335~118826209~118897920~118897930~119027224&sid=1784016413&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%90%D7%95%D7%93%D7%95%D7%AA%2F&dt=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&gap.plf=4.5.3&tfd=1318, https://www.google.com/rmkt/collect/961928319/?random=1784016413920&cv=11&fst=1784016413920&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be67a1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~118395334~118826210~118897920~118897930~119027224~119732171~119896802&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%2590%25D7%2595%25D7%2593%25D7%2595%25D7%25AA%2F&rcb=18&frm=0&tiba=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=125963189.1784016414&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
+          "message": "footer חסר לחלוטין מה-DOM"
+        },
+        {
+          "type": "missing_element",
+          "severity": "warning",
+          "message": "nav חסר לחלוטין מה-DOM"
         },
         {
           "type": "visual_diff",
           "severity": "warning",
           "message": "100.0% הבדל ויזואלי מהבייסליין"
-        },
-        {
-          "type": "mobile_touch_targets",
-          "severity": "warning",
-          "message": "258 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
-        },
-        {
-          "type": "cta_broken_link",
-          "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/) | \"חנות NK\" → HTTP 403 (https://navacollage.co.il/nk/)"
         }
       ]
     }
