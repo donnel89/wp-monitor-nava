@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-07-23T08:35:18.148Z",
+  "timestamp": "2026-07-24T08:33:07.414Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -38,7 +38,7 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2947,
+      "loadTime": 2712,
       "issues": [
         {
           "type": "a11y_btn",
@@ -116,7 +116,7 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2562,
+      "loadTime": 2653,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -131,7 +131,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 2.7s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 2.8s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -139,7 +139,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3342,
+      "loadTime": 3411,
       "issues": [
         {
           "type": "a11y_btn",
@@ -164,12 +164,12 @@
         {
           "type": "perf_requests",
           "severity": "warning",
-          "message": "107 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "106 בקשות HTTP בדף — מומלץ מתחת ל-80"
         },
         {
           "type": "perf_render_blocking",
           "severity": "warning",
-          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: iframe_api, javascript;base64,CgkgICAgd2luZG93LmRhdGFMYXllclBZUyA9IHdpbmRvdy5kYXRhTGF5ZXJQWVMgfHwgW107Cgk=, javascript;base64,Y29uc29sZS5sb2coJ1BpeGVsWW91clNpdGUgUFJPIHZlcnNpb24gMTEuMi4wLjQnKTs=, jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1"
+          "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: iframe_api, javascript;base64,CgkgICAgd2luZG93LmRhdGFMYXllclBZUyA9IHdpbmRvdy5kYXRhTGF5ZXJQWVMgfHwgW107Cgk=, jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1, cmVmOnJlZi5uZXh0U2libGluZykpfSk7dmFyIG9ud3BhY3Vsb2FkY3NzZGVmaW5lZD1mdW5jdGlvbihjYil7dmFyIHJlc29sdmVkSHJlZj1zcy5ocmVmO3ZhciBpPXNoZWV0cy5sZW5ndGg7d2hpbGUoaS0tKXtpZihzaGVldHNbaV0uaHJlZj09PXJlc29sdmVkSHJlZil7cmV0dXJuIGNiKCl9fQpzZXRUaW1lb3V0KGZ1bmN0aW9uKCl7b253cGFjdWxvYWRjc3NkZWZpbmVkKGNiKX0pfTtmdW5jdGlvbiB3cGFjdUxvYWRDQigpe2lmKHNzLmFkZEV2ZW50TGlzdGVuZXIpe3NzLnJlbW92ZUV2ZW50TGlzdGVuZXIoImxvYWQiLHdwYWN1TG9hZENCKX0Kc3MubWVkaWE9bWVkaWF8fCJhbGwifQppZihzcy5hZGRFdmVudExpc3RlbmVyKXtzcy5hZGRFdmVudExpc3RlbmVyKCJsb2FkIix3cGFjdUxvYWRDQil9CnNzLm9ud3BhY3Vsb2FkY3NzZGVmaW5lZD1vbndwYWN1bG9hZGNzc2RlZmluZWQ7b253cGFjdWxvYWRjc3NkZWZpbmVkKHdwYWN1TG9hZENCKTtyZXR1cm4gc3N9O2lmKHR5cGVvZiBleHBvcnRzIT09InVuZGVmaW5lZCIpe2V4cG9ydHMud3BhY3VMb2FkQ1NTPXdwYWN1TG9hZENTU31lbHNle3cud3BhY3VMb2FkQ1NTPXdwYWN1TG9hZENTU319KHR5cGVvZiBnbG9iYWwhPT0idW5kZWZpbmVkIj9nbG9iYWw6dGhpcykpCg=="
         },
         {
           "type": "security_headers",
@@ -197,7 +197,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3290,
+      "loadTime": 3328,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -212,7 +212,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 3.5s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.6s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -220,7 +220,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2355,
+      "loadTime": 2384,
       "issues": [
         {
           "type": "a11y_btn",
@@ -278,7 +278,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2419,
+      "loadTime": 2361,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -289,11 +289,6 @@
           "type": "mobile_font_size",
           "severity": "warning",
           "message": "גופן קטן מדי ב-33 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
-        },
-        {
-          "type": "cwv_lcp",
-          "severity": "warning",
-          "message": "LCP סביר: 2.5s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     }
