@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-08-05T08:38:39.617Z",
+  "timestamp": "2026-08-06T08:38:34.239Z",
   "siteId": "navacollage",
   "siteName": "נאוה קולאז'",
   "baseUrl": "https://navacollage.co.il",
@@ -43,7 +43,7 @@
       "url": "https://navacollage.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 4070,
+      "loadTime": 4665,
       "issues": [
         {
           "type": "js_error",
@@ -53,7 +53,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253z8838992305za20gzb838992305zd838992305&_p=1785918680461&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=89439701&_eu=AAAAAGAC&are=1&cid=367269122.1785918681&ec_mode=a&frm=0&pscdl=noapi&rcb=14&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938468~118897920~118897930~119404702~119896802&sid=1785918681&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F&dt=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=2398, https://www.google.com/rmkt/collect/961928319/?random=1785918681595&cv=11&fst=1785918681595&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6831v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938465~115938468~118395335~118897920~118897930~119896803&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2F&rcb=10&frm=0&tiba=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=442752454.1785918681&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&gap.plf=4.5.3&ept=68&gcp=5"
+          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253z8838992305za20gzb838992305zd838992305&_p=1786005086309&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=2117302309&_eu=AAAAAGAC&are=1&cid=126787408.1786005087&ec_mode=a&frm=0&pscdl=noapi&rcb=6&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938465~115938469~118395333~118897920~118897930~119527019~119896802&sid=1786005086&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F&dt=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&gap.plf=4.5.3&tfd=1918, https://www.google.com/rmkt/collect/961928319/?random=1786005086833&cv=11&fst=1786005086833&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6841v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938465~115938468~118395334~118897920~118897930~119527020~119896803&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2F&rcb=16&frm=0&tiba=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=518053492.1786005087&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
         },
         {
           "type": "visual_diff",
@@ -141,7 +141,7 @@
       "url": "https://navacollage.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3289,
+      "loadTime": 3265,
       "issues": [
         {
           "type": "js_error",
@@ -151,7 +151,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253z8838992305za20gzb838992305zd838992305&_p=1785918697692&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1278615660&_eu=AAAAAGAC&are=1&cid=826189914.1785918699&ec_mode=a&frm=0&pscdl=noapi&rcb=2&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118395335~118897920~118897930~119337768~119896803&sid=1785918698&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F&dt=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1596, https://www.google.com/rmkt/collect/961928319/?random=1785918698848&cv=11&fst=1785918698848&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6831v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938468~118395333~118897920~118897930~119896803&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2F&rcb=0&frm=0&tiba=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=496165912.1785918699&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
+          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253z8838992305za20gzb838992305zd838992305&_p=1786005103901&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1537119766&_eu=AAAAAGAC&are=1&cid=623326417.1786005105&ec_mode=a&frm=0&pscdl=noapi&rcb=12&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938469~118897920~118897930~119527020~119896803&sid=1786005104&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F&dt=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1629, https://www.google.com/rmkt/collect/961928319/?random=1786005104799&cv=11&fst=1786005104799&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6841v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938465~115938468~118897920~118897930~119527019~119896803&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2F&rcb=14&frm=0&tiba=%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1476435515.1786005104&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
         },
         {
           "type": "visual_diff",
@@ -171,7 +171,7 @@
         {
           "type": "cta_broken_link",
           "severity": "critical",
-          "message": "כפתורי CTA עם קישור שבור: \"קורס בניית ציפורניים לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%a6%d7%99%d7%a4%d7%95%d7%a8%d7%a0%d7%99%d7%99%d7%9d/) | \"קורס פדיקור מניקור לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%a0%d7%99%d7%a7%d7%95%d7%a8-%d7%a4%d7%93%d7%99%d7%a7%d7%95%d7%a8-%d7%a8%d7%a4%d7%95%d7%90%d7%99/) | \"קורס עיצוב שיער לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%a9%d7%99%d7%a2%d7%a8/) | \"קורס קוסמטיקה אינטרה דרמלית לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a7%d7%95%d7%a1%d7%9e%d7%98%d7%99%d7%a7%d7%94/) | \"קורס תספורת גברים- ברברינג לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%a9%d7%99%d7%a2%d7%a8-%d7%a7%d7%95%d7%a8%d7%a1-%d7%aa%d7%a1%d7%a4%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%91%d7%a8%d7%99%d7%9d/)"
+          "message": "כפתורי CTA עם קישור שבור: \"קורס תספורת גברים- ברברינג לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%a9%d7%99%d7%a2%d7%a8-%d7%a7%d7%95%d7%a8%d7%a1-%d7%aa%d7%a1%d7%a4%d7%95%d7%a8%d7%95%d7%aa-%d7%92%d7%91%d7%a8%d7%99%d7%9d/) | \"קורס עיצוב שיער לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%a9%d7%99%d7%a2%d7%a8/) | \"קורס קוסמטיקה אינטרה דרמלית לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a7%d7%95%d7%a1%d7%9e%d7%98%d7%99%d7%a7%d7%94/) | \"קורס פדיקור מניקור לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%a0%d7%99%d7%a7%d7%95%d7%a8-%d7%a4%d7%93%d7%99%d7%a7%d7%95%d7%a8-%d7%a8%d7%a4%d7%95%d7%90%d7%99/) | \"קורס בניית ציפורניים לחצו כאן\" → HTTP 403 (https://navacollage.co.il/%d7%a7%d7%95%d7%a8%d7%a1-%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%a6%d7%99%d7%a4%d7%95%d7%a8%d7%a0%d7%99%d7%99%d7%9d/)"
         }
       ]
     },
@@ -179,7 +179,7 @@
       "url": "https://navacollage.co.il/shop/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 6144,
+      "loadTime": 4434,
       "issues": [
         {
           "type": "js_error",
@@ -189,7 +189,12 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253z8838992305za20gzb838992305zd838992305&_p=1785918707788&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=890528980&_eu=AAAAAGAC&are=1&cid=1288986325.1785918708&ec_mode=a&frm=0&pscdl=noapi&rcb=9&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118395334~118897920~118897930~119337768~119791748~119896802&sid=1785918708&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fshop%2F&dt=%D7%9B%D7%9C%20%D7%94%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1221, https://www.google.com/rmkt/collect/961928319/?random=1785918708307&cv=11&fst=1785918708307&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6831v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~118897920~118897930~119896803&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2Fshop%2F&rcb=3&frm=0&tiba=%D7%9B%D7%9C%20%D7%94%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D%20-%20NK%20Collection%20Shop&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=565513208.1785918708&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
+          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253z8838992305za20gzb838992305zd838992305&_p=1786005113640&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1043089926&_eu=AAAAAGAC&are=1&cid=1241501440.1786005114&ec_mode=a&frm=0&pscdl=noapi&rcb=17&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616986~115938466~115938469~118897920~118897930~119527020~119896802&sid=1786005113&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fshop%2F&dt=%D7%9B%D7%9C%20%D7%94%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1335, https://www.google.com/rmkt/collect/961928319/?random=1786005114057&cv=11&fst=1786005114057&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6841v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938468~118395335~118897920~118897930~119317811~119527020~119896802&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2Fshop%2F&rcb=3&frm=0&tiba=%D7%9B%D7%9C%20%D7%94%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D%20-%20NK%20Collection%20Shop&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=554590430.1786005114&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&gap.plf=4.5.3&ept=68&gcp=5"
+        },
+        {
+          "type": "visual_diff",
+          "severity": "warning",
+          "message": "38.8% הבדל ויזואלי מהבייסליין"
         },
         {
           "type": "seo_description",
@@ -239,12 +244,12 @@
         {
           "type": "woo_page_broken",
           "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
+          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
         },
         {
           "type": "woo_page_broken",
           "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
+          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
         },
         {
           "type": "no_webp",
@@ -267,7 +272,7 @@
       "url": "https://navacollage.co.il/shop/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 4040,
+      "loadTime": 4766,
       "issues": [
         {
           "type": "js_error",
@@ -277,7 +282,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "3 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253za20gzb838992305zd838992305&_p=1785918750726&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=462126387&_eu=AAAAAGAC&are=1&cid=801681255.1785918751&ec_mode=a&frm=0&pscdl=noapi&rcb=9&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616986~115938465~115938468~118897920~118897930~119896802&sid=1785918751&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fshop%2F&dt=%D7%9B%D7%9C%20%D7%94%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=1835, https://www.google.com/ccm/form-data/961928319?gtm=45be6831v880671839za20gzb838992305zd838992305xec&gcs=G111&gcd=13t3t3t3t5l1&dma=0&tag_exp=115616985~115938465~115938468~118897920~118897930~119896802&rcb=8&npa=0&frm=0&pscdl=noapi&auid=1247831137.1785918751&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&ec_mode=a&gap.plf=4.5.3&em=tv.1&emd=tvd.1"
+          "message": "3 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253za20gzb838992305zd838992305&_p=1786005154818&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=398134455&_eu=AAAAAGAC&are=1&cid=1005023067.1786005155&ec_mode=a&frm=0&pscdl=noapi&rcb=12&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118897920~118897930~119337768~119527019~119896803&sid=1786005155&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fshop%2F&dt=%D7%9B%D7%9C%20%D7%94%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=2171, https://www.google.com/ccm/form-data/961928319?gtm=45be6841v880671839za20gzb838992305zd838992305xec&gcs=G111&gcd=13t3t3t3t5l1&dma=0&tag_exp=115938466~115938469~118897920~118897930~119527020~119896802~120125305&rcb=11&npa=0&frm=0&pscdl=noapi&auid=1431352001.1786005155&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&ec_mode=a&em=tv.1&emd=tvd.1"
         },
         {
           "type": "visual_diff",
@@ -287,12 +292,12 @@
         {
           "type": "mobile_touch_targets",
           "severity": "warning",
-          "message": "104 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
+          "message": "105 אלמנטים לחיצים קטנים מדי במובייל (מתחת ל-44×44px) — קשה ללחוץ"
         },
         {
           "type": "cwv_cls",
           "severity": "warning",
-          "message": "CLS גבוה: 2.091 — הדף קופץ הרבה בטעינה (מקסימום תקין: 0.1)"
+          "message": "CLS גבוה: 1.743 — הדף קופץ הרבה בטעינה (מקסימום תקין: 0.1)"
         },
         {
           "type": "cta_broken_link",
@@ -305,7 +310,7 @@
       "url": "https://navacollage.co.il/contact-nk/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 4336,
+      "loadTime": 4123,
       "issues": [
         {
           "type": "js_error",
@@ -315,7 +320,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253za20gzb838992305zd838992305&_p=1785918759915&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=813408559&_eu=AAAAAGAC&are=1&cid=1437912166.1785918760&ec_mode=a&frm=0&pscdl=noapi&rcb=2&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938468~118897920~118897930~119896803&sid=1785918760&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fcontact-nk%2F&dt=%D7%A6%D7%95%D7%A8%20%D7%A7%D7%A9%D7%A8%20%D7%97%D7%A0%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=1819"
+          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253za20gzb838992305zd838992305&_p=1786005163587&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=1929349192&_eu=AAAAAGAC&are=1&cid=2056207863.1786005164&ec_mode=a&frm=0&pscdl=noapi&rcb=16&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938465~115938468~118395333~118897920~118897930~119527020~119896803&sid=1786005163&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fcontact-nk%2F&dt=%D7%A6%D7%95%D7%A8%20%D7%A7%D7%A9%D7%A8%20%D7%97%D7%A0%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&gap.plf=4.5.3&ep.url_passthrough=true&tfd=1522"
         },
         {
           "type": "seo_description",
@@ -363,7 +368,7 @@
       "url": "https://navacollage.co.il/contact-nk/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 4037,
+      "loadTime": 4041,
       "issues": [
         {
           "type": "js_error",
@@ -373,7 +378,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253za20gzb838992305zd838992305&_p=1785918806989&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=1488688349&_eu=AAAAAGAC&are=1&cid=1011510297.1785918807&ec_mode=a&frm=0&pscdl=noapi&rcb=13&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938466~115938468~118897920~118897930~119896802&sid=1785918807&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fcontact-nk%2F&dt=%D7%A6%D7%95%D7%A8%20%D7%A7%D7%A9%D7%A8%20%D7%97%D7%A0%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&gap.plf=4.5.3&ep.url_passthrough=true&tfd=1570"
+          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253za20gzb838992305zd838992305&_p=1786005210883&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=699664497&_eu=AAAAAGAC&are=1&cid=2036397689.1786005211&ec_mode=a&frm=0&pscdl=noapi&rcb=10&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938469~118897920~118897930~119527020~119896802&sid=1786005211&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fcontact-nk%2F&dt=%D7%A6%D7%95%D7%A8%20%D7%A7%D7%A9%D7%A8%20%D7%97%D7%A0%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=1850"
         },
         {
           "type": "visual_diff",
@@ -401,7 +406,7 @@
       "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2769,
+      "loadTime": 2515,
       "issues": [
         {
           "type": "js_error",
@@ -411,7 +416,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253za20gzb838992305zd838992305&_p=1785918814709&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=1626130065&_eu=AAAAAGAC&are=1&cid=323122989.1785918815&ec_mode=a&frm=0&pscdl=noapi&rcb=11&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938468~118897920~118897930~119896802&sid=1785918815&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=1686"
+          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253za20gzb838992305zd838992305&_p=1786005217943&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=182378750&_eu=AAAAAGAC&are=1&cid=1435550369.1786005218&ec_mode=a&frm=0&pscdl=noapi&rcb=11&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938465~115938469~118897920~118897930~119527020~119896802&sid=1786005218&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&gap.plf=4.5.3&ep.url_passthrough=true&tfd=1265"
         },
         {
           "type": "visual_diff",
@@ -441,7 +446,7 @@
         {
           "type": "perf_requests",
           "severity": "warning",
-          "message": "185 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "191 בקשות HTTP בדף — מומלץ מתחת ל-80"
         },
         {
           "type": "perf_render_blocking",
@@ -456,17 +461,17 @@
         {
           "type": "woo_page_broken",
           "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
+          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
         },
         {
           "type": "woo_page_broken",
           "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
+          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
         },
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP איטי: 5.9s — צריך להיות מתחת ל-2.5s"
+          "message": "LCP איטי: 4.9s — צריך להיות מתחת ל-2.5s"
         },
         {
           "type": "cwv_cls",
@@ -484,7 +489,7 @@
       "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3275,
+      "loadTime": 2928,
       "issues": [
         {
           "type": "js_error",
@@ -494,7 +499,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253za20gzb838992305zd838992305&_p=1785918833102&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=89509783&_eu=AAAAAGAC&are=1&cid=2086357383.1785918834&ec_mode=a&frm=0&pscdl=noapi&rcb=7&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938469~118897920~118897930~119896803&sid=1785918833&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=2058"
+          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253z8838992305za20gzb838992305zd838992305&_p=1786005233545&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1219807433&_eu=AAAAAGAC&are=1&cid=1338653899.1786005234&ec_mode=a&frm=0&pscdl=noapi&rcb=5&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938468~118897920~118897930~119259605~119404700~119527020~119896802&sid=1786005233&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1049, https://www.google.com/rmkt/collect/961928319/?random=1786005234397&cv=11&fst=1786005234397&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6841v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938465~115938469~118897920~118897930~119259605~119527019~119896803&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%25A7%25D7%2595%25D7%25A8%25D7%25A1%25D7%2599%25D7%259D%2F&rcb=13&frm=0&tiba=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1406914977.1786005234&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
         },
         {
           "type": "visual_diff",
@@ -517,7 +522,7 @@
       "url": "https://navacollage.co.il/about-nk-story/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 4304,
+      "loadTime": 4129,
       "issues": [
         {
           "type": "js_error",
@@ -527,7 +532,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6840h2v892755253z8838992305za20gzb838992305zd838992305&_p=1785918842478&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1264395106&_eu=AAAAAGAC&are=1&cid=1576315210.1785918843&ec_mode=a&frm=0&pscdl=noapi&rcb=10&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938468~118395334~118897920~118897930~119527019~119793972~119896803&sid=1785918842&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fabout-nk-story%2F&dt=%D7%94%D7%A1%D7%98%D7%95%D7%A8%D7%99%20%D7%A9%D7%9C%20NK%20Collection&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1686, https://www.google.com/rmkt/collect/961928319/?random=1785918843307&cv=11&fst=1785918843307&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6840h2v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938465~115938468~118395334~118897920~118897930~119896802&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2Fabout-nk-story%2F&rcb=19&frm=0&tiba=%D7%94%D7%A1%D7%98%D7%95%D7%A8%D7%99%20%D7%A9%D7%9C%20NK%20Collection&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1673159157.1785918843&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
+          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841h1v892755253z8838992305za20gzb838992305zd838992305&_p=1786005243052&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=675280048&_eu=AAAAAGAC&are=1&cid=1509101314.1786005243&ec_mode=a&frm=0&pscdl=noapi&rcb=4&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938468~118897920~118897930~119527020~119896802&sid=1786005243&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fabout-nk-story%2F&dt=%D7%94%D7%A1%D7%98%D7%95%D7%A8%D7%99%20%D7%A9%D7%9C%20NK%20Collection&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1439, https://www.google.com/rmkt/collect/961928319/?random=1786005243555&cv=11&fst=1786005243555&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6841h1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938465~115938468~118131808~118395335~118897920~118897930~119404703~119527020~119896803&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2Fabout-nk-story%2F&rcb=15&frm=0&tiba=%D7%94%D7%A1%D7%98%D7%95%D7%A8%D7%99%20%D7%A9%D7%9C%20NK%20Collection&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1581468215.1786005243&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
         },
         {
           "type": "seo_title",
@@ -600,7 +605,7 @@
       "url": "https://navacollage.co.il/about-nk-story/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3542,
+      "loadTime": 3211,
       "issues": [
         {
           "type": "js_error",
@@ -610,7 +615,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253z8838992305za20gzb838992305zd838992305&_p=1785918851559&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=200089807&_eu=AAAAAGAC&are=1&cid=1398930970.1785918852&ec_mode=a&frm=0&pscdl=noapi&rcb=7&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118897920~118897930~119896802&sid=1785918852&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fabout-nk-story%2F&dt=%D7%94%D7%A1%D7%98%D7%95%D7%A8%D7%99%20%D7%A9%D7%9C%20NK%20Collection&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1239, https://www.google.com/rmkt/collect/961928319/?random=1785918852400&cv=11&fst=1785918852400&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6831v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938469~118897920~118897930~119896802&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2Fabout-nk-story%2F&rcb=19&frm=0&tiba=%D7%94%D7%A1%D7%98%D7%95%D7%A8%D7%99%20%D7%A9%D7%9C%20NK%20Collection&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1792594344.1785918852&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&gap.plf=4.5.3&ept=68&gcp=5"
+          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253za20gzb838992305zd838992305&_p=1786005252473&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=1829126374&_eu=AAAAAGAC&are=1&cid=852150228.1786005253&ec_mode=a&frm=0&pscdl=noapi&rcb=8&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938469~118897920~118897930~119527020~119793972~119896803&sid=1786005252&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fabout-nk-story%2F&dt=%D7%94%D7%A1%D7%98%D7%95%D7%A8%D7%99%20%D7%A9%D7%9C%20NK%20Collection&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=1070"
         },
         {
           "type": "visual_diff",
@@ -633,7 +638,7 @@
       "url": "https://navacollage.co.il/q-and-a/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3740,
+      "loadTime": 3638,
       "issues": [
         {
           "type": "js_error",
@@ -643,7 +648,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253z8838992305za20gzb838992305zd838992305&_p=1785918859554&em=tv.1~em.qvm7AMMWy_fs3ecDiAcOd1b8WlkuK7YPb4KxHKZtPb4&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=147395747&_eu=AAAAAGAC&are=1&cid=1064798906.1785918860&ec_mode=a&frm=0&pscdl=noapi&rcb=15&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616986~115938465~115938469~118897920~118897930~119259605~119896803&sid=1785918860&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fq-and-a%2F&dt=%D7%A9%D7%90%D7%9C%D7%95%D7%AA%20%D7%95%D7%AA%D7%A9%D7%95%D7%91%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1406, https://www.google.com/rmkt/collect/961928319/?random=1785918860342&cv=11&fst=1785918860342&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6831v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938465~115938469~118897920~118897930~119259605~119896803&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2Fq-and-a%2F&rcb=13&frm=0&tiba=%D7%A9%D7%90%D7%9C%D7%95%D7%AA%20%D7%95%D7%AA%D7%A9%D7%95%D7%91%D7%95%D7%AA%20-%20NK%20Collection%20Shop&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1067564869.1785918860&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
+          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253za20gzb838992305zd838992305&_p=1786005260091&em=tv.1~em.qvm7AMMWy_fs3ecDiAcOd1b8WlkuK7YPb4KxHKZtPb4&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=1583386534&_eu=AAAAAGAC&are=1&cid=298890788.1786005260&ec_mode=a&frm=0&pscdl=noapi&rcb=0&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938469~118897920~118897930~119527020~119896802&sid=1786005260&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fq-and-a%2F&dt=%D7%A9%D7%90%D7%9C%D7%95%D7%AA%20%D7%95%D7%AA%D7%A9%D7%95%D7%91%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=1288"
         },
         {
           "type": "seo_description",
@@ -668,12 +673,12 @@
         {
           "type": "perf_requests",
           "severity": "warning",
-          "message": "188 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "195 בקשות HTTP בדף — מומלץ מתחת ל-80"
         },
         {
           "type": "perf_weight",
           "severity": "warning",
-          "message": "משקל עמוד: 1654KB (מומלץ מתחת ל-1500KB)"
+          "message": "משקל עמוד: 1658KB (מומלץ מתחת ל-1500KB)"
         },
         {
           "type": "perf_render_blocking",
@@ -693,12 +698,12 @@
         {
           "type": "woo_page_broken",
           "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
+          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
         },
         {
           "type": "woo_page_broken",
           "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
+          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
         },
         {
           "type": "cta_no_link",
@@ -716,7 +721,7 @@
       "url": "https://navacollage.co.il/q-and-a/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3970,
+      "loadTime": 3883,
       "issues": [
         {
           "type": "js_error",
@@ -726,7 +731,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831h1v892755253z8838992305za20gzb838992305zd838992305&_p=1785918931116&em=tv.1~em.qvm7AMMWy_fs3ecDiAcOd1b8WlkuK7YPb4KxHKZtPb4&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=845957917&_eu=AAAAAGAC&are=1&cid=1773869529.1785918932&ec_mode=a&frm=0&pscdl=noapi&rcb=0&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616986~115938465~115938469~118395334~118897920~118897930~119896803&sid=1785918931&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fq-and-a%2F&dt=%D7%A9%D7%90%D7%9C%D7%95%D7%AA%20%D7%95%D7%AA%D7%A9%D7%95%D7%91%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1585, https://www.google.com/rmkt/collect/961928319/?random=1785918931914&cv=11&fst=1785918931914&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6831h1v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938465~115938468~118131810~118897920~118897930~119404702~119896802&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2Fq-and-a%2F&rcb=9&frm=0&tiba=%D7%A9%D7%90%D7%9C%D7%95%D7%AA%20%D7%95%D7%AA%D7%A9%D7%95%D7%91%D7%95%D7%AA%20-%20NK%20Collection%20Shop&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1818096933.1785918931&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
+          "message": "2 בקשות נכשלו: https://navacollage.co.il/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=10.8.1, https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253za20gzb838992305zd838992305&_p=1786005331440&em=tv.1~em.qvm7AMMWy_fs3ecDiAcOd1b8WlkuK7YPb4KxHKZtPb4&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=607985707&_eu=AAAAAGAC&are=1&cid=731972807.1786005332&ec_mode=a&frm=0&pscdl=noapi&rcb=18&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938468~118395335~118897920~118897930~119527019~119896803&sid=1786005331&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2Fq-and-a%2F&dt=%D7%A9%D7%90%D7%9C%D7%95%D7%AA%20%D7%95%D7%AA%D7%A9%D7%95%D7%91%D7%95%D7%AA%20-%20NK%20Collection%20Shop&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=1713"
         },
         {
           "type": "visual_diff",
@@ -741,7 +746,7 @@
         {
           "type": "cwv_cls",
           "severity": "warning",
-          "message": "CLS בינוני: 0.133 — (מקסימום תקין: 0.1)"
+          "message": "CLS בינוני: 0.128 — (מקסימום תקין: 0.1)"
         },
         {
           "type": "cta_broken_link",
@@ -754,7 +759,7 @@
       "url": "https://navacollage.co.il/liadso/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 4818,
+      "loadTime": 4724,
       "issues": [
         {
           "type": "missing_element",
@@ -799,7 +804,7 @@
         {
           "type": "perf_ttfb",
           "severity": "warning",
-          "message": "TTFB סביר: 1369ms (מטרה: מתחת ל-800ms)"
+          "message": "TTFB סביר: 1121ms (מטרה: מתחת ל-800ms)"
         },
         {
           "type": "perf_render_blocking",
@@ -832,7 +837,7 @@
       "url": "https://navacollage.co.il/liadso/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2061,
+      "loadTime": 1800,
       "issues": [
         {
           "type": "missing_element",
@@ -860,7 +865,7 @@
       "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3214,
+      "loadTime": 3191,
       "issues": [
         {
           "type": "js_error",
@@ -870,7 +875,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253z8838992305za20gzb838992305zd838992305&_p=1785919044542&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1793102113&_eu=AAAAAGAC&are=1&cid=1660550673.1785919045&ec_mode=a&frm=0&pscdl=noapi&rcb=15&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938465~115938469~118897920~118897930~119896803&sid=1785919045&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&gap.plf=4.5.3&tfd=1439, https://www.google.com/rmkt/collect/961928319/?random=1785919045651&cv=11&fst=1785919045651&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6831v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938465~115938468~118897920~118897930~119896802&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%25A7%25D7%2595%25D7%25A8%25D7%25A1%25D7%2599%25D7%259D-%25D7%259E%25D7%25A7%25D7%25A6%25D7%2595%25D7%25A2%25D7%2599%25D7%2599%25D7%259D-%25D7%2594%25D7%259E%25D7%259B%25D7%259C%25D7%259C%25D7%2594-%25D7%259C%25D7%259E%25D7%25A7%25D7%25A6%25D7%2595%25D7%25A2%25D7%2595%25D7%25AA-%25D7%2594%25D7%2599%25D7%2595%25D7%25A4%2F&rcb=18&frm=0&tiba=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1094766054.1785919045&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
+          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253z8838992305za20gzb838992305zd838992305&_p=1786005443624&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1544864666&_eu=AAAAAGAC&are=1&cid=272642975.1786005444&ec_mode=a&frm=0&pscdl=noapi&rcb=11&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118395334~118897920~118897930~119527020~119896803&sid=1786005444&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1665, https://www.google.com/rmkt/collect/961928319/?random=1786005444482&cv=11&fst=1786005444482&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6841v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~118897920~118897930~119527019~119896803&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%25A7%25D7%2595%25D7%25A8%25D7%25A1%25D7%2599%25D7%259D-%25D7%259E%25D7%25A7%25D7%25A6%25D7%2595%25D7%25A2%25D7%2599%25D7%2599%25D7%259D-%25D7%2594%25D7%259E%25D7%259B%25D7%259C%25D7%259C%25D7%2594-%25D7%259C%25D7%259E%25D7%25A7%25D7%25A6%25D7%2595%25D7%25A2%25D7%2595%25D7%25AA-%25D7%2594%25D7%2599%25D7%2595%25D7%25A4%2F&rcb=1&frm=0&tiba=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1101702935.1786005444&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
         },
         {
           "type": "seo_h1",
@@ -900,7 +905,7 @@
         {
           "type": "perf_requests",
           "severity": "warning",
-          "message": "184 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "185 בקשות HTTP בדף — מומלץ מתחת ל-80"
         },
         {
           "type": "perf_render_blocking",
@@ -925,7 +930,7 @@
         {
           "type": "no_webp",
           "severity": "warning",
-          "message": "8 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): logo-white-nk-s.png, logo-white-nk-s.png, %D7%A7%D7%95%D7%A8%D7%A1-%D7%A7%D7%95%D7%A1%D7%9E%D7%98%D7%99%D7%A7%D7%94-%D7%94%D7%99%D7%A8%D7%95-%D7%93%D7%A1%D7%A7%D7%98%D7%95%D7%A4-1024x424.jpg"
+          "message": "12 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): logo-black-nk-s.png, logo-white-nk-s.png, %D7%A7%D7%95%D7%A8%D7%A1-%D7%A7%D7%95%D7%A1%D7%9E%D7%98%D7%99%D7%A7%D7%94-%D7%94%D7%99%D7%A8%D7%95-%D7%93%D7%A1%D7%A7%D7%98%D7%95%D7%A4-1024x424.jpg"
         },
         {
           "type": "cta_broken_link",
@@ -938,7 +943,7 @@
       "url": "https://navacollage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2781,
+      "loadTime": 2998,
       "issues": [
         {
           "type": "js_error",
@@ -948,7 +953,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253za20gzb838992305zd838992305&_p=1785919062257&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=280713915&_eu=AAAAAGAC&are=1&cid=286110766.1785919063&ec_mode=a&frm=0&pscdl=noapi&rcb=5&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938469~118897920~118897930~119896803&sid=1785919062&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=1705"
+          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6850h2v892755253z8838992305za20gzb838992305zd838992305&_p=1786005459891&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1488569420&_eu=AAAAAGAC&are=1&cid=852211821.1786005460&ec_mode=a&frm=0&pscdl=noapi&rcb=8&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616986~115938466~115938468~118897920~118897930~119527019~119896802&sid=1786005460&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94-%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%A4%2F&dt=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%E2%9C%85&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1186, https://www.google.com/rmkt/collect/961928319/?random=1786005460849&cv=11&fst=1786005460849&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6850h2v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938469~118131808~118897920~118897930~119404700~119527020~119896802&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%25A7%25D7%2595%25D7%25A8%25D7%25A1%25D7%2599%25D7%259D-%25D7%259E%25D7%25A7%25D7%25A6%25D7%2595%25D7%25A2%25D7%2599%25D7%2599%25D7%259D-%25D7%2594%25D7%259E%25D7%259B%25D7%259C%25D7%259C%25D7%2594-%25D7%259C%25D7%259E%25D7%25A7%25D7%25A6%25D7%2595%25D7%25A2%25D7%2595%25D7%25AA-%25D7%2594%25D7%2599%25D7%2595%25D7%25A4%2F&rcb=16&frm=0&tiba=%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1953229096.1786005460&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&gap.plf=4.5.3&ept=68&gcp=5"
         },
         {
           "type": "visual_diff",
@@ -976,7 +981,7 @@
       "url": "https://navacollage.co.il/%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2724,
+      "loadTime": 2485,
       "issues": [
         {
           "type": "js_error",
@@ -986,7 +991,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253za20gzb838992305zd838992305&_p=1785919073249&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=617152098&_eu=AAAAAGAC&are=1&cid=1726633545.1785919074&ec_mode=a&frm=0&pscdl=noapi&rcb=17&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938469~118897920~118897930~119896803&sid=1785919073&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA%2F&dt=%D7%91%D7%95%D7%92%D7%A8%D7%99%D7%9D%20%D7%9E%D7%9E%D7%9C%D7%99%D7%A6%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94%20%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA%20%D7%94%D7%99%D7%95%D7%A4%D7%99&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=1448"
+          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253za20gzb838992305zd838992305&_p=1786005471116&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=932168583&_eu=AAAAAGAC&are=1&cid=1465845161.1786005471&ec_mode=a&frm=0&pscdl=noapi&rcb=14&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938465~115938469~118897920~118897930~119527019~119896803&sid=1786005471&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA%2F&dt=%D7%91%D7%95%D7%92%D7%A8%D7%99%D7%9D%20%D7%9E%D7%9E%D7%9C%D7%99%D7%A6%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94%20%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA%20%D7%94%D7%99%D7%95%D7%A4%D7%99&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&gap.plf=4.5.3&ep.url_passthrough=true&tfd=1343"
         },
         {
           "type": "a11y_btn",
@@ -1021,12 +1026,12 @@
         {
           "type": "woo_page_broken",
           "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
+          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
         },
         {
           "type": "woo_page_broken",
           "severity": "critical",
-          "message": "עמוד WooCommerce לא נגיש: Checkout (/checkout/) — HTTP 403"
+          "message": "עמוד WooCommerce לא נגיש: עגלה (/cart/) — HTTP 403"
         },
         {
           "type": "no_webp",
@@ -1044,7 +1049,7 @@
       "url": "https://navacollage.co.il/%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3317,
+      "loadTime": 2430,
       "issues": [
         {
           "type": "js_error",
@@ -1054,7 +1059,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253za20gzb838992305zd838992305&_p=1785919087095&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=1379429416&_eu=AAAAAGAC&are=1&cid=1473898736.1785919087&ec_mode=a&frm=0&pscdl=noapi&rcb=19&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938465~115938469~118897920~118897930~119896803&sid=1785919087&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA%2F&dt=%D7%91%D7%95%D7%92%D7%A8%D7%99%D7%9D%20%D7%9E%D7%9E%D7%9C%D7%99%D7%A6%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94%20%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA%20%D7%94%D7%99%D7%95%D7%A4%D7%99&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&gap.plf=4.5.3&ep.url_passthrough=true&tfd=2251"
+          "message": "1 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253za20gzb838992305zd838992305&_p=1786005483137&_gaz=1&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=1996746651&_eu=AAAAAGAC&are=1&cid=1643914320.1786005483&ec_mode=a&frm=0&pscdl=noapi&rcb=3&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118897920~118897930~119527020~119896802&sid=1786005483&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA%2F&dt=%D7%91%D7%95%D7%92%D7%A8%D7%99%D7%9D%20%D7%9E%D7%9E%D7%9C%D7%99%D7%A6%D7%99%D7%9D%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%27%20-%20%D7%94%D7%9E%D7%9B%D7%9C%D7%9C%D7%94%20%D7%9C%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%95%D7%AA%20%D7%94%D7%99%D7%95%D7%A4%D7%99&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.url_passthrough=true&tfd=1284"
         },
         {
           "type": "visual_diff",
@@ -1077,7 +1082,7 @@
       "url": "https://navacollage.co.il/%D7%90%D7%95%D7%93%D7%95%D7%AA/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2815,
+      "loadTime": 2735,
       "issues": [
         {
           "type": "js_error",
@@ -1087,7 +1092,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253z8838992305za20gzb838992305zd838992305&_p=1785919094655&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=913547852&_eu=AAAAAGAC&are=1&cid=2016673222.1785919095&ec_mode=a&frm=0&pscdl=noapi&rcb=16&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115616985~115938465~115938468~118897920~118897930~119896803&sid=1785919095&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%90%D7%95%D7%93%D7%95%D7%AA%2F&dt=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&gap.plf=4.5.3&tfd=1785, https://www.google.com/rmkt/collect/961928319/?random=1785919095584&cv=11&fst=1785919095584&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6831v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938465~115938468~118131808~118395333~118897920~118897930~119527020~119896803~120315470&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%2590%25D7%2595%25D7%2593%25D7%2595%25D7%25AA%2F&rcb=16&frm=0&tiba=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=590621316.1785919095&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
+          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253z8838992305za20gzb838992305zd838992305&_p=1786005490432&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=471175770&_eu=AAAAAGAC&are=1&cid=1927711184.1786005491&ec_mode=a&frm=0&pscdl=noapi&rcb=0&sr=1920x1080&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938469~118395335~118897920~118897930~119527019~119896803&sid=1786005491&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%90%D7%95%D7%93%D7%95%D7%AA%2F&dt=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1438, https://www.google.com/rmkt/collect/961928319/?random=1786005491143&cv=11&fst=1786005491143&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6841v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938468~118897920~118897930~119527019~119896802&u_w=1920&u_h=1080&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%2590%25D7%2595%25D7%2593%25D7%2595%25D7%25AA%2F&rcb=5&frm=0&tiba=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=2105698920.1786005491&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&gap.plf=4.5.3&ept=68&gcp=5"
         },
         {
           "type": "visual_diff",
@@ -1135,7 +1140,7 @@
       "url": "https://navacollage.co.il/%D7%90%D7%95%D7%93%D7%95%D7%AA/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2727,
+      "loadTime": 2356,
       "issues": [
         {
           "type": "js_error",
@@ -1145,7 +1150,7 @@
         {
           "type": "failed_requests",
           "severity": "warning",
-          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6831v892755253z8838992305za20gzb838992305zd838992305&_p=1785919110777&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1188417988&_eu=AAAAAGAC&are=1&cid=1912749105.1785919112&ec_mode=a&frm=0&pscdl=noapi&rcb=12&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118012007~118395335~118897920~118897930~119381664~119896803&sid=1785919111&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%90%D7%95%D7%93%D7%95%D7%AA%2F&dt=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1339, https://www.google.com/rmkt/collect/961928319/?random=1785919111641&cv=11&fst=1785919111641&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6831v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~118897920~118897930~119896802&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%2590%25D7%2595%25D7%2593%25D7%2595%25D7%25AA%2F&rcb=12&frm=0&tiba=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1834936941.1785919111&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
+          "message": "2 בקשות נכשלו: https://analytics.google.com/g/collect?v=2&tid=G-PSW18GPZZS&gtm=45je6841v892755253z8838992305za20gzb838992305zd838992305&_p=1786005505840&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1988499059&_eu=AAAAAGAC&are=1&cid=2104480530.1786005506&ec_mode=a&frm=0&pscdl=noapi&rcb=10&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938465~115938468~118897920~118897930~119381663~119527020~119896802&sid=1786005506&sct=1&seg=0&dl=https%3A%2F%2Fnavacollage.co.il%2F%D7%90%D7%95%D7%93%D7%95%D7%AA%2F&dt=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95%D7%A4%D7%99%20%E2%9C%A8&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=1159, https://www.google.com/rmkt/collect/961928319/?random=1786005506573&cv=11&fst=1786005506573&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6841v880671839z8838992305za20gzb838992305zd838992305xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938465~115938468~118395335~118897920~118897930~119527020~119896803&u_w=390&u_h=844&url=https%3A%2F%2Fnavacollage.co.il%2F%25D7%2590%25D7%2595%25D7%2593%25D7%2595%25D7%25AA%2F&rcb=15&frm=0&tiba=%D7%90%D7%95%D7%93%D7%95%D7%AA%20-%20%D7%A0%D7%90%D7%95%D7%94%20%D7%A7%D7%95%D7%9C%D7%90%D7%96%D7%B3%20%D7%94%D7%9B%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%95%D7%A8%D7%A6%D7%95%D7%AA%20%D7%93%D7%A8%D7%9A%20%D7%91%D7%AA%D7%97%D7%95%D7%9D%20%D7%94%D7%99%D7%95&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1254344641.1786005506&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.96%7CHeadlessChrome%3B148.0.7778.96%7CNot%252FA)Brand%3B99.0.0.0&uamb=0&uam=&uap=Windows&uapv=&uaw=0&_tu=CA&ept=68&gcp=5"
         },
         {
           "type": "visual_diff",
