@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-09-06T10:24:39.785Z",
+  "timestamp": "2026-09-07T11:42:58.697Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -38,7 +38,7 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2917,
+      "loadTime": 3483,
       "issues": [
         {
           "type": "a11y_btn",
@@ -98,7 +98,7 @@
         {
           "type": "no_webp",
           "severity": "warning",
-          "message": "9 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): price3.png, price3.png, %D7%AA%D7%9E%D7%95%D7%A0%D7%941.png"
+          "message": "10 תמונות JPG/PNG — לא ב-WebP (חיסכון של 25-35% בנפח): price3.png, price3.png, %D7%AA%D7%9E%D7%95%D7%A0%D7%941.png"
         },
         {
           "type": "font_blocking",
@@ -116,7 +116,7 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2691,
+      "loadTime": 3471,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -131,7 +131,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 2.9s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.7s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -139,7 +139,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3265,
+      "loadTime": 3682,
       "issues": [
         {
           "type": "a11y_btn",
@@ -164,7 +164,7 @@
         {
           "type": "perf_requests",
           "severity": "warning",
-          "message": "140 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "141 בקשות HTTP בדף — מומלץ מתחת ל-80"
         },
         {
           "type": "perf_render_blocking",
@@ -190,6 +190,11 @@
           "type": "font_blocking",
           "severity": "warning",
           "message": "2 Google Fonts נטענות ב-<head> וחוסמות רינדור — מומלץ לטעון מקומית או עם preload"
+        },
+        {
+          "type": "cwv_lcp",
+          "severity": "warning",
+          "message": "LCP סביר: 3.9s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -197,7 +202,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3315,
+      "loadTime": 3419,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -212,7 +217,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 3.5s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.6s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -220,7 +225,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2617,
+      "loadTime": 3106,
       "issues": [
         {
           "type": "a11y_btn",
@@ -278,7 +283,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2437,
+      "loadTime": 3014,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -293,7 +298,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 2.6s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.1s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     }
