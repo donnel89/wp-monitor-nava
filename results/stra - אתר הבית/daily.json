@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-09-20T10:45:25.115Z",
+  "timestamp": "2026-09-21T12:08:42.010Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -38,7 +38,7 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 3175,
+      "loadTime": 3572,
       "issues": [
         {
           "type": "a11y_btn",
@@ -116,7 +116,7 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2973,
+      "loadTime": 3250,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -131,7 +131,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 3.1s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.4s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -139,7 +139,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2898,
+      "loadTime": 3335,
       "issues": [
         {
           "type": "a11y_btn",
@@ -164,12 +164,17 @@
         {
           "type": "perf_requests",
           "severity": "warning",
-          "message": "110 בקשות HTTP בדף — מומלץ מתחת ל-80"
+          "message": "109 בקשות HTTP בדף — מומלץ מתחת ל-80"
         },
         {
           "type": "perf_render_blocking",
           "severity": "warning",
           "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: iframe_api, javascript;base64,CgkgICAgd2luZG93LmRhdGFMYXllclBZUyA9IHdpbmRvdy5kYXRhTGF5ZXJQWVMgfHwgW107Cgk=, javascript;base64,Y29uc29sZS5sb2coJ1BpeGVsWW91clNpdGUgUFJPIHZlcnNpb24gMTIuNi42Jyk7, jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1"
+        },
+        {
+          "type": "security_headers",
+          "severity": "warning",
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
         },
         {
           "type": "schema_missing",
@@ -189,7 +194,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 3.1s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.5s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -197,7 +202,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2938,
+      "loadTime": 3197,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -207,12 +212,12 @@
         {
           "type": "mobile_font_size",
           "severity": "warning",
-          "message": "גופן קטן מדי ב-34 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
+          "message": "גופן קטן מדי ב-36 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
         },
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 3.2s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.4s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -220,7 +225,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2733,
+      "loadTime": 3019,
       "issues": [
         {
           "type": "a11y_btn",
@@ -253,6 +258,11 @@
           "message": "4 משאבי Render-Blocking ב-<head> מאטים את ההצגה: jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1, banner-1-optin.css?v=47, css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
         },
         {
+          "type": "security_headers",
+          "severity": "warning",
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
+        },
+        {
           "type": "schema_missing",
           "severity": "warning",
           "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
@@ -273,7 +283,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2619,
+      "loadTime": 2798,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -288,7 +298,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 2.7s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 2.9s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     }
