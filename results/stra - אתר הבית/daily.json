@@ -1,6 +1,6 @@
 {
   "mode": "daily",
-  "timestamp": "2026-09-24T11:16:03.269Z",
+  "timestamp": "2026-09-25T11:17:13.856Z",
   "siteId": "stra - אתר הבית",
   "siteName": "stra - אתר הבית",
   "baseUrl": "https://stra.co.il",
@@ -38,7 +38,7 @@
       "url": "https://stra.co.il/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2741,
+      "loadTime": 3952,
       "issues": [
         {
           "type": "a11y_btn",
@@ -81,6 +81,11 @@
           "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: javascript;base64,CgkgICAgd2luZG93LmRhdGFMYXllclBZUyA9IHdpbmRvdy5kYXRhTGF5ZXJQWVMgfHwgW107Cgk=, javascript;base64,Y29uc29sZS5sb2coJ1BpeGVsWW91clNpdGUgUFJPIHZlcnNpb24gMTIuNi42Jyk7, jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1, javascript;base64,CmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ0RPTUNvbnRlbnRMb2FkZWQnLCBmdW5jdGlvbigpIHsKICAgIC8vIFNlbGVjdCBhbGwgZWxlbWVudHMgd2l0aCB0aGUgc3BlY2lmaWVkIGNsYXNzZXMKICAgIGNvbnN0IGxhenlMb2FkRWxlbWVudHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKGAKICAgICAgICAudGVhbSwgCiAgICAgICAgLmFib3V0X2RpZ2l0YWwsIAogICAgICAgIC52YWx1ZV90aXRsZSwgCiAgICAgICAgLnZhbHVlMSwgCiAgICAgICAgLnZhbHVlMiwgCiAgICAgICAgLnZhbHVlMywgCiAgICAgICAgLnZhbHVlNCwgCiAgICAgICAgLm9wdGlvbnMsIAoJCQkJLm5ld3NsZXR0ZXIsCiAgICAgICAgLmRpZ2l0YWwsIAogICAgICAgIC5ncm93dGgsIAogICAgICAgIC5jb250YWN0LCAKICAgICAgICAubG9nb3MsIAogICAgICAgIC50ZXN0aW1vbmlhbHMsIAogICAgICAgIC5jYXRlZ29yaWVzLCAKICAgICAgICAuZGlzYWR2YW50YWdlcwogICAgYCk7CgogICAgLy8gQ3JlYXRlIGFuIEludGVyc2VjdGlvbk9ic2VydmVyIGluc3RhbmNlCiAgICBjb25zdCBvYnNlcnZlciA9IG5ldyBJbnRlcnNlY3Rpb25PYnNlcnZlcigoZW50cmllcywgb2JzZXJ2ZXIpID0+IHsKICAgICAgICBlbnRyaWVzLmZvckVhY2goZW50cnkgPT4gewogICAgICAgICAgICBpZiAoZW50cnkuaXNJbnRlcnNlY3RpbmcpIHsKICAgICAgICAgICAgICAgIGVudHJ5LnRhcmdldC5jbGFzc0xpc3QuYWRkKCd2aXNpYmxlJyk7CiAgICAgICAgICAgICAgICBvYnNlcnZlci51bm9ic2VydmUoZW50cnkudGFyZ2V0KTsKICAgICAgICAgICAgfQogICAgICAgIH0pOwogICAgfSwgewogICAgICAgIHJvb3RNYXJnaW46ICcwcHggMHB4IC0xMCUgMHB4JywgLy8gQWRqdXN0IHRoZSByb290IG1hcmdpbiB0byBsb2FkIHRoZSBlbGVtZW50IGVhcmxpZXIgb3IgbGF0ZXIKICAgICAgICB0aHJlc2hvbGQ6IDAuMSAvLyBBZGp1c3QgdGhlIHRocmVzaG9sZCBhcyBuZWVkZWQKICAgIH0pOwoKICAgIC8vIE9ic2VydmUgZWFjaCBlbGVtZW50IHdpdGggdGhlIHNwZWNpZmllZCBjbGFzc2VzCiAgICBsYXp5TG9hZEVsZW1lbnRzLmZvckVhY2goZWxlbWVudCA9PiB7CiAgICAgICAgb2JzZXJ2ZXIub2JzZXJ2ZShlbGVtZW50KTsKICAgIH0pOwp9KTsKCg=="
         },
         {
+          "type": "security_headers",
+          "severity": "warning",
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
+        },
+        {
           "type": "schema_missing",
           "severity": "warning",
           "message": "אין Schema / Structured Data (JSON-LD) — מסייע לגוגל להבין את התוכן ומגביר Rich Results"
@@ -111,7 +116,7 @@
       "url": "https://stra.co.il/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2602,
+      "loadTime": 3595,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -121,12 +126,12 @@
         {
           "type": "mobile_font_size",
           "severity": "warning",
-          "message": "גופן קטן מדי ב-34 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
+          "message": "גופן קטן מדי ב-36 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
         },
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 2.8s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.8s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -134,7 +139,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 8483,
+      "loadTime": 3830,
       "issues": [
         {
           "type": "a11y_btn",
@@ -157,16 +162,6 @@
           "message": "טופס ללא כפתור שליחה גלוי"
         },
         {
-          "type": "perf_ttfb",
-          "severity": "warning",
-          "message": "TTFB איטי: 5488ms — תגובת השרת איטית (מקסימום מומלץ: 800ms)"
-        },
-        {
-          "type": "perf_fcp",
-          "severity": "warning",
-          "message": "FCP איטי: 6.3s — הגולש רואה תוכן ראשון רק אחרי 6.3s (מטרה: <1.8s)"
-        },
-        {
           "type": "perf_requests",
           "severity": "warning",
           "message": "108 בקשות HTTP בדף — מומלץ מתחת ל-80"
@@ -175,6 +170,11 @@
           "type": "perf_render_blocking",
           "severity": "warning",
           "message": "5 משאבי Render-Blocking ב-<head> מאטים את ההצגה: iframe_api, javascript;base64,CgkgICAgd2luZG93LmRhdGFMYXllclBZUyA9IHdpbmRvdy5kYXRhTGF5ZXJQWVMgfHwgW107Cgk=, javascript;base64,Y29uc29sZS5sb2coJ1BpeGVsWW91clNpdGUgUFJPIHZlcnNpb24gMTIuNi42Jyk7, jquery.min.js?ver=3.7.1, jquery-migrate.min.js?ver=3.4.1"
+        },
+        {
+          "type": "security_headers",
+          "severity": "warning",
+          "message": "חסרים Security Headers: HSTS (מונע מעבר ל-HTTP), X-Frame-Options (מונע Clickjacking), X-Content-Type-Options (מונע MIME sniffing), Referrer-Policy (שולט במידע Referrer)"
         },
         {
           "type": "schema_missing",
@@ -190,11 +190,6 @@
           "type": "font_blocking",
           "severity": "warning",
           "message": "1 Google Fonts נטענות ב-<head> וחוסמות רינדור — מומלץ לטעון מקומית או עם preload"
-        },
-        {
-          "type": "cwv_lcp",
-          "severity": "warning",
-          "message": "LCP איטי: 6.3s — צריך להיות מתחת ל-2.5s"
         }
       ]
     },
@@ -202,7 +197,7 @@
       "url": "https://stra.co.il/blog/organic-promotion-on-google/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 3161,
+      "loadTime": 3681,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -217,7 +212,7 @@
         {
           "type": "cwv_lcp",
           "severity": "warning",
-          "message": "LCP סביר: 3.4s — גוגל מעדיף מתחת ל-2.5s"
+          "message": "LCP סביר: 3.9s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     },
@@ -225,7 +220,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "desktop",
       "status": 200,
-      "loadTime": 2604,
+      "loadTime": 3388,
       "issues": [
         {
           "type": "a11y_btn",
@@ -283,7 +278,7 @@
       "url": "https://stra.co.il/contact/",
       "viewport": "mobile",
       "status": 200,
-      "loadTime": 2286,
+      "loadTime": 3062,
       "issues": [
         {
           "type": "mobile_touch_targets",
@@ -294,6 +289,11 @@
           "type": "mobile_font_size",
           "severity": "warning",
           "message": "גופן קטן מדי ב-33 אלמנטים (פחות מ-14px) — קשה לקריאה במובייל"
+        },
+        {
+          "type": "cwv_lcp",
+          "severity": "warning",
+          "message": "LCP סביר: 3.2s — גוגל מעדיף מתחת ל-2.5s"
         }
       ]
     }
